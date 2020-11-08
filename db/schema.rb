@@ -10,10 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_08_141917) do
+ActiveRecord::Schema.define(version: 2020_11_08_162107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "banques", force: :cascade do |t|
+    t.string "banque_name"
+    t.integer "solde"
+    t.integer "decouvert_autorise"
+    t.integer "restant_a_tirer"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_banques_on_user_id"
+  end
+
+  create_table "factures", force: :cascade do |t|
+    t.string "libelle"
+    t.integer "facture_montant"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_factures_on_user_id"
+  end
+
+  create_table "passifs", force: :cascade do |t|
+    t.integer "salaires"
+    t.integer "charges"
+    t.integer "loyers"
+    t.integer "echeances"
+    t.integer "dette_fiscale"
+    t.integer "dette_fournisseur"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_passifs_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

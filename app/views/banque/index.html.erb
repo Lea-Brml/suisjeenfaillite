@@ -1,0 +1,106 @@
+<%= @user %>
+
+<br><br><br>
+
+<%= @passif %>
+
+<br><br><br>
+
+
+<% @banque.each do |t|%>
+nom banque<%=t.banque_name%><br>
+solde : <%=t.solde%><br>
+decouvert autorisé : <%=t.decouvert_autorise%><br>
+restant à tirer : <%=t.restant_a_tirer%><br><br>
+<%end%>
+
+
+SOMME SOLDE POSITIf =
+<% @total_solde_positif = 0%>
+<% @banque.each do |t| %>
+<%if t.solde.to_i > 0 %>
+<% @total_solde_positif = @total_solde_positif + t.solde.to_i %>
+<%end%>
+<%end%>
+
+<%=@total_solde_positif%>
+
+
+<br><br><br>
+
+<STRONG>decouvert restant à tirer :</strong>
+  <%@restant_a_tirer = current_user.banques.sum("restant_a_tirer")%>
+<%= current_user.banques.sum("restant_a_tirer")%>
+
+<br><br><br>
+
+
+<% current_user.factures.each do |t|%>
+  <%= t.libelle%><br>
+  <%=t.facture_montant%>
+
+<%end%>
+<br><bR>
+<strong>Somme factures </strong><% @total_facture =  current_user.factures.sum("facture_montant")%>
+<%= @total_facture %>
+<br><br>
+
+<strong>TOTAL PASSIF </strong>: <% @sous_total_passif = @passif.salaires + @passif.charges + @passif.loyers + @passif.echeances + @passif.dette_fiscale + @passif.dette_fournisseur  %>
+<%= @sous_total_passif %> <bR>
+Salaires : <%= @passif.salaires %><br>
+Charges : <%= @passif.charges %><br>
+Loyers <%= @passif.loyers %><br>
+Echeances <%= @passif.echeances %><br>
+Dettes fiscale<%= @passif.dette_fiscale %><br>
+Dette fournisseur <%= @passif.dette_fournisseur %><br>
+
+<br><br>
+
+
+<strong>Compte banquaire debiteur non autorisé</strong><bR>
+= somme solde negatif - (decouvert autorisé + restant à tirer )
+<br><bR>
+
+SOMME SOLDE NEGATIF =
+<% @total_solde_negatif = 0%>
+<% @banque.each do |t| %>
+<%if t.solde.to_i < 0 %>
+<% @total_solde_negatif = @total_solde_negatif + t.solde.to_i %>
+<%end%>
+<%end%>
+
+<%=@total_solde_negatif%>
+<br><br>
+
+DECOUVERT AUTORISé =
+<%@decouvert_autorise = @banque.sum("decouvert_autorise")%>
+ <%=@banque.sum("decouvert_autorise")%>
+
+<br><br>
+RESTANT A TIRER = <%= @restant_a_tirer%>
+
+<br><br><bR>
+<STRONG>COMPTE BANQUAIRE DEBITEUR NON AUTORISE </strong>
+
+  <%@compte_debiteur_non_autorise = @total_solde_negatif + @decouvert_autorise - @restant_a_tirer %>
+  <%= @total_solde_negatif + @decouvert_autorise - @restant_a_tirer %>
+
+
+<br><br><br><br>
+
+
+<Strong> SIMULATEUR </strong>
+
+<% @total_actif = @restant_a_tirer + @total_facture + @total_solde_positif %>
+Total actif : <%=  @restant_a_tirer + @total_facture + @total_solde_positif %><br>
+
+<% @total_passif =  @compte_debiteur_non_autorise - @sous_total_passif  %>
+Total passif : <%= @compte_debiteur_non_autorise - @sous_total_passif  %>
+
+<br><br>
+
+<% if @total_actif > @total_passif.abs %>
+  "zen, pas de cessation de paiement"
+  <%else%>
+  "cessation de paiement"
+<%end%>

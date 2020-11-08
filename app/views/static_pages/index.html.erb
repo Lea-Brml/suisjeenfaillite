@@ -12,13 +12,22 @@
       Voici ton email : <%= current_user.email %>
     </li>
 
-    <li>
-      <%= link_to "Secret page", static_pages_secret_path %>
-    </li>
 
     <li>
       <%= link_to "Edit email / password", edit_user_registration_path %>
     </li>
+
+
+    <br><br><br>
+    creer passif : <%= link_to 'creer passif', new_passif_path%>
+    <br><br><br>
+    creer factures : <%= link_to 'creer passif', new_facture_path%>
+    <br><br><br>
+    creer banques : <%= link_to 'creer passif', new_banque_path%>
+
+    <br><br><br>
+    SIMULATION : <%= link_to 'creer passif', user_banque_index_path(current_user)%>
+
 
   <% else %>
     <li>
