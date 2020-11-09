@@ -11,6 +11,33 @@
         <%= image_tag "Statistics-pana.png" , style:"width:100%;"%>
 
 
+        <div class="container" style=" overflow-y: scroll; height:4em;; width: auto;     scrollbar-face-color: #006400; margin-top:-2em;">
+
+
+            <table style="width:100%;">
+                <thead>
+                    <tr>
+                        <th colspan="2">  <span style="color:#ef6737; font-weight:bold;" >Derniers ajouts :</span> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% @factures.each do |t| %>
+
+                    <tr>
+                        <td ><%=  t.libelle %></td>
+                        <td class="text-left"><%=  t.facture_montant %> €</td>
+                    </tr>
+
+
+                  <%end%>
+                </tbody>
+            </table>
+
+            <span style="color:#ef6737; font-weight:bold; mr-4" >Total des factures :</span> <%= @factures.sum("facture_montant")%> € 
+
+        </div>
+
+
       </div>
 
       <div class="col-6 ">
@@ -47,8 +74,8 @@
                 <%end%>
               </div>
 
-              <div class="col-lg-12 mt-4 pt-4">
-                <p style="font-size:14px;">Veuillez ajouter <strong>la somme totale de vos factures clients à venir</strong>, ou bien, veuillez ajouter vos <strong>différentes factures clientes à venir l'une après l'autre</strong>. Une fois terminé, veuillez passer à l'étape suivante. </p>
+              <div class="col-lg-12 mt-4 pt-2">
+                <p style="font-size:12px;">Veuillez ajouter <strong>la somme totale de vos factures clients à venir</strong>, ou bien, veuillez ajouter vos <strong>différentes factures clientes à venir l'une après l'autre</strong>. Une fois terminé, veuillez passer à l'étape suivante. </p>
               </div>
 
               <div class="col-lg-12 mt-4 pt-4">

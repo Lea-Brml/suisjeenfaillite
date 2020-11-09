@@ -6,11 +6,13 @@ class FactureController < ApplicationController
 
   end
 
-  
+
 
   def new
 
     @user = current_user
+
+    @factures = Facture.where(user_id:@user.id).order(created_at: :desc)
 
 
   end

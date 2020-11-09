@@ -38,6 +38,17 @@
   width:100%;
 }
 
+
+.trait-orange::after {
+    content: "";
+    width: 120px;
+    height: 1px;
+    display: inline-block;
+    background: #fd9042;
+    margin: 0px 10px;
+  }
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;

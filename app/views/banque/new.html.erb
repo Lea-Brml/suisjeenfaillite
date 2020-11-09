@@ -1,7 +1,7 @@
 
-<div class="registration-form pt-4">
+<div class="registration-form pt-4 ">
 
-  <div class="container sign-up-form ">
+  <div class="container sign-up-form mt-4">
 
     <div class="py-4 my-4 row">
 
@@ -9,6 +9,33 @@
 
 
         <%= image_tag "Statistics-pana.png" , style:"width:100%;"%>
+
+
+
+
+        <div class="container" style=" overflow-y: scroll; height:4em;; width: auto;     scrollbar-face-color: #006400; margin-top:-2em;">
+            
+            <table style="width:100%;">
+                <thead>
+                    <tr>
+                        <th colspan="2">  <span style="color:#ef6737; font-weight:bold;" >Derniers ajouts :</span> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% @banques.each do |t| %>
+
+                    <tr>
+                        <td ><%=  t.banque_name %></td>
+                        <td class="text-left"><%=  t.solde %> €</td>
+                        <td class="text-left"><%=  t.decouvert_autorise %> €</td>
+                    </tr>
+
+
+                  <%end%>
+                </tbody>
+            </table>
+
+        </div>
 
 
       </div>
@@ -65,7 +92,6 @@
                 <div class="col-lg-12 mt-4 pt-4 text-right">
                   <span style="font-size:12px;">Etape 3/3</span>
                 </div>
-
 
               </div>
 

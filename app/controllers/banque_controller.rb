@@ -17,6 +17,8 @@ class BanqueController < ApplicationController
       @user = current_user
 
 
+      @banques = Banque.where(user_id:@user.id).order(created_at: :desc)
+
     end
 
 
