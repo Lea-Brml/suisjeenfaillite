@@ -37,9 +37,11 @@ class BanqueController < ApplicationController
 
       @banque = Banque.new(banque_name: params[:banque_name], solde: params[:solde], decouvert_autorise: params[:decouvert_autorise], restant_a_tirer: @restant_a_tirer, user_id:current_user.id)
           if @banque.save
-            redirect_to user_banque_index_path(current_user)
+            redirect_to new_banque_path
+            flash[:success] = "La compte a bien été ajouté !"
           else
             render action: :new
+            flash[:success] = "Une erreur est survenue, veuillez renseigner des informations valides."
           end
 
     end
