@@ -1,36 +1,61 @@
 
-          <div class="container php-email-form">
-            <div class="row pl-4 pr-4">
+<div class="registration-form pt-4">
+
+  <div class="container sign-up-form ">
+
+    <div class="py-4 my-4 row">
+
+      <div class="col-6">
 
 
-              <% flash.each do |type, msg| %>
-                <div class="alert alert-info margin-top:100px; " style="z-index:1">
-                  <%= msg %>
-                </div>
-              <% end %>
+        <%= image_tag "Statistics-pana.png" , style:"width:100%;"%>
 
-              <%= form_tag url_for(facture_index_path(@user.id)), :facture => @facture, method: 'post' do %>
-                <div class="row pl-4 pr-4">
 
-                  <div class="col-lg-12">
-                    <div class="form-group contact-block1">
-                      <%= text_field_tag 'libelle', nil, placeholder: 'libelle', class:"form-control" %>
-                    </div>
-                  </div>
+      </div>
 
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <%= text_area_tag 'facture_montant', nil, placeholder: 'facture_montant', class:"form-control" %>
-                    </div>
-                  </div>
+      <div class="col-6 ">
 
-                
+          <h2 class="col-12 text-center mb-4 pb-4">Factures</h2>
 
-                  <div class="col-lg-12">
-                    <%= submit_tag "    Envoyer    ", class: "btn btn-outline-primary", style:"border-radius:20px;" %>
-                    <%end%>
-                  </div>
 
+            <% flash.each do |type, msg| %>
+              <div class="alert alert-info margin-top:100px; " style="z-index:1">
+                <%= msg %>
+              </div>
+            <% end %>
+
+
+          <%= form_tag url_for(facture_index_path(@user.id)), :facture => @facture, method: 'post' do %>
+
+            <div class='row'>
+
+              <div class="col-lg-12">
+                <div class="form-group contact-block1">
+                  <%= text_field_tag 'libelle', nil, placeholder: 'libelle', class:"form-control" %>
                 </div>
               </div>
-            </div>
+
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <%= text_field_tag 'facture_montant', nil, placeholder: 'facture_montant', class:"form-control" %>
+                </div>
+              </div>
+
+
+
+              <div class="col-lg-12 mt-4">
+                <%= submit_tag "    Envoyer    ", class: "btn btn-form", style:"border-radius:20px;" %>
+                <%end%>
+              </div>
+
+
+        </div>
+
+
+        </div>
+
+        </div>
+
+      </div>
+
+    </div>

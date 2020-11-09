@@ -37,7 +37,7 @@ class BanqueController < ApplicationController
 
       @banque = Banque.new(banque_name: params[:banque_name], solde: params[:solde], decouvert_autorise: params[:decouvert_autorise], restant_a_tirer: @restant_a_tirer, user_id:current_user.id)
           if @banque.save
-            redirect_to root_path
+            redirect_to user_banque_index_path(current_user)
           else
             render action: :new
           end

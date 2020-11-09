@@ -1,49 +1,65 @@
 
-          <div class="container php-email-form">
-            <div class="row pl-4 pr-4">
+<div class="registration-form pt-4">
+
+  <div class="container sign-up-form ">
+
+    <div class="py-4 my-4 row">
+
+      <div class="col-6">
 
 
-              <% flash.each do |type, msg| %>
-                <div class="alert alert-info margin-top:100px; " style="z-index:1">
-                  <%= msg %>
-                </div>
-              <% end %>
-
-              <%= form_tag url_for(banque_index_path(@user.id)), :banque => @banque, method: 'post' do %>
-                <div class="row pl-4 pr-4">
-
-                  <div class="col-lg-12">
-                    <div class="form-group contact-block1">
-                      <%= text_field_tag 'banque_name', nil, placeholder: 'banque_name', class:"form-control" %>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <%= text_field_tag 'solde', nil, placeholder: 'solde', class:"form-control" %>
-                    </div>
-                  </div>
+        <%= image_tag "Statistics-pana.png" , style:"width:100%;"%>
 
 
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <%= text_field_tag 'decouvert_autorise', nil, placeholder: 'decouvert_autorise', class:"form-control" %>
-                    </div>
-                  </div>
+      </div>
+
+      <div class="col-6 ">
+
+          <h2 class="col-12 text-center mb-4 pb-4">Banques</h2>
 
 
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <%= text_field_tag 'restant_a_tirer', nil, placeholder: 'restant_a_tirer', class:"form-control" %>
-                    </div>
-                  </div>
-
-
-                  <div class="col-lg-12">
-                    <%= submit_tag "    Envoyer    ", class: "btn btn-outline-primary", style:"border-radius:20px;" %>
-                    <%end%>
-                  </div>
-
-                </div>
+            <% flash.each do |type, msg| %>
+              <div class="alert alert-info margin-top:100px; " style="z-index:1">
+                <%= msg %>
               </div>
-            </div>
+            <% end %>
+
+
+            <%= form_tag url_for(banque_index_path(@user.id)), :banque => @banque, method: 'post' do %>
+              <div class="row pl-4 pr-4">
+
+                <div class="col-lg-12">
+                  <div class="form-group contact-block1">
+                    <%= text_field_tag 'banque_name', nil, placeholder: 'banque_name', class:"form-control" %>
+                  </div>
+                </div>
+
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <%= text_field_tag 'solde', nil, placeholder: 'solde', class:"form-control" %>
+                  </div>
+                </div>
+
+
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <%= text_field_tag 'decouvert_autorise', nil, placeholder: 'decouvert_autorise', class:"form-control" %>
+                  </div>
+                </div>
+
+
+                <div class="col-lg-12">
+                  <%= submit_tag "    Envoyer    ", class: "btn btn-outline-primary", style:"border-radius:20px;" %>
+                  <%end%>
+                </div>
+
+              </div>
+
+
+        </div>
+
+        </div>
+
+      </div>
+
+    </div>

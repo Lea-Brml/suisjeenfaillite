@@ -15,7 +15,7 @@ class FactureController < ApplicationController
 
     @facture = Facture.new(libelle: params[:libelle], facture_montant: params[:facture_montant], user_id:current_user.id)
         if @facture.save
-          redirect_to root_path
+          redirect_to new_banque_path
         else
           render action: :new
         end

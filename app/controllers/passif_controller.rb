@@ -15,7 +15,7 @@ before_action :authenticate_user!
 
     @passif = Passif.new(salaires: params[:salaires],charges: params[:charges], loyers: params[:loyers], echeances: params[:echeances], dette_fiscale: params[:dette_fiscale], dette_fournisseur: params[:dette_fournisseur], user_id:current_user.id)
         if @passif.save
-          redirect_to root_path
+          redirect_to new_facture_path
         else
           render action: :new
         end
