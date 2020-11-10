@@ -7,34 +7,77 @@
 
       <div class="col-6">
 
+        <% if @factures.empty? %>
 
         <%= image_tag "Statistics-pana.png" , style:"width:100%;"%>
 
+        <%else%>
 
-        <div class="container" style=" overflow-y: scroll; height:4em;; width: auto;     scrollbar-face-color: #006400; margin-top:-2em;">
+
+        <div class="container mb-2" style="margin-top:5em; ">
+
+        <% flash.each do |type, msg| %>
+          <div class="alert alert-info margin-top:100px; " style="z-index:1">
+            <%= msg %>
+          </div>
+        <% end %>
+
+
+        <span style="color:#ef6737; font-weight:bold;" >Derniers ajouts </span>
+
+        </div>
+
+
+        <div class="container" style=" overflow-y: scroll; height:10em; width: auto;     scrollbar-face-color: #006400; ">
 
 
             <table style="width:100%;">
                 <thead>
                     <tr>
-                        <th colspan="2">  <span style="color:#ef6737; font-weight:bold;" >Derniers ajouts :</span> </th>
+                      <th>Libellé</th>
+                      <th class="text-right">Montant de la facture</th>
                     </tr>
                 </thead>
                 <tbody>
                   <% @factures.each do |t| %>
 
                     <tr>
-                        <td ><%=  t.libelle %></td>
-                        <td class="text-left"><%=  t.facture_montant %> €</td>
+                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> <%=  t.libelle %></td>
+                        <td class="text-right"><%=  t.facture_montant %> €</td>
                     </tr>
+
 
                   <%end%>
                 </tbody>
             </table>
 
-            <span style="color:#ef6737; font-weight:bold; mr-4" >Total des factures :</span> <%= @factures.sum("facture_montant")%> €
-
         </div>
+        <hr>
+        <div class="container space-between pt-2" style="wdth:100%;">
+
+          <table style="width:100%;">
+              <thead>
+                  <tr>
+                    <th style="color:white;">libellé</th>
+                    <th style="color:white;">Montant de la facture</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                  <tr>
+                      <td ><span style="font-weight:bold; color:#ef6737"><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Total</span></td>
+                      <td class="text-right"><%= @factures.sum("facture_montant") %> €</td>
+                  </tr>
+
+              </tbody>
+          </table>
+
+
+
+        </DIV>
+
+        <%end%>
+
 
 
       </div>

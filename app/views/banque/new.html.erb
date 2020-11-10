@@ -3,31 +3,51 @@
 
   <div class="container sign-up-form mt-4">
 
-    <div class="py-4 my-4 row">
+    <div class="py-4 my-4 row" style="  display: flex;
+      ">
 
       <div class="col-6">
 
 
+        <% if @banques.empty? %>
+
         <%= image_tag "Statistics-pana.png" , style:"width:100%;"%>
 
+        <%else%>
 
 
+        <div class="container mb-2" style="margin-top:5em; ">
 
-        <div class="container" style=" overflow-y: scroll; height:4em;; width: auto;     scrollbar-face-color: #006400; margin-top:-2em;">
+        <% flash.each do |type, msg| %>
+          <div class="alert alert-info margin-top:100px; " style="z-index:1">
+            <%= msg %>
+          </div>
+        <% end %>
+
+
+        <span style="color:#ef6737; font-weight:bold;" >Derniers ajouts </span>
+
+        </div>
+
+
+        <div class="container" style=" overflow-y: scroll; height:10em; width: auto;     scrollbar-face-color: #006400; ">
+
 
             <table style="width:100%;">
                 <thead>
                     <tr>
-                        <th colspan="2">  <span style="color:#ef6737; font-weight:bold;" >Derniers ajouts :</span> </th>
+                      <th>Nom du compte</th>
+                      <th>Découvert autorisé</th>
+                      <th>Solde</th>
                     </tr>
                 </thead>
                 <tbody>
                   <% @banques.each do |t| %>
 
                     <tr>
-                        <td ><%=  t.banque_name %></td>
-                        <td class="text-left"><%=  t.solde %> €</td>
+                        <td ><i class="fas fa-piggy-bank pr-2" style="color:#F39C6E; "></i> <%=  t.banque_name %></td>
                         <td class="text-left"><%=  t.decouvert_autorise %> €</td>
+                        <td class="text-left"><%=  t.solde %> €</td>
                     </tr>
 
 
@@ -36,6 +56,33 @@
             </table>
 
         </div>
+        <hr>
+        <div class="container space-between pt-2" style="wdth:100%;">
+
+          <table style="width:100%;">
+              <thead>
+                  <tr>
+                    <th style="color:white;">Nom du compte</th>
+                    <th style="color:white;">Découvert autorisé</th>
+                    <th style="color:white;">Solde</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                  <tr>
+                      <td ><span style="font-weight:bold; "><i class="fas fa-piggy-bank pr-2" style="color:#F39C6E; "></i>  Total</span></td>
+                      <td class="text-left"><%= @banques.sum("decouvert_autorise") %> €</td>
+                      <td class="text-left"><%= @banques.sum("solde") %> €</td>
+                  </tr>
+
+              </tbody>
+          </table>
+
+
+
+        </DIV>
+
+        <%end%>
 
 
       </div>
@@ -43,13 +90,6 @@
       <div class="col-6 ">
 
           <h2 class="col-12 text-center mb-4 pb-4">Banques</h2>
-
-
-            <% flash.each do |type, msg| %>
-              <div class="alert alert-info margin-top:100px; " style="z-index:1">
-                <%= msg %>
-              </div>
-            <% end %>
 
 
             <%= form_tag url_for(banque_index_path(@user.id)), :banque => @banque, method: 'post' do %>

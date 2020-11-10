@@ -10,13 +10,14 @@
 --------------------------------------------------------------*/
 
 .registration-form {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   background: linear-gradient(to bottom right, #EF6737, white);
 }
 
 .sign-up-form {
+
   width:70%;
   background-color: white;
   border-radius: 20px;
