@@ -45,14 +45,14 @@ SOMME SOLDE POSITIf =
 <%= @total_facture %>
 <br><br>
 
-<strong>TOTAL PASSIF </strong>: <% @sous_total_passif = @passif.salaires.abs + @passif.charges.abs + @passif.loyers.abs + @passif.echeances.abs + @passif.dette_fiscale.abs + @passif.dette_fournisseur.abs  %>
+<strong>TOTAL PASSIF </strong>: <% @sous_total_passif = @passif.salaires.to_i.abs + @passif.charges.to_i.abs + @passif.loyers.to_i.abs + @passif.echeances.to_i.abs + @passif.dette_fiscale.to_i.abs + @passif.dette_fournisseur.to_i.abs  %>
 <%= @sous_total_passif %> <bR>
-Salaires : <%= @passif.salaires %><br>
-Charges : <%= @passif.charges %><br>
-Loyers <%= @passif.loyers %><br>
-Echeances <%= @passif.echeances %><br>
-Dettes fiscale<%= @passif.dette_fiscale %><br>
-Dette fournisseur <%= @passif.dette_fournisseur %><br>
+Salaires : <%= @passif.salaires.to_i.abs %><br>
+Charges : <%= @passif.charges.to_i.abs %><br>
+Loyers <%= @passif.loyers.to_i.abs %><br>
+Echeances <%= @passif.echeances.to_i.abs %><br>
+Dettes fiscale<%= @passif.dette_fiscale.to_i.abs %><br>
+Dette fournisseur <%= @passif.dette_fournisseur.to_i.abs %><br>
 
 <br><br>
 
