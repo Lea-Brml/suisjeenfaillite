@@ -12,7 +12,7 @@
           <% if user_signed_in? %>
           <%= link_to 'Commencer ma simulation', new_passif_path, class:"btn-get-started " %>
           <%else%>
-          <%= link_to 'Réaliser une simulation', new_user_registration_path, class:"btn-get-started " %>
+          <%= link_to 'Réaliser une simulation', new_user_registration_path, class:"btn-get-started" %>
           <%end%>
 
         </div>
@@ -43,35 +43,56 @@
     <section id="about" class="about">
       <div class="container">
 
-        <div class="section-title" >
-          <h2>About</h2>
-          <p>Who we are</p>
+        <div class="section-title " >
+          <h2>Une solution simple, pour vous éclairer sur la situation de votre entreprise</h2>
+          <p>Êtes-vous en faillite ? </p>
         </div>
 
-        <div class="row content" >
+        <div class="row content pt-4" style="display:flex; align-items:center;" >
           <div class="col-lg-6">
+
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+              La détermination de la date de cessation des paiements est le préalable nécessaire pour fixer les mesures de protection de l'entreprise qui peuvent être mises en œuvre.
+            </p>
+
+            <p>
+              Juridiquement, la faillite d'une entreprise est caractérisée quand elle est en situation de "cessation des paiements"
             </p>
             <ul>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+              <li><i class="fas fa-check-double"></i> définition légale</li>
+              <li><i class="fas fa-check-double"></i> références textuelles</li>
+              <li><i class="fas fa-check-double"></i> références textuelles</li>
             </ul>
+
+
           </div>
+
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <a href="#" class="btn-learn-more">Learn More</a>
+
+              <%= image_tag "suis-je-en-faillite.jpg" , style:"width:80%;"%>
+
+          </div>
+
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row" >
+          <div class="col-lg-9 text-center text-lg-left ">
+            <h3>Simulez l'état financier de votre entreprise</h3>
+            <p class="pt-4"> Nous vous proposons une <strong>solution simple</strong> afin de vous éclairer sur la situation concrète de votre entreprise à l'égard d'une <strong>éventuelle situation de cessation des paiements et de vous informer sur les solutions pouvant être mises en œuvre</strong>.</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#">Inscrivez-vous gratuitement</a>
           </div>
         </div>
 
       </div>
-    </section><!-- End About Section -->
+    </section><!-- End Cta Section -->
 
     <!-- ======= Features Section ======= -->
     <section id="features" class="features">
@@ -116,22 +137,7 @@
       </div>
     </section><!-- End Features Section -->
 
-    <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
-      <div class="container">
 
-        <div class="row" >
-          <div class="col-lg-9 text-center text-lg-left ">
-            <h3>Call To Action</h3>
-            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Call To Action</a>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Cta Section -->
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
@@ -195,7 +201,7 @@
 
 
     <!-- ======= F.A.Q Section ======= -->
-    <section id="faq" class="faq">
+    <section >
       <div class="container">
 
         <div class="section-title" >

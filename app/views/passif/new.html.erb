@@ -19,43 +19,65 @@
 
           <%= form_tag url_for(passif_index_path(@user.id)), :passif => @passif, method: 'post' do %>
 
-            <div class='row'>
+            <div class='row' style="display:flex;align-items:center;">
 
 
-              <div class="col-lg-12">
+              <div class="col-lg-11">
                 <div class="form-group contact-block1">
+
                   <%= text_field_tag 'salaires', nil, placeholder: 'Salaires', class:"form-control" %>
+
                 </div>
               </div>
+              <div class="col-1">
+                <i class="fas fa-question-circle" data-toggle="tooltip" title="bla bla bla!"></i>
+              </div>
 
-              <div class="col-lg-12">
+
+
+              <div class="col-lg-11">
                 <div class="form-group">
                   <%= text_field_tag 'charges', nil, placeholder: 'charges', class:"form-control" %>
                 </div>
               </div>
+              <div class="col-1">
+                <i class="fas fa-question-circle" data-toggle="tooltip" title="bla bla bla!"></i>
+              </div>
 
-              <div class="col-lg-12">
+              <div class="col-lg-11">
                 <div class="form-group">
                   <%= text_field_tag 'loyers', nil, placeholder: 'Loyers', class:"form-control" %>
                 </div>
               </div>
+              <div class="col-1">
+                <i class="fas fa-question-circle" data-toggle="tooltip" title="bla bla bla!"></i>
+              </div>
 
-              <div class="col-lg-12">
+              <div class="col-lg-11">
                 <div class="form-group">
                   <%= text_field_tag 'echeances', nil, placeholder: 'Echeances', class:"form-control" %>
                 </div>
               </div>
+              <div class="col-1">
+                <i class="fas fa-question-circle" data-toggle="tooltip" title="bla bla bla!"></i>
+              </div>
 
-              <div class="col-lg-12">
+              <div class="col-lg-11">
                 <div class="form-group contact-block1">
                   <%= text_field_tag 'dette_fiscale', nil, placeholder: 'Dette fiscale', class:"form-control" %>
                 </div>
               </div>
+              <div class="col-1">
+                <i class="fas fa-question-circle" data-toggle="tooltip" title="bla bla bla!"></i>
+              </div>
 
-              <div class="col-lg-12">
+              <div class="col-lg-11">
                 <div class="form-group contact-block1">
                   <%= text_field_tag 'dette_fournisseur', nil, placeholder: 'Dette fournisseur', class:"form-control" %>
                 </div>
+              </div>
+              <div class="col-1">
+                <i class="fas fa-question-circle" data-toggle="tooltip" title="bla bla bla!"></i>
               </div>
 
 
@@ -80,3 +102,11 @@
       </div>
 
     </div>
+
+    <script>
+
+      (function () {
+        ('[data-toggle="tooltip"]').tooltip()
+      })
+
+    </script>

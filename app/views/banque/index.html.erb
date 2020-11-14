@@ -102,5 +102,5 @@ Total passif : <%= @compte_debiteur_non_autorise - @sous_total_passif  %>
 <% if @total_actif > @total_passif.abs %>
   "zen, pas de cessation de paiement"
   <%else%>
-  "cessation de paiement"
+  "D'après les données que vous avez saisies, votre entreprise pourrait être en situation de cessation des paiements ; contactez-nous sans attendre pour envisager les différentes options possibles". "
 <%end%>
