@@ -16,12 +16,6 @@
 
         <div class="container mb-2" style="margin-top:5em; ">
 
-        <% flash.each do |type, msg| %>
-          <div class="alert alert-info margin-top:100px; " style="z-index:1">
-            <%= msg %>
-          </div>
-        <% end %>
-
 
         <span style="color:#ef6737; font-weight:bold;" >Derniers ajouts </span>
 
@@ -72,6 +66,16 @@
               </tbody>
           </table>
 
+          <div class="mt-4">
+
+          <% flash.each do |type, msg| %>
+            <div class="alert alert-info margin-top:100px; " style="z-index:1">
+              <%= msg %>
+            </div>
+          <% end %>
+
+          </div>
+
 
 
         </DIV>
@@ -85,13 +89,6 @@
       <div class="col-6 ">
 
           <h2 class="col-12 text-center mb-4 pb-4">Factures</h2>
-
-
-            <% flash.each do |type, msg| %>
-              <div class="alert alert-info margin-top:100px; " style="z-index:1">
-                <%= msg %>
-              </div>
-            <% end %>
 
 
           <%= form_tag url_for(facture_index_path(@user.id)), :facture => @facture, method: 'post' do %>
