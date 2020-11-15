@@ -47,7 +47,7 @@ SOMME SOLDE POSITIf =
 
 <strong>TOTAL PASSIF </strong>: <% @sous_total_passif = @passif.salaires.to_i.abs + @passif.charges.to_i.abs + @passif.loyers.to_i.abs + @passif.echeances.to_i.abs + @passif.dette_fiscale.to_i.abs + @passif.dette_fournisseur.to_i.abs  %>
 <%= @sous_total_passif %> <bR>
-Salaires : <%= @passif.salaires.to_i.abs %><br>
+Salaires : <%= @passif.salaires %><br>
 Charges : <%= @passif.charges.to_i.abs %><br>
 Loyers <%= @passif.loyers.to_i.abs %><br>
 Echeances <%= @passif.echeances.to_i.abs %><br>
