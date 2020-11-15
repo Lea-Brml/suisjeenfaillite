@@ -1,3 +1,28 @@
+<div class="modal modal-center fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="myModal">
+  <div class="modal-dialog modal-lg" >
+    <div class="modal-content" style=" border-radius: 20px;">
+      <a class="text-right " href="#"><i class="far fa-times-circle pt-2 mr-2"></i></a>
+
+      <div class="row text-center mx-4 my-4 py-4 px-4">
+
+        <% if @total_actif > @total_passif.abs %>
+          "zen, pas de cessation de paiement"
+          <%else%>
+          <p>D'après les données que vous avez saisies, votre entreprise pourrait être en situation de cessation des paiements ; contactez-nous sans attendre pour envisager les différentes options possibles</p>
+        <%end%>
+
+      Ttota actif = <%=@total_actif%><br>tot passif <%=@total_passif%>
+
+      </div>
+      <a href="#" class="btn">Close</a>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+
 <%= @user %>
 
 <br><br><br>
@@ -5,6 +30,10 @@
 <%= @passif %>
 
 <br><br><br>
+
+
+
+
 
 
 <% @banque.each do |t|%>
@@ -107,3 +136,12 @@ Total passif : <%= @compte_debiteur_non_autorise - @sous_total_passif  %>
   <%else%>
   "D'après les données que vous avez saisies, votre entreprise pourrait être en situation de cessation des paiements ; contactez-nous sans attendre pour envisager les différentes options possibles". "
 <%end%>
+
+</div>
+
+
+  <script type="text/javascript">
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+</script>
