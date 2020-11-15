@@ -54,6 +54,9 @@ Echeances <%= @passif.echeances.to_i.abs %><br>
 Dettes fiscale<%= @passif.dette_fiscale.to_i.abs %><br>
 Dette fournisseur <%= @passif.dette_fournisseur.to_i.abs %><br>
 
+<%= link_to "show", user_passif_path(current_user, @passif.id) %>
+<%= link_to "edit", edit_user_passif_path(current_user, @passif.id) %>
+
 <br><br>
 
 
