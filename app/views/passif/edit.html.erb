@@ -8,12 +8,12 @@
       <div class="row">
         <div class="col-6">
           <%= label_tag 'Salairest' %>
-          <%= date_field_tag 'salaires', @passif.salaires, class: "form-control datetimepicker" %>
+          <%= text_field_tag 'salaires', @passif.salaires, class: "form-control datetimepicker" %>
           <br /> <br />
         </div>
         <div class="col-6">
           <%= label_tag 'Charges' %>
-          <%= date_field_tag 'charges', @passif.charges, class: "form-control datetimepicker" %>
+          <%= text_field_tag 'charges', @passif.charges, class: "form-control datetimepicker" %>
           <br /> <br />
         </div>
       </div>
