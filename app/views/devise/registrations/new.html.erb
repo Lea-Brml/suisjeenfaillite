@@ -5,10 +5,12 @@
 
     <div class="py-4 my-4 row">
 
-      <div class="col-6">
+      <div class="col-sm-12 col-md-6 col-lg-6">
 
-
+        <div class="d-none d-md-block">
         <%= image_tag "Statistics-pana.png" , style:"width:100%;"%>
+        </div>
+
         <div class="col-12">
           <p style="color:grey; font-size:12px;"><i> * Rajouter une mention RGPD de collecte de consentement informant l'utilisateur sur ce qu'on va faire de ses données personnelles ; il faudrait ajouter une case à cocher marquant le consentement.</i></p>
         </div>
@@ -16,7 +18,7 @@
 
       </div>
 
-      <div class="col-6 ">
+      <div class="col-sm-12 col-md-6 col-lg-6">
 
           <h2 class="col-12 text-center mb-4 pb-4">Sign up</h2>
 
@@ -32,16 +34,16 @@
             <%= render "devise/shared/error_messages", resource: resource %>
 
             <div class='row'>
-            <div class="field col-6">
+            <div class="field col-sm-12 col-md-12 col-lg-6">
             <%= f.text_field :last_name, class:"form-control", placeholder: "Nom"%><br>
             </div>
-            <div class=" field col-6">
+            <div class=" field col-sm-12 col-md-12 col-lg-6">
               <%= f.text_field :first_name, class:"form-control", placeholder: "Prénom"%><br>
             </div>
-            <div class="field col-6">
+            <div class="field col-sm-12 col-md-12 col-lg-6">
               <%= f.text_field :phone_number, class:"form-control", placeholder: "Numéro de téléphone"%><br>
             </div>
-            <div class="field col-6">
+            <div class="field col-sm-12 col-md-12 col-lg-6">
             <%= f.text_field :entreprise_name, class:"form-control", placeholder: "Entreprise"%><br>
             </div>
             <div class="field col-12">
