@@ -10,4 +10,7 @@ class User < ApplicationRecord
 
    has_many :banques
 
+
+
+
 end

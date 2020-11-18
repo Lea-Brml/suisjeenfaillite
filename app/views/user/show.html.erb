@@ -1,0 +1,173 @@
+<div class="modal modal-center fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="myModal">
+  <div class="modal-dialog modal-lg" >
+    <div class="modal-content" style=" border-radius: 20px;">
+      <a class="text-right " href="#"><i class="far fa-times-circle pt-2 mr-2"></i></a>
+
+      <div class="row text-center mx-4 my-4 py-4 px-4">
+
+        <% if @total_actif > @total_passif.abs %>
+          "zen, pas de cessation de paiement"
+          <%else%>
+          <p>D'après les données que vous avez saisies, votre entreprise pourrait être en situation de cessation des paiements ; contactez-nous sans attendre pour envisager les différentes options possibles</p>
+        <%end%>
+
+      Ttota actif = <%=@total_actif%><br>tot passif <%=@total_passif%>
+
+      </div>
+      <a href="#" class="btn">Close</a>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+
+<%= @user %>
+
+<br><br><br>
+
+<%= @passif %>
+
+<br><br><br>
+
+
+
+
+
+
+<% @banque.each do |t|%>
+nom banque<%=t.banque_name%><br>
+solde : <%=t.solde%><br>
+decouvert autorisé : <%=t.decouvert_autorise%><br>
+restant à tirer : <%=t.restant_a_tirer%><br><br>
+<%end%>
+
+
+SOMME SOLDE POSITIf =
+<% @total_solde_positif = 0%>
+<% @banque.each do |t| %>
+<%if t.solde.to_i > 0 %>
+<% @total_solde_positif = @total_solde_positif + t.solde.to_i %>
+<%end%>
+<%end%>
+
+<%=@total_solde_positif%>
+
+
+<br><br><br>
+
+<STRONG>decouvert restant à tirer :</strong>
+  <%@restant_a_tirer = current_user.banques.sum("restant_a_tirer")%>
+<%= current_user.banques.sum("restant_a_tirer")%>
+
+<br><br><br>
+
+
+<% current_user.factures.each do |t|%>
+  <%= t.libelle%><br>
+  <%=t.facture_montant%>
+
+<%end%>
+<br><bR>
+<strong>Somme factures </strong><% @total_facture =  current_user.factures.sum("facture_montant")%>
+<%= @total_facture %>
+<br><br>
+
+<strong>TOTAL PASSIF </strong>: <% @sous_total_passif = @passif.salaires.to_i.abs + @passif.charges.to_i.abs + @passif.loyers.to_i.abs + @passif.echeances.to_i.abs + @passif.dette_fiscale.to_i.abs + @passif.dette_fournisseur.to_i.abs  %>
+<%= @sous_total_passif %> <bR>
+Salaires : <%= @passif.salaires %><br>
+Charges : <%= @passif.charges.to_i.abs %><br>
+Loyers <%= @passif.loyers.to_i.abs %><br>
+Echeances <%= @passif.echeances.to_i.abs %><br>
+Dettes fiscale<%= @passif.dette_fiscale.to_i.abs %><br>
+Dette fournisseur <%= @passif.dette_fournisseur.to_i.abs %><br>
+
+<%= link_to "show", user_passif_path(current_user, @passif.id) %>
+<%= link_to "edit", edit_user_passif_path(current_user, @passif.id) %>
+
+<br><br>
+
+
+<strong>Compte banquaire debiteur non autorisé</strong><bR>
+= somme solde negatif - (decouvert autorisé + restant à tirer )
+<br><bR>
+
+SOMME SOLDE NEGATIF =
+<% @total_solde_negatif = 0%>
+<% @banque.each do |t| %>
+<%if t.solde.to_i < 0 %>
+<% @total_solde_negatif = @total_solde_negatif + t.solde.to_i %>
+<%end%>
+<%end%>
+
+<%=@total_solde_negatif%>
+<br><br>
+
+DECOUVERT AUTORISé =
+<%@decouvert_autorise = @banque.sum("decouvert_autorise")%>
+ <%=@banque.sum("decouvert_autorise")%>
+
+<br><br>
+RESTANT A TIRER = <%= @restant_a_tirer%>
+
+<br><br><bR>
+<STRONG>COMPTE BANQUAIRE DEBITEUR NON AUTORISE </strong>
+
+  <%@compte_debiteur_non_autorise = @total_solde_negatif + @decouvert_autorise - @restant_a_tirer %>
+  <%= @total_solde_negatif + @decouvert_autorise - @restant_a_tirer %>
+
+
+<br><br><br><br>
+
+
+<Strong> SIMULATEUR </strong>
+
+<% @total_actif = @restant_a_tirer + @total_facture + @total_solde_positif %>
+Total actif : <%=  @restant_a_tirer + @total_facture + @total_solde_positif %><br>
+
+<% @total_passif =  @compte_debiteur_non_autorise - @sous_total_passif  %>
+Total passif : <%= @compte_debiteur_non_autorise - @sous_total_passif  %>
+
+<br><br>
+
+<% if @total_actif > @total_passif.abs %>
+  "zen, pas de cessation de paiement"
+  <%else%>
+  "D'après les données que vous avez saisies, votre entreprise pourrait être en situation de cessation des paiements ; contactez-nous sans attendre pour envisager les différentes options possibles". "
+<%end%>
+
+<div class="row" style="justify-content:space-around;">
+
+  <div class="col-11">
+
+    <%= bar_chart @banque.group(:banque_name).sum(:solde) %>
+
+  </div>
+
+
+  <div class="col-5">
+
+    <%= bar_chart @banque.group(:banque_name).sum(:restant_a_tirer) %>
+
+
+  </div>
+
+  <div class="col-5">
+
+    <%= pie_chart({"Salaires" => @passif.salaires.to_i, "Loyer" => @passif.loyers.to_i.abs, "Charges" => @passif.charges.to_i.abs, "Echeances" => @passif.echeances.to_i.abs, "Dette fiscale" => @passif.dette_fiscale.to_i.abs, "Dette fournisseur" => @passif.dette_fournisseur.to_i.abs}) %>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+  <script type="text/javascript">
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+</script>
