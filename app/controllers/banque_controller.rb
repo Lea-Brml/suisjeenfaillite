@@ -3,10 +3,15 @@ class BanqueController < ApplicationController
 
     def index
 
+
       @user = current_user.id
-      @banque = Banque.where(user_id: current_user.id)
+      @banque = Banque.where(user: params[:id])
       @passif = Passif.find(@user)
       @facture = Facture.find(@user)
+
+
+      @data = @banque.solde_graph
+
 
       @sous_total_passif = @passif.salaires.to_i.abs + @passif.charges.to_i.abs + @passif.loyers.to_i.abs + @passif.echeances.to_i.abs + @passif.dette_fiscale.to_i.abs + @passif.dette_fournisseur.to_i.abs
 
