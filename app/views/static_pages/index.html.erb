@@ -16,13 +16,19 @@
                 <% end %>
 
 
-          <h2 class="">Suis-je en faillite</h2>
-          <p class="animate__animated fanimate__adeInUp">Inscrivez-vous gratuitement et accédez à notre simulateur pour évaluer la date de cessation de paiement et être informé sur les solutions pouvant être mises en œuvre</p>
+          <h2 class="">Suis-je en faillite ?</h2>
 
           <% if user_signed_in? %>
-          <%= link_to 'Commencer ma simulation', new_passif_path, class:"btn-get-started " %>
+
+          <p class="animate__animated fanimate__adeInUp">Accédez dès maintenant à notre simulateur en ligne !</p>
+
+          <%= link_to 'Commencer !', new_passif_path, class:"btn btn-get-started " %>
+
           <%else%>
-          <%= link_to 'Réaliser une simulation', new_user_registration_path, class:"btn-get-started" %>
+
+          <p class="animate__animated fanimate__adeInUp">Inscrivez-vous gratuitement et accédez à notre simulateur pour évaluer la date de cessation de paiement de votre entreprise, et être informé sur les solutions pouvant être mises en œuvre</p>
+
+          <%= link_to 'Accéder au simulateur', new_user_registration_path, class:"btn-get-started" %>
           <%end%>
 
         </div>
@@ -66,7 +72,7 @@
             </p>
 
             <p>
-              Juridiquement, la faillite d'une entreprise est caractérisée quand elle est en situation de "cessation des paiements"
+              Juridiquement, la faillite d'une entreprise est caractérisée quand elle est en situation de "cessation des paiements".
             </p>
             <ul>
               <li><i class="fas fa-check-double"></i> définition légale</li>
@@ -138,7 +144,7 @@
           <div class="col-sm-12 col-md-6 col-lg-3 text-center">
             <%= image_tag "etat.png", style:"width:40%", class:"mb-4"%>
             <p style="color: grey ;">
-            En quelques clics, déterminez l'état financier de votre entreprise
+            En quelques clics, faites un point sur la santé financière de votre entreprise
             </p>
           </div>
 
@@ -243,18 +249,13 @@
 
         <div class="section-title" >
           <h2>Contact</h2>
-          <p>Contact Us</p>
+          <p>Contactez-nous</p>
         </div>
 
         <div class="row mt-5">
 
           <div class="col-lg-4" >
             <div class="info">
-              <div class="address">
-                <i class="icofont-google-map"></i>
-                <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
-              </div>
 
               <div class="email">
                 <i class="icofont-envelope"></i>
@@ -262,11 +263,6 @@
                 <p>info@example.com</p>
               </div>
 
-              <div class="phone">
-                <i class="icofont-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
-              </div>
 
             </div>
 
@@ -307,52 +303,6 @@
 
       </div>
     </section><!-- End Contact Section -->
-
-
-
-    <h1>StaticPages#index</h1>
-    <p>Find me in app/views/static_pages/index.html.erb</p>
-
-
-    <ul>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-        </li>
-
-        <li>
-          Voici ton email : <%= current_user.email %>
-        </li>
-
-
-        <li>
-          <%= link_to "Edit email / password", edit_user_registration_path %>
-        </li>
-
-
-        <br><br><br>
-        creer passif : <%= link_to 'creer passif', new_passif_path%>
-        <br><br><br>
-        creer factures : <%= link_to 'creer passif', new_facture_path%>
-        <br><br><br>
-        creer banques : <%= link_to 'creer passif', new_banque_path%>
-
-        <br><br><br>
-        SIMULATION : <%= link_to 'creer passif', user_banque_index_path(current_user)%>
-
-
-      <% else %>
-        <li>
-          <%= link_to "Sign in", new_user_session_path %>
-        </li>
-
-        <li>
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-
-      <% end %>
-    </ul>
-
 
 
 

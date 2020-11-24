@@ -21,7 +21,74 @@
 </div>
 
 
-<div class="container">
+<div class="container" style="margin-top:6em;">
+
+
+  <% if @total_actif > @total_passif.abs %>
+
+  Si la cessation des paiements est constatée, il n’est plus possible de bénéficier :
+
+  - Du mandat ad hoc, procédure qui consiste à solliciter l’aide d’un mandataire pour évaluer les difficultés et trouver une solution permettant d’y remédier.
+
+  - La procédure de sauvegarde judiciaire qui est une procédure collective destinée à traiter les difficultés de l’entreprise.
+
+  Toutefois, la cessation des paiements autorise :
+
+  • L’ouverture d’une procédure de conciliation si elle date de moins de 45 jours. La procédure de conciliation permet la recherche d’un accord avec les principaux créanciers de l’entreprise.
+
+  • L’ouverture d’une procédure de redressement judiciaire qui est une procédure collective destiné à permettre la continuation ou la cession de l’entreprise. Cette procédure suppose que le rétablissement de l’entreprise soit possible
+
+  • L’ouverture d’une procédure de liquidation judiciaire qui suppose une impossibilité de redressement pour l’entreprise.
+
+    <%else%>
+
+    Vous sentez que la santé financière de votre entreprise se tend dangereusement mais l’état de cessation de paiement ne semble pas atteint.
+
+    Plusieurs procédures préventives vous sont ouvertes.
+
+    Le mandat ad hoc
+
+    Le mandat ad hoc est l'une des deux procédures préventives (avec la conciliation) qui sont à la disposition des entreprises connaissant des difficultés de nature à compromettre la continuité de l'exploitation. Ce sont des procédures de règlement amiable des difficultés des entreprises.
+
+    Le mandat ad hoc permet au dirigeant d'entreprise de négocier ses dettes sous l'égide d'un mandataire ad hoc désigné par le président du Tribunal de Commerce. Cette procédure est confidentielle.
+
+    La durée de la procédure de mandat ad hoc n'est pas encadrée par la loi dans un délai fixe. Le plus souvent, le président assigne une durée renouvelable de la mission du mandataire ad hoc.
+
+    Comme dans la conciliation, l'objectif de la procédure de mandat ad hoc est le suivant : trouver un accord entre l'entreprise et ses principaux créanciers pour lui permettre de surmonter ses difficultés, tout en prenant en compte l'intérêt des créanciers.
+
+    En savoir plus :
+
+    https://www.infogreffe.fr/informations-et-dossiers-entreprises/prevention.html
+
+    Textes : articles L. 611-3 et R. 611-18 à R. 611-20 du Code de Commerce.
+
+    La procédure de conciliation
+
+    La conciliation est une des deux procédures préventives (avec le mandat ad hoc) qui sont à la disposition des entreprises qui connaissent des difficultés de nature à compromettre la continuité de leur exploitation. Ce sont des procédures de règlement amiable des difficultés des entreprises.
+
+    La conciliation permet au dirigeant d'entreprise de négocier ses dettes sous l'égide d'un conciliateur désigné par le président du Tribunal de Commerce. Cette procédure est confidentielle.
+
+    L'objectif est de trouver un accord entre l'entreprise et ses principaux créanciers pour lui permettre de surmonter ses difficultés, tout en prenant en compte l'intérêt des créanciers.
+
+    En particulier, la conciliation permet la mise en place d'un accord (moratoire, renégociation d'emprunt, etc.) lorsque l'entreprise n'est pas en état de cessation des paiements ou ne s'y trouve pas depuis plus de 45 jours.
+
+    L'accord peut être confidentiel : il est alors constaté par une ordonnance du président qui lui donne force exécutoire.
+
+    L'accord peut être soumis à publicité : à la demande du chef d'entreprise, il est homologué par un jugement du tribunal à condition qu'il ne porte pas atteinte aux intérêts des créanciers non signataires.
+
+    En savoir plus :
+
+    https://www.infogreffe.fr/informations-et-dossiers-entreprises/prevention.html
+
+    Textes : articles L. 611-4 à L. 611-15, R. 611-22 à R. 611-46 du Code de Commerce.
+
+    Sauvegarde des entreprises
+
+    La loi de sauvegarde des entreprises du 26 juillet 2005 a institué une procédure de sauvegarde pour les sociétés en difficultés mais qui ne sont pas en état de cessation des paiements. Cette procédure leur permet d'arrêter un plan, sous le contrôle du Tribunal, pour apurer leur passif afin de poursuivre l'activité et de maintenir l'emploi.
+
+  <%end%>
+
+
 
 <%= @user %>
 
