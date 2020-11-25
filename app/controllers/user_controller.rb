@@ -30,7 +30,6 @@ def show
 
   @total_facture =  current_user.factures.sum("facture_montant")
 
-  @sous_total_passif = @passif.salaires.to_i.abs + @passif.charges.to_i.abs + @passif.loyers.to_i.abs + @passif.echeances.to_i.abs + @passif.dette_fiscale.to_i.abs + @passif.dette_fournisseur.to_i.abs
 
 
   @decouvert_autorise = @banque.sum("decouvert_autorise")
