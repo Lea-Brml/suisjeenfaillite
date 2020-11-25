@@ -18,11 +18,17 @@
 
           <h2 class="">Suis-je en faillite ?</h2>
 
-          <% if user_signed_in? %>
+          <% if user_signed_in? && current_user.banques.empty? && current_user.factures.empty? %>
 
           <p class="animate__animated fanimate__adeInUp">Accédez dès maintenant à notre simulateur en ligne !</p>
 
           <%= link_to 'Commencer', new_passif_path, class:"btn btn-get-started " %>
+
+          <% elsif user_signed_in? %>
+
+          <p class="animate__animated fanimate__adeInUp">Accédez dès maintenant à votre simulation !</p>
+
+          <%= link_to 'Ma simulation', user_path(current_user), class:"btn btn-get-started " %>
 
           <%else%>
 
@@ -161,7 +167,7 @@
 
         <div class="tab-content pt-4 mt-4" >
 
-                <p class="font-italic">
+                <p class="font-italic pl-4 ml-4">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                   magna aliqua.
                 </p>
@@ -176,7 +182,7 @@
           <li  >
             <a data-toggle="collapse" class="" href="#faq1"><i class="fas fa-caret-down mr-3"></i> Non consectetur a erat nam at lectus urna duis? </a>
             <div id="faq1" class="collapse show" >
-              <p class="ml-4 pl-2">
+              <p >
                 Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
               </p>
             </div>
@@ -185,7 +191,7 @@
           <li  >
             <a data-toggle="collapse" href="#faq2" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? </a>
             <div id="faq2" class="collapse" >
-              <p class="ml-4 pl-2">
+              <p >
                 Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
               </p>
             </div>
@@ -194,7 +200,7 @@
           <li  >
             <a data-toggle="collapse" href="#faq3" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? </a>
             <div id="faq3" class="collapse" >
-              <p class="ml-4 pl-2">
+              <p >
                 Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
               </p>
             </div>
@@ -203,7 +209,7 @@
           <li  >
             <a data-toggle="collapse" href="#faq4" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</a>
             <div id="faq4" class="collapse" >
-              <p class="ml-4 pl-2">
+              <p >
                 Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
               </p>
             </div>
@@ -212,7 +218,7 @@
           <li  data-aos-delay="500">
             <a data-toggle="collapse" href="#faq5" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Tempus quam pellentesque nec nam aliquam sem et tortor consequat? </a>
             <div id="faq5" class="collapse" >
-              <p class="ml-4 pl-2">
+              <p >
                 Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
               </p>
             </div>
@@ -221,7 +227,7 @@
           <li  data-aos-delay="600">
             <a data-toggle="collapse" href="#faq6" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? </a>
             <div id="faq6" class="collapse" >
-              <p class="ml-4 pl-2">
+              <p >
                 Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
               </p>
             </div>
@@ -238,6 +244,49 @@
 
 
 
+    <section style="background-color: #2A2C39; color:white; height:20em; ">
+
+
+
+        <!-- Slideshow container -->
+        <div class="slideshow-container padding-top:3em;" >
+
+          <!-- Full-width images with number and caption text -->
+          <div class="mySlides " >
+            <div class="container text-center " >
+              <h3 class="py-4">Nom de l'entreprise / personne</h3>
+              <p class="mx-4 text"><i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam volupte corosa la mita</i></p>
+            </div>
+          </div>
+
+          <div class="mySlides ">
+            <div class="container text-center" >
+              <h3 class="py-4">Nom de l'entreprise / personne</h3>
+              <p class="text"><i>jExcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</i></p>
+            </div>
+          </div>
+
+          <div class="mySlides ">
+            <div class="container text-center">
+              <h3 class="py-4">Nom de l'entreprise / personne</h3>
+              <p class="text"><i>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit e</i></p>
+            </div>
+          </div>
+
+          <!-- Next and previous buttons -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+      </section>
 
 
 
@@ -311,3 +360,37 @@
 
 
   </main><!-- End #main -->
+
+
+  <script>
+
+    var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+
+</script>

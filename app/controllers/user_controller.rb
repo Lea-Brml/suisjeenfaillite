@@ -9,6 +9,10 @@ def show
   @passif = Passif.find(@user)
   @facture = Facture.find(@user)
 
+  @factures = Facture.where(user_id:@user).order(created_at: :desc)
+  @banques = Banque.where(user_id:@user).order(created_at: :desc)
+
+
   @sous_total_passif = @passif.salaires.to_i.abs + @passif.charges.to_i.abs + @passif.loyers.to_i.abs + @passif.echeances.to_i.abs + @passif.dette_fiscale.to_i.abs + @passif.dette_fournisseur.to_i.abs
 
 

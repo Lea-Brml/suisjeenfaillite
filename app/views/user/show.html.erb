@@ -1,240 +1,311 @@
-<div class="modal modal-center fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="myModal">
-  <div class="modal-dialog modal-lg" >
-    <div class="modal-content" style=" border-radius: 20px;">
-      <a class="text-right " href="#"><i class="far fa-times-circle pt-2 mr-2"></i></a>
+<div class="jumbotron text-center" style="display:flex; align-items:center;">
 
-      <div class="row text-center mx-4 my-4 py-4 px-4">
+  <div class="container text-center">
 
-        <% if @total_actif > @total_passif.abs %>
-          "zen, pas de cessation de paiement"
-          <%else%>
-          <p>D'après les données que vous avez saisies, votre entreprise pourrait être en situation de cessation des paiements ; contactez-nous sans attendre pour envisager les différentes options possibles</p>
-        <%end%>
+  <% if @total_actif > @total_passif.abs %>
 
-      Ttota actif = <%=@total_actif%><br>tot passif <%=@total_passif%>
+    <p style="font-size:24px;">Votre entreprise ne se trouve pas en situation de cessation de paiements</p>
+
+  <%else%>
+
+    <p style="font-size:24px;">Votre entreprise se trouve en situation de cessation de paiements</p>
+
+  <%end%>
+
+  </div>
+
+</div>
+
+
+<div class="container" style="margin-top:-8em; background-color:white; border-radius:20px;">
+
+  <div class=" row">
+
+
+    <div class="col-4">
+
+
+        <h4 class="pt-4 mt-4 pb-2">Factures </h4>
+
+
+        <div class="container mt-4" style=" overflow-y: scroll; height:8em; width: auto;  scrollbar-face-color: #006400; ">
+
+
+            <table style="width:100%;">
+                <thead>
+                    <tr>
+                      <th style="font-size:13px;">Libellé</th>
+                      <th class="text-right" style="font-size:13px;">Montant de la facture</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% @factures.each do |t| %>
+
+                    <tr>
+                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> <%=  t.libelle %></td>
+                        <td class="text-right"><%=  t.facture_montant %> €</td>
+                    </tr>
+
+
+                  <%end%>
+                </tbody>
+            </table>
+
+        </div>
+        <hr>
+        <div class="container space-between pt-2" style="wdth:100%;">
+
+          <table style="width:100%;">
+              <thead>
+                  <tr>
+                    <th style="color:white;">libellé</th>
+                    <th style="color:white;">Montant de la facture</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                  <tr>
+                      <td ><span style="font-weight:bold; color:#ef6737"><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Total</span></td>
+                      <td class="text-right"><%= @factures.sum("facture_montant") %> €</td>
+                  </tr>
+
+              </tbody>
+          </table>
+
+        </div>
 
       </div>
-      <a href="#" class="btn">Close</a>
 
-    </div>
+
+
+      <div class=" col-4 ">
+
+        <h4 class="pt-4  mt-4 pb-2">Banques </h4>
+
+
+        <div class="container mt-4" style=" overflow-y: scroll; height:8em; width: auto;  scrollbar-face-color: #006400; ">
+
+
+            <table style="width:100%;">
+                <thead>
+                    <tr>
+                      <th style="font-size:13px;">Nom du compte</th>
+                      <th style="font-size:13px;">Découvert autorisé</th>
+                      <th style="font-size:13px; text-align:right;">Solde</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% @banques.each do |t| %>
+
+                    <tr>
+                        <td ><i class="fas fa-piggy-bank pr-2" style="color:#F39C6E; "></i> <%=  t.banque_name %></td>
+                        <td class="text-left"><%=  t.decouvert_autorise %> €</td>
+                        <td class="text-right"><%=  t.solde %> €</td>
+                    </tr>
+
+
+                  <%end%>
+                </tbody>
+            </table>
+
+        </div>
+        <hr>
+        <div class="container space-between pt-2" style="wdth:100%;">
+
+          <table style="width:100%;">
+              <thead>
+                  <tr>
+                    <th style="color:white; font-size:13px;">Nom du compte</th>
+                    <th style="color:white; font-size:13px;">Découvert autorisé</th>
+                    <th style="color:white; font-size:13px; text-align:right;">Solde</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                  <tr>
+                      <td ><span style="font-weight:bold; "><i class="fas fa-piggy-bank pr-2" style="color:#F39C6E; "></i>  Total</span></td>
+                      <td class="text-left"><%= @banques.sum("decouvert_autorise") %> €</td>
+                      <td class="text-left"><%= @banques.sum("solde") %> €</td>
+                  </tr>
+
+              </tbody>
+          </table>
+
+
+        </div>
+
+      </div>
+
+
+      <div class=" col-4">
+
+        <h4 class="mt-4 pt-4  pb-2">Passif éxigible </h4>
+
+
+        <div class="container mt-4" style=" overflow-y: scroll; height:8em; width: auto;  scrollbar-face-color: #006400; ">
+
+            <table style="width:100%;">
+                <thead>
+                    <tr>
+                      <th style="font-size:13px;">Passif</th>
+                      <th class="text-right" style="font-size:13px;">Montant </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> Salaires</td>
+                        <td class="text-right"><%=  @passif.salaires.to_i.abs %> €</td>
+                    </tr>
+                    <tr>
+                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> Loyers</td>
+                        <td class="text-right"><%=  @passif.loyers.to_i.abs %> €</td>
+                    </tr>
+                    <tr>
+                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> charges</td>
+                        <td class="text-right"><%=  @passif.charges.to_i.abs %> €</td>
+                    </tr>
+                    <tr>
+                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> Mensualités d'emprunt</td>
+                        <td class="text-right"><%=  @passif.echeances.to_i.abs %> €</td>
+                    </tr>
+                    <tr>
+                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Dettes fiscales</td>
+                        <td class="text-right"><%=  @passif.dette_fiscale.to_i.abs %> €</td>
+                    </tr>
+                    <tr>
+                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Dettes fournisseurs</td>
+                        <td class="text-right"><%=  @passif.dette_fournisseur.to_i.abs %> €</td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+        <hr>
+        <div class="container space-between pt-2" style="wdth:100%;">
+
+          <table style="width:100%;">
+              <thead>
+                  <tr>
+                    <th style="color:white; font-size:13px;">libellé</th>
+                    <th style="color:white; font-size:13px;">Montant de la facture</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                  <tr>
+                      <td ><span style="font-weight:bold; color:#ef6737"><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Total</span></td>
+                      <td class="text-right"><%=@sous_total_passif %> €</td>
+                  </tr>
+
+              </tbody>
+          </table>
+
+        </div>
+
+
+
+
+      </div>
+
+
+
+
   </div>
 </div>
 
 
-<div class="container" style="margin-top:6em;">
+
+<div class="container" style="margin-top:4em;">
 
 
   <% if @total_actif > @total_passif.abs %>
 
-  Si la cessation des paiements est constatée, il n’est plus possible de bénéficier :
+  <div class="container" style="margin-bottom:10em;">
 
-  - Du mandat ad hoc, procédure qui consiste à solliciter l’aide d’un mandataire pour évaluer les difficultés et trouver une solution permettant d’y remédier.
 
-  - La procédure de sauvegarde judiciaire qui est une procédure collective destinée à traiter les difficultés de l’entreprise.
+      <p style="width:70%;" class="my-4 py-4"><strong>Vous sentez que la santé financière de votre entreprise se tend dangereusement mais l’état de cessation de paiement ne semble pas atteint.</strong></p>
 
-  Toutefois, la cessation des paiements autorise :
+      <h3 class='pb-4 '>Plusieurs procédures préventives vous sont ouvertes.</h3>
 
-  • L’ouverture d’une procédure de conciliation si elle date de moins de 45 jours. La procédure de conciliation permet la recherche d’un accord avec les principaux créanciers de l’entreprise.
+      <h4 class="my-4"><i class="fas fa-check-circle pr-2" style="color:green;"></i> Le mandat ad hoc</h4>
 
-  • L’ouverture d’une procédure de redressement judiciaire qui est une procédure collective destiné à permettre la continuation ou la cession de l’entreprise. Cette procédure suppose que le rétablissement de l’entreprise soit possible
+      <p>Le mandat ad hoc est l'une des deux procédures préventives (avec la conciliation) qui sont à la disposition des entreprises connaissant des difficultés de nature à compromettre la continuité de l'exploitation. Ce sont des procédures de règlement amiable des difficultés des entreprises.</p>
 
-  • L’ouverture d’une procédure de liquidation judiciaire qui suppose une impossibilité de redressement pour l’entreprise.
+      <p>Le mandat ad hoc permet au dirigeant d'entreprise de négocier ses dettes sous l'égide d'un mandataire ad hoc désigné par le président du Tribunal de Commerce. Cette procédure est confidentielle.</p>
+
+      <p>La durée de la procédure de mandat ad hoc n'est pas encadrée par la loi dans un délai fixe. Le plus souvent, le président assigne une durée renouvelable de la mission du mandataire ad hoc.</p>
+
+      <p>Comme dans la conciliation, l'objectif de la procédure de mandat ad hoc est le suivant : trouver un accord entre l'entreprise et ses principaux créanciers pour lui permettre de surmonter ses difficultés, tout en prenant en compte l'intérêt des créanciers.</p>
+
+      <a class="btn-get-started" href="https://www.infogreffe.fr/informations-et-dossiers-entreprises/prevention.html">En savoir plus</a>
+
+
+      <br><br><br>
+      <span style="font-size:14px; color:grey;"><i>Textes : articles L. 611-3 et R. 611-18 à R. 611-20 du Code de Commerce.</i></span>
+
+
+
+      <h4 class="my-4 py-4"> <i class="fas fa-check-circle pr-2" style="color:green;"></i> La procédure de conciliation</h4>
+
+      <p>La conciliation est une des deux procédures préventives (avec le mandat ad hoc) qui sont à la disposition des entreprises qui connaissent des difficultés de nature à compromettre la continuité de leur exploitation. Ce sont des procédures de règlement amiable des difficultés des entreprises.</p>
+
+      <p>La conciliation permet au dirigeant d'entreprise de négocier ses dettes sous l'égide d'un conciliateur désigné par le président du Tribunal de Commerce. Cette procédure est confidentielle.</p>
+
+      <p>L'objectif est de trouver un accord entre l'entreprise et ses principaux créanciers pour lui permettre de surmonter ses difficultés, tout en prenant en compte l'intérêt des créanciers.</p>
+
+      <p>En particulier, la conciliation permet la mise en place d'un accord (moratoire, renégociation d'emprunt, etc.) lorsque l'entreprise n'est pas en état de cessation des paiements ou ne s'y trouve pas depuis plus de 45 jours.</p>
+
+      <p>L'accord peut être confidentiel : il est alors constaté par une ordonnance du président qui lui donne force exécutoire.</p>
+
+      <p>L'accord peut être soumis à publicité : à la demande du chef d'entreprise, il est homologué par un jugement du tribunal à condition qu'il ne porte pas atteinte aux intérêts des créanciers non signataires.</p>
+
+      <a class="btn-get-started" href="https://www.infogreffe.fr/informations-et-dossiers-entreprises/prevention.html">En savoir plus</a>
+
+
+
+      <br><br><br>
+      <span style="font-size:14px; color:grey;"><i>Textes : articles L. 611-4 à L. 611-15, R. 611-22 à R. 611-46 du Code de Commerce.</i></span>
+
+
+
+      <h4 class="my-4 py-4"> <i class="fas fa-check-circle pr-2" style="color:green;"></i> Sauvegarde des entreprises</h4>
+
+      <p>La loi de sauvegarde des entreprises du 26 juillet 2005 a institué une procédure de sauvegarde pour les sociétés en difficultés mais qui ne sont pas en état de cessation des paiements. Cette procédure leur permet d'arrêter un plan, sous le contrôle du Tribunal, pour apurer leur passif afin de poursuivre l'activité et de maintenir l'emploi.</p>
+
+  </div>
 
     <%else%>
 
-    Vous sentez que la santé financière de votre entreprise se tend dangereusement mais l’état de cessation de paiement ne semble pas atteint.
+  <div class="container" style="margin-bottom:10em;">
 
-    Plusieurs procédures préventives vous sont ouvertes.
+    <h4 class="my-4 py-4">Si la cessation des paiements est constatée, il n’est plus possible de bénéficier :</h4>
 
-    Le mandat ad hoc
+    <ul class="pb-4" style="list-style-type: none;">
+      <li class="pb-2">
+        <i class="fas fa-times-circle pr-1" style="color:#F39C6E;"></i> Du <strong>mandat ad hoc</strong>, procédure qui consiste à solliciter l’aide d’un mandataire pour évaluer les difficultés et trouver une solution permettant d’y remédier.
+      </li>
+      <li>
+     <i class="fas fa-times-circle pr-1" style="color:#F39C6E;"></i>La <strong>procédure de sauvegarde judiciaire</strong> qui est une procédure collective destinée à traiter les difficultés de l’entreprise.
+      </li>
+    </ul>
 
-    Le mandat ad hoc est l'une des deux procédures préventives (avec la conciliation) qui sont à la disposition des entreprises connaissant des difficultés de nature à compromettre la continuité de l'exploitation. Ce sont des procédures de règlement amiable des difficultés des entreprises.
+    <h4 class="my-4 py-4">Toutefois, la cessation des paiements autorise :</h4>
 
-    Le mandat ad hoc permet au dirigeant d'entreprise de négocier ses dettes sous l'égide d'un mandataire ad hoc désigné par le président du Tribunal de Commerce. Cette procédure est confidentielle.
+    <ul style="list-style-type: none;">
+      <li class="pb-2">
+    <i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de conciliation</strong> si elle date de moins de 45 jours. La procédure de conciliation permet la recherche d’un accord avec les principaux créanciers de l’entreprise.
+      </li>
+      <li class="pb-2">
+    <i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de redressement judiciaire</strong> qui est une procédure collective destiné à permettre la continuation ou la cession de l’entreprise. Cette procédure suppose que le rétablissement de l’entreprise soit possible
+      </li>
+      <li class="pb-2">
+    <i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de liquidation judiciaire</strong> qui suppose une impossibilité de redressement pour l’entreprise.
+    </ul>
 
-    La durée de la procédure de mandat ad hoc n'est pas encadrée par la loi dans un délai fixe. Le plus souvent, le président assigne une durée renouvelable de la mission du mandataire ad hoc.
 
-    Comme dans la conciliation, l'objectif de la procédure de mandat ad hoc est le suivant : trouver un accord entre l'entreprise et ses principaux créanciers pour lui permettre de surmonter ses difficultés, tout en prenant en compte l'intérêt des créanciers.
-
-    En savoir plus :
-
-    https://www.infogreffe.fr/informations-et-dossiers-entreprises/prevention.html
-
-    Textes : articles L. 611-3 et R. 611-18 à R. 611-20 du Code de Commerce.
-
-    La procédure de conciliation
-
-    La conciliation est une des deux procédures préventives (avec le mandat ad hoc) qui sont à la disposition des entreprises qui connaissent des difficultés de nature à compromettre la continuité de leur exploitation. Ce sont des procédures de règlement amiable des difficultés des entreprises.
-
-    La conciliation permet au dirigeant d'entreprise de négocier ses dettes sous l'égide d'un conciliateur désigné par le président du Tribunal de Commerce. Cette procédure est confidentielle.
-
-    L'objectif est de trouver un accord entre l'entreprise et ses principaux créanciers pour lui permettre de surmonter ses difficultés, tout en prenant en compte l'intérêt des créanciers.
-
-    En particulier, la conciliation permet la mise en place d'un accord (moratoire, renégociation d'emprunt, etc.) lorsque l'entreprise n'est pas en état de cessation des paiements ou ne s'y trouve pas depuis plus de 45 jours.
-
-    L'accord peut être confidentiel : il est alors constaté par une ordonnance du président qui lui donne force exécutoire.
-
-    L'accord peut être soumis à publicité : à la demande du chef d'entreprise, il est homologué par un jugement du tribunal à condition qu'il ne porte pas atteinte aux intérêts des créanciers non signataires.
-
-    En savoir plus :
-
-    https://www.infogreffe.fr/informations-et-dossiers-entreprises/prevention.html
-
-    Textes : articles L. 611-4 à L. 611-15, R. 611-22 à R. 611-46 du Code de Commerce.
-
-    Sauvegarde des entreprises
-
-    La loi de sauvegarde des entreprises du 26 juillet 2005 a institué une procédure de sauvegarde pour les sociétés en difficultés mais qui ne sont pas en état de cessation des paiements. Cette procédure leur permet d'arrêter un plan, sous le contrôle du Tribunal, pour apurer leur passif afin de poursuivre l'activité et de maintenir l'emploi.
+  </div>
 
   <%end%>
-
-
-
-<%= @user %>
-
-<br><br><br>
-
-<%= @passif %>
-
-<br><br><br>
-
-
-
-
-
-
-<% @banque.each do |t|%>
-nom banque<%=t.banque_name%><br>
-solde : <%=t.solde%><br>
-decouvert autorisé : <%=t.decouvert_autorise%><br>
-restant à tirer : <%=t.restant_a_tirer%><br><br>
-<%end%>
-
-
-SOMME SOLDE POSITIf =
-<% @total_solde_positif = 0%>
-<% @banque.each do |t| %>
-<%if t.solde.to_i > 0 %>
-<% @total_solde_positif = @total_solde_positif + t.solde.to_i %>
-<%end%>
-<%end%>
-
-<%=@total_solde_positif%>
-
-
-<br><br><br>
-
-<STRONG>decouvert restant à tirer :</strong>
-  <%@restant_a_tirer = current_user.banques.sum("restant_a_tirer")%>
-<%= current_user.banques.sum("restant_a_tirer")%>
-
-<br><br><br>
-
-
-<% current_user.factures.each do |t|%>
-  <%= t.libelle%><br>
-  <%=t.facture_montant%>
-
-<%end%>
-<br><bR>
-<strong>Somme factures </strong><% @total_facture =  current_user.factures.sum("facture_montant")%>
-<%= @total_facture %>
-<br><br>
-
-<strong>TOTAL PASSIF </strong>:
-<%= @sous_total_passif %> <bR>
-Salaires : <%= @passif.salaires.to_i.abs %><br>
-Charges : <%= @passif.charges.to_i.abs %><br>
-Loyers <%= @passif.loyers.to_i.abs %><br>
-Echeances <%= @passif.echeances.to_i.abs %><br>
-Dettes fiscale<%= @passif.dette_fiscale.to_i.abs %><br>
-Dette fournisseur <%= @passif.dette_fournisseur.to_i.abs %><br>
-
-<%= link_to "show", user_passif_path(current_user, @passif.id) %>
-<%= link_to "edit", edit_user_passif_path(current_user, @passif.id) %>
-
-<br><br>
-
-
-<strong>Compte banquaire debiteur non autorisé</strong><bR>
-= somme solde negatif - (decouvert autorisé + restant à tirer )
-<br><bR>
-
-SOMME SOLDE NEGATIF =
-<% @total_solde_negatif = 0%>
-<% @banque.each do |t| %>
-<%if t.solde.to_i < 0 %>
-<% @total_solde_negatif = @total_solde_negatif + t.solde.to_i %>
-<%end%>
-<%end%>
-
-<%=@total_solde_negatif%>
-<br><br>
-
-DECOUVERT AUTORISé =
-<%@decouvert_autorise = @banque.sum("decouvert_autorise")%>
- <%=@banque.sum("decouvert_autorise")%>
-
-<br><br>
-RESTANT A TIRER = <%= @restant_a_tirer%>
-
-<br><br><bR>
-<STRONG>COMPTE BANQUAIRE DEBITEUR NON AUTORISE </strong>
-
-  <%@compte_debiteur_non_autorise = @total_solde_negatif + @decouvert_autorise - @restant_a_tirer %>
-  <%= @total_solde_negatif + @decouvert_autorise - @restant_a_tirer %>
-
-
-<br><br><br><br>
-
-
-<Strong> SIMULATEUR </strong>
-
-<% @total_actif = @restant_a_tirer + @total_facture + @total_solde_positif %>
-Total actif : <%=  @restant_a_tirer + @total_facture + @total_solde_positif %><br>
-
-<% @total_passif =  @compte_debiteur_non_autorise - @sous_total_passif  %>
-Total passif : <%= @compte_debiteur_non_autorise - @sous_total_passif  %>
-
-<br><br>
-
-<% if @total_actif > @total_passif.abs %>
-  "zen, pas de cessation de paiement"
-  <%else%>
-  "D'après les données que vous avez saisies, votre entreprise pourrait être en situation de cessation des paiements ; contactez-nous sans attendre pour envisager les différentes options possibles". "
-<%end%>
-
-<div class="row" style="justify-content:space-around;">
-
-  <div class="col-11">
-
-    <%= bar_chart @banque.group(:banque_name).sum(:solde) %>
-
-  </div>
-
-
-  <div class="col-5">
-
-    <%= bar_chart @banque.group(:banque_name).sum(:restant_a_tirer) %>
-
-
-  </div>
-
-  <div class="col-5">
-
-    <%= pie_chart({"Salaires" => @passif.salaires.to_i, "Loyer" => @passif.loyers.to_i.abs, "Charges" => @passif.charges.to_i.abs, "Echeances" => @passif.echeances.to_i.abs, "Dette fiscale" => @passif.dette_fiscale.to_i.abs, "Dette fournisseur" => @passif.dette_fournisseur.to_i.abs}) %>
-
-  </div>
-
-</div>
-
-
-
-
-
-
-  <script type="text/javascript">
-    $(window).on('load',function(){
-        $('#myModal').modal('show');
-    });
-</script>
