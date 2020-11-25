@@ -16,6 +16,13 @@
 }
 
 
+.one-edge-shadow {
+  -webkit-box-shadow: 0 2px 6px -6px #2A2C39;
+     -moz-box-shadow: 0 2px 6px -6px #2A2C39;
+          box-shadow: 0 2px 6px -6px #2A2C39;
+}
+
+
 
 /* SLIDER TEMOIGNAFES
 
