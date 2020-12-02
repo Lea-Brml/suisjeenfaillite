@@ -1,7 +1,7 @@
 
 <div class="registration-form pt-4 ">
 
-  <div class="container sign-up-form mt-4">
+  <div class="container sign-up-form mt-4 pt-4">
 
     <div class="py-4 my-4 row" style="  display: flex;
       ">
@@ -22,12 +22,6 @@
 
         <div class="container mb-2" style="margin-top:5em; ">
 
-        <% flash.each do |type, msg| %>
-          <div class="alert alert-info margin-top:100px; " style="z-index:1">
-            <%= msg %>
-          </div>
-        <% end %>
-
 
         <span style="color:#ef6737; font-weight:bold;" >Derniers ajouts </span>
 
@@ -40,7 +34,7 @@
             <table style="width:100%;">
                 <thead>
                     <tr>
-                      <th>Nom du compte</th>
+                      <th>Nom de la banque</th>
                       <th>Découvert autorisé</th>
                       <th>Solde</th>
                     </tr>
@@ -66,7 +60,7 @@
           <table style="width:100%;">
               <thead>
                   <tr>
-                    <th style="color:white;">Nom du compte</th>
+                    <th style="color:white;">Nom de la banque</th>
                     <th style="color:white;">Découvert autorisé</th>
                     <th style="color:white;">Solde</th>
                   </tr>
@@ -82,6 +76,16 @@
               </tbody>
           </table>
 
+          <div class="mt-4">
+
+          <% flash.each do |type, msg| %>
+            <div class="alert alert-info margin-top:100px; " style="z-index:1">
+              <%= msg %>
+            </div>
+          <% end %>
+
+          </div>
+
 
 
         </DIV>
@@ -91,36 +95,42 @@
 
       </div>
 
+
+
+
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
           <h2 class="col-12 text-center mb-4 pb-4">Banques</h2>
 
 
-            <%= form_tag url_for(banque_index_path(@user.id)), :banque => @banque, method: 'post' do %>
+            <%= form_tag url_for(banque_index_path(@user.id)), :banque => @banque, method: 'post',class:"register-form" do %>
               <div class="row pl-4 pr-4">
 
-                <div class="col-lg-12">
+                <div class="col-lg-12 my-4">
                   <div class="form-group contact-block1">
-                    <%= text_field_tag 'banque_name', nil, placeholder: 'Nom de la banque', class:"form-control" %>
+                    <label><i class="fas fa-money-check opacity-80"></i></label>
+                    <%= text_field_tag 'banque_name', nil, placeholder: 'Nom de la banque', class:"form-control",  class:"input" %>
                   </div>
                 </div>
 
                 <div class="col-lg-12">
                   <div class="form-group">
-                    <%= text_field_tag 'solde', nil, placeholder: 'Solde du compte', class:"form-control" %>
+                    <label><i class="fas fa-euro-sign opacity-80"></i></label>
+                    <%= text_field_tag 'solde', nil, placeholder: 'Solde du compte', class:"form-control", class:"input"  %>
                   </div>
                 </div>
 
 
-                <div class="col-lg-12">
+                <div class="col-lg-12 my-4">
                   <div class="form-group">
-                    <%= text_field_tag 'decouvert_autorise', nil, placeholder: 'Découvert autorisé', class:"form-control" %>
+                    <label><i class="fas fa-euro-sign opacity-80"></i></label>
+                    <%= text_field_tag 'decouvert_autorise', nil, placeholder: 'Découvert autorisé', class:"form-control", class:"input"  %>
                   </div>
                 </div>
 
 
-                <div class="col-lg-12 mt-2 text-right">
-                  <%= submit_tag "    Ajouter    ", class: "btn ", style:"border-radius:20px;" %>
+                <div class="col-lg-3 mt-2 text-right ">
+                  <%= submit_tag " Ajouter ", class: "btn mt-2", style:"border-radius:20px;" %>
                   <%end%>
                 </div>
 

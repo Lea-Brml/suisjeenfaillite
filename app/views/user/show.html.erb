@@ -4,11 +4,19 @@
 
   <% if @total_actif > @total_passif.abs %>
 
-    <p style="font-size:24px;">Votre entreprise ne se trouve pas en situation de cessation de paiements</p>
+
+    <div class="alert alert-success alert-dismissible fade show my-4" role="alert">
+      <p style="font-size:18px;">Votre entreprise ne se trouve pas en situation de cessation de paiements</p>
+    </div>
+
+
 
   <%else%>
 
-    <p style="font-size:24px;">Votre entreprise se trouve en situation de cessation de paiements</p>
+
+    <div class="alert alert-danger alert-dismissible fade show my-4" role="alert">
+      <p class="my-4"style="font-size:18px;">Votre entreprise se trouve en <strong>situation de cessation de paiements</strong>.</p>
+    </div>
 
   <%end%>
 
@@ -25,10 +33,10 @@
     <div class="col-4">
 
 
-        <h4 class="pt-4 mt-4 pb-2 pl-3">Factures </h4>
+        <h4 class="pt-4 mt-4 pb-2 pl-3">Factures clients</h4>
 
 
-        <div class="container mt-4" style=" overflow-y: scroll; height:8em; width: auto;  scrollbar-face-color: #006400; ">
+        <div class="container mt-4" style=" overflow-y: scroll; height:7em; width: auto;  scrollbar-face-color: #006400; ">
 
 
             <table style="width:100%;">
@@ -52,7 +60,6 @@
             </table>
 
         </div>
-        <hr>
         <div class="container space-between pt-2 pb-4 mb-4" style="wdth:100%;">
 
           <table style="width:100%;">
@@ -83,7 +90,7 @@
         <h4 class="pt-4 mt-4 pb-2 pl-3">Banques </h4>
 
 
-        <div class="container mt-4" style=" overflow-y: scroll; height:8em; width: auto;  scrollbar-face-color: #006400; ">
+        <div class="container mt-4" style=" overflow-y: scroll; height:7em; width: auto;  scrollbar-face-color: #006400; ">
 
 
             <table style="width:100%;">
@@ -109,7 +116,6 @@
             </table>
 
         </div>
-        <hr>
         <div class="container space-between pt-2 pb-4 mb-4" style="wdth:100%;">
 
           <table style="width:100%;">
@@ -139,10 +145,10 @@
 
       <div class=" col-4">
 
-        <h4 class="mt-4 pt-4  pb-2 pl-3">Passif éxigible </h4>
+        <h4 class="mt-4 pt-4  pb-2 pl-3">Passif exigible </h4>
 
 
-        <div class="container mt-4" style=" overflow-y: scroll; height:8em; width: auto;  scrollbar-face-color: #006400; ">
+        <div class="container mt-4" style=" overflow-y: scroll; height:7em; width: auto;  scrollbar-face-color: #006400; ">
 
             <table style="width:100%;">
                 <thead>
@@ -183,7 +189,6 @@
             </table>
 
         </div>
-        <hr>
         <div class="container space-between pt-2 pb-4 mb-4" style="wdth:100%;">
 
           <table style="width:100%;">
@@ -240,7 +245,7 @@
 
       <p>Comme dans la conciliation, l'objectif de la procédure de mandat ad hoc est le suivant : trouver un accord entre l'entreprise et ses principaux créanciers pour lui permettre de surmonter ses difficultés, tout en prenant en compte l'intérêt des créanciers.</p>
 
-      <a class="btn-get-started" href="https://www.infogreffe.fr/informations-et-dossiers-entreprises/prevention.html">En savoir plus</a>
+      <a class="btn-get-started" href="https://www.infogreffe.fr/informations-et-dossiers-entreprises/prevention.html" target="_blank">En savoir plus</a>
 
 
       <br><br><br>
@@ -262,7 +267,7 @@
 
       <p>L'accord peut être soumis à publicité : à la demande du chef d'entreprise, il est homologué par un jugement du tribunal à condition qu'il ne porte pas atteinte aux intérêts des créanciers non signataires.</p>
 
-      <a class="btn-get-started" href="https://www.infogreffe.fr/informations-et-dossiers-entreprises/prevention.html">En savoir plus</a>
+      <a class="btn-get-started" href="https://www.infogreffe.fr/informations-et-dossiers-entreprises/prevention.html" target="_blank">En savoir plus</a>
 
 
 
@@ -288,7 +293,7 @@
         <i class="fas fa-times-circle pr-1" style="color:#F39C6E;"></i> Du <strong>mandat ad hoc</strong>, procédure qui consiste à solliciter l’aide d’un mandataire pour évaluer les difficultés et trouver une solution permettant d’y remédier.
       </li>
       <li>
-     <i class="fas fa-times-circle pr-1" style="color:#F39C6E;"></i>La <strong>procédure de sauvegarde judiciaire</strong> qui est une procédure collective destinée à traiter les difficultés de l’entreprise.
+     <i class="fas fa-times-circle pr-1" style="color:#F39C6E;"></i>De la <strong>procédure de sauvegarde judiciaire</strong> qui est une procédure collective destinée à traiter les difficultés de l’entreprise.
       </li>
     </ul>
 
@@ -299,7 +304,7 @@
     <i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de conciliation</strong> si elle date de moins de 45 jours. La procédure de conciliation permet la recherche d’un accord avec les principaux créanciers de l’entreprise.
       </li>
       <li class="pb-2">
-    <i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de redressement judiciaire</strong> qui est une procédure collective destiné à permettre la continuation ou la cession de l’entreprise. Cette procédure suppose que le rétablissement de l’entreprise soit possible
+    <i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de redressement judiciaire</strong> qui est une procédure collective destinée à permettre la continuation ou la cession de l’entreprise. Cette procédure suppose que le rétablissement de l’entreprise soit possible.
       </li>
       <li class="pb-2">
     <i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de liquidation judiciaire</strong> qui suppose une impossibilité de redressement pour l’entreprise.
@@ -309,3 +314,5 @@
   </div>
 
   <%end%>
+
+</div>
