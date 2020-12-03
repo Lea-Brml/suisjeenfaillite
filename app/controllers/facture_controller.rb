@@ -24,7 +24,7 @@ class FactureController < ApplicationController
     @facture = Facture.new(libelle: params[:libelle], facture_montant: params[:facture_montant], user_id:current_user.id)
         if @facture.save
           redirect_to new_facture_path
-          flash[:success] = "La facture a bien été ajoutée !"
+          flash[:success] = "La facture a bien été ajoutée."
         else
           render action: :new
           flash[:success] = "Une erreur est survenur, veuillez renseigner un montant valide."
