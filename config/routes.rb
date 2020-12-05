@@ -13,11 +13,17 @@ Rails.application.routes.draw do
 
   resources :user
 
+  resources :personne
+
+  resources :societe
+
 
   resources :users do
     resources :passif
     resources :banque
     resources :facture
+    resources :personne
+    resources :societe
   end
 
 

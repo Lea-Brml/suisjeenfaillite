@@ -18,11 +18,18 @@
 
           <h2 class="">Suis-je en faillite ?</h2>
 
+
+
           <% if user_signed_in? && current_user.banques.empty? && current_user.factures.empty? %>
 
           <p class="animate__animated fanimate__adeInUp">Accédez dès maintenant à notre simulateur en ligne !</p>
 
-          <%= link_to 'Commencer', new_passif_path, class:"btn btn-get-started " %>
+              <% if current_user.is_personne  %>
+                  <%= link_to 'Commencer la simulation', new_personne_path, class:"btn btn-get-started " , class:"btn btn-get-started "%>
+              <%else%>
+                  <%= link_to 'Commencer la simulation', new_societe_path, class:"btn btn-get-started " ,  class:"btn btn-get-started "%>
+              <%end%>
+
 
           <% elsif user_signed_in? %>
 
@@ -107,6 +114,7 @@
           <div class="col-sm-12 col-md-12 col-lg-9 text-center text-lg-left ">
             <h3>Simulez l'état financier de votre entreprise</h3>
             <p class="pt-4"> Nous vous proposons une <strong>solution simple</strong> afin de vous éclairer sur la situation concrète de votre entreprise à l'égard d'une <strong>éventuelle situation de cessation des paiements et de vous informer sur les solutions pouvant être mises en œuvre</strong>.</p>
+
           </div>
           <div class="col-sm-12 col-md-12 col-lg-3 cta-btn-container text-center">
             <a class="cta-btn align-middle" href="#">Inscrivez-vous gratuitement</a>

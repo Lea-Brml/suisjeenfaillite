@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_08_162107) do
+ActiveRecord::Schema.define(version: 2020_12_05_173902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,11 +48,35 @@ ActiveRecord::Schema.define(version: 2020_11_08_162107) do
     t.index ["user_id"], name: "index_passifs_on_user_id"
   end
 
+  create_table "personnes", force: :cascade do |t|
+    t.string "nom"
+    t.string "prenom"
+    t.string "enseigne"
+    t.string "telephone"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_personnes_on_user_id"
+  end
+
+  create_table "societes", force: :cascade do |t|
+    t.string "forme_sociale"
+    t.string "denomination_sociale"
+    t.string "nom"
+    t.string "prenom"
+    t.string "telephone"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_societes_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
-    t.string "first_name"
-    t.string "last_name"
-    t.string "phone_number"
+    t.boolean "is_personne"
+    t.boolean "is_societe"
+    t.boolean "regle1"
+    t.boolean "regle2"
     t.string "entreprise_name"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

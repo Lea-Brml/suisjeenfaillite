@@ -6,9 +6,12 @@ class User < ApplicationRecord
 
    has_many :factures
 
-   has_one :passifs
+   has_one :passif
 
    has_many :banques
+
+   has_one :personne
+   has_one :societe
 
 
 

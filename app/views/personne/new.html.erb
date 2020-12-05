@@ -1,0 +1,81 @@
+
+<div class="registration-form pt-4">
+
+  <div class="container sign-up-form mt-4">
+
+    <div class="py-4 my-4 row">
+
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+        <div class="d-none d-md-block">
+
+        <%= image_tag "Statistics-pana.png" , style:"width:100%;"%>
+
+        </div>
+
+
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+
+          <h2 class="col-12 text-center my-4 py-4">Informations Personnelles</h2>
+
+
+          <%= form_tag url_for(personne_index_path(@user.id)), :personne => @personne, method: 'post' do %>
+
+            <div class='row' style="display:flex;align-items:center;">
+
+
+              <div class="col-lg-6 my-4">
+                <div class="form-group contact-block1">
+                  <label><i class="fas fa-user opacity-80"></i></label>
+                  <%= text_field_tag 'nom', nil, placeholder: 'Nom', class:"form-control",  class:"input"  %>
+                </div>
+              </div>
+
+
+
+              <div class="col-lg-6 my-4">
+                <div class="form-group">
+                  <label><i class="fas fa-user opacity-80"></i></label>
+                  <%= text_field_tag 'prenom', nil, placeholder: 'Prénom', class:"form-control",  class:"input"  %>
+                </div>
+              </div>
+
+
+              <div class="col-lg-12 mb-4">
+                <div class="form-group">
+                  <label><i class="fas fa-warehouse opacity-80"></i></label>
+                  <%= text_field_tag 'enseigne', nil, placeholder: 'Nom de l entreprise', class:"form-control",  class:"input"  %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 my-3">
+                <div class="form-group">
+                  <label><i class="fas fa-phone opacity-80"></i></label>
+                  <%= text_field_tag 'telephone', nil, placeholder: 'Numéro de téléphone', class:"form-control",  class:"input"  %>
+                </div>
+              </div>
+
+
+              <div class="col-lg-12 mt-4">
+                <%= submit_tag "    Etape suivante    ", class: "btn btn-form my-4", style:"border-radius:20px;" %>
+                <%end%>
+              </div>
+
+              <div class="col-lg-12 mt-4 pt-4">
+                <span style="font-size:12px;">Etape 1/3</span>
+              </div>
+
+
+        </div>
+
+
+
+        </div>
+
+        </div>
+
+      </div>
+
+    </div>
