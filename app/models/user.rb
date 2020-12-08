@@ -13,6 +13,8 @@ class User < ApplicationRecord
    has_one :personne
    has_one :societe
 
+   has_many :messages
+
 
 
 

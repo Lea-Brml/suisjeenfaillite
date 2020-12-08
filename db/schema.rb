@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_05_173902) do
+ActiveRecord::Schema.define(version: 2020_12_06_204037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 2020_12_05_173902) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_factures_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "email"
+    t.string "telephone"
+    t.text "message"
+    t.string "nom"
+    t.string "prenom"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "passifs", force: :cascade do |t|

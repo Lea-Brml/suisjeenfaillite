@@ -37,7 +37,9 @@
             <div class="col-6">
 
               <div class="form-group">
-                  <%= f.check_box :is_societe, id:"checkbox1", class:"agree-term", onclick:"GereChkbox();"%>
+
+                <%= f.radio_button :is_societe, '1', :checked => true, class:"label-agree-term" %>
+
                 <label for="agree-term" class="label-agree-term"><span><span></span></span>Inscription en tant que <strong>société</strong></label>
               </div>
 
@@ -48,7 +50,8 @@
             <div class="col-6">
 
               <div class="form-group">
-                <%= f.check_box :is_personne, id:"checkbox2", class:"agree-term", onclick:"GereChkbox();"%>
+                <%= f.radio_button :is_societe, '0' %>
+
                 <label for="agree-term" class="label-agree-term"><span><span></span></span>Inscription en tant que <strong>personne physique</strong></label>
               </div>
 

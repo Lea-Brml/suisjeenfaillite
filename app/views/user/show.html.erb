@@ -2,7 +2,7 @@
 
   <div class="container text-center">
 
-  <% if @total_actif > @total_passif.abs %>
+    <% if @total_actif > @total_passif.abs %>
 
 
     <div class="alert alert-success alert-dismissible fade show my-4 pt-4" role="alert">
@@ -11,14 +11,14 @@
 
 
 
-  <%else%>
+    <%else%>
 
 
     <div class="alert alert-danger alert-dismissible fade show my-4" role="alert">
       <p class="my-4"style="font-size:18px;"><strong>Suspicion de cessation des paiements</strong>.</p>
     </div>
 
-  <%end%>
+    <%end%>
 
   </div>
 
@@ -32,51 +32,59 @@
 
     <div class="col-4">
 
+      <div class="row pt-4 mt-4 pb-2 pl-3">
+        <div class="col-8">
+          <h4 class="">Factures clients</h4>
+        </div>
+        <div class="col-4 text-right pt-1">
+          <a href="<%=new_facture_path%>"><i class="fas fa-plus-square pr-2" style="color:#2a2c39;"></i></a>
+          <a href=""><i class="fas fa-edit pr-2" style="color:#F39C6E;"></i></a>
+        </div>
+      </div>
 
-        <h4 class="pt-4 mt-4 pb-2 pl-3">Factures clients</h4>
-
-
-        <div class="container mt-4" style=" overflow-y: scroll; height:7em; width: auto;  scrollbar-face-color: #006400; ">
-
-
-            <table style="width:100%;">
-                <thead>
-                    <tr>
-                      <th style="font-size:13px;">Libellé</th>
-                      <th class="text-right" style="font-size:13px;">Montant de la facture</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  <% @factures.each do |t| %>
-
-                    <tr>
-                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> <%=  t.libelle %></td>
-                        <td class="text-right"><%=  t.facture_montant %> €</td>
-                    </tr>
+      <div class="container mt-4" style=" overflow-y: scroll; height:7em; width: auto;  scrollbar-face-color: #006400; ">
 
 
-                  <%end%>
-                </tbody>
-            </table>
+        <table style="width:100%;">
+          <thead>
+            <tr>
+              <th style="font-size:13px;">Libellé</th>
+              <th class="text-right" style="font-size:13px;">Montant de la facture</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @factures.each do |t| %>
+
+            <tr>
+              <td >
+                <i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>
+                <%=  t.libelle %></td>
+                <td class="text-right"><%=  t.facture_montant %> €</td>
+              </tr>
+
+
+              <%end%>
+            </tbody>
+          </table>
 
         </div>
         <div class="container space-between pt-2 pb-4 mb-4" style="wdth:100%;">
 
           <table style="width:100%;">
-              <thead>
-                  <tr>
-                    <th style="color:white;">libellé</th>
-                    <th style="color:white;">Montant de la facture</th>
-                  </tr>
-              </thead>
-              <tbody>
+            <thead>
+              <tr>
+                <th style="color:white;">libellé</th>
+                <th style="color:white;">Montant de la facture</th>
+              </tr>
+            </thead>
+            <tbody>
 
-                  <tr>
-                      <td ><span style="font-weight:bold; color:#ef6737"><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Total</span></td>
-                      <td class="text-right"><%= @factures.sum("facture_montant") %> €</td>
-                  </tr>
+              <tr>
+                <td ><span style="font-weight:bold; color:#ef6737"><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Total</span></td>
+                <td class="text-right"><%= @factures.sum("facture_montant") %> €</td>
+              </tr>
 
-              </tbody>
+            </tbody>
           </table>
 
         </div>
@@ -87,54 +95,61 @@
 
       <div class=" col-4 ">
 
-        <h4 class="pt-4 mt-4 pb-2 pl-3">Banques </h4>
-
+        <div class="row pt-4 mt-4 pb-2 pl-3">
+          <div class="col-8">
+            <h4 class="">Banques</h4>
+          </div>
+          <div class="col-4 text-right pt-1">
+            <a href="<%=new_banque_path%>"><i class="fas fa-plus-square pr-2" style="color:#2a2c39;"></i></a>
+            <a href=""><i class="fas fa-edit pr-2" style="color:#F39C6E;"></i></a>
+          </div>
+        </div>
 
         <div class="container mt-4" style=" overflow-y: scroll; height:7em; width: auto;  scrollbar-face-color: #006400; ">
 
 
-            <table style="width:100%;">
-                <thead>
-                    <tr>
-                      <th style="font-size:13px;">Nom du compte</th>
-                      <th style="font-size:13px;">Découvert autorisé</th>
-                      <th style="font-size:13px; text-align:right;">Solde</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  <% @banques.each do |t| %>
+          <table style="width:100%;">
+            <thead>
+              <tr>
+                <th style="font-size:13px;">Nom du compte</th>
+                <th style="font-size:13px;">Découvert autorisé</th>
+                <th style="font-size:13px; text-align:right;">Solde</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @banques.each do |t| %>
 
-                    <tr>
-                        <td ><i class="fas fa-piggy-bank pr-2" style="color:#F39C6E; "></i> <%=  t.banque_name %></td>
-                        <td class="text-left"><%=  t.decouvert_autorise %> €</td>
-                        <td class="text-right"><%=  t.solde %> €</td>
-                    </tr>
+              <tr>
+                <td ><i class="fas fa-piggy-bank pr-2" style="color:#F39C6E; "></i> <%=  t.banque_name %></td>
+                <td class="text-left"><%=  t.decouvert_autorise %> €</td>
+                <td class="text-right"><%=  t.solde %> €</td>
+              </tr>
 
 
-                  <%end%>
-                </tbody>
-            </table>
+              <%end%>
+            </tbody>
+          </table>
 
         </div>
         <div class="container space-between pt-2 pb-4 mb-4" style="wdth:100%;">
 
           <table style="width:100%;">
-              <thead>
-                  <tr>
-                    <th style="color:white; font-size:13px;">Nom du compte</th>
-                    <th style="color:white; font-size:13px;">Découvert autorisé</th>
-                    <th style="color:white; font-size:13px; text-align:right;">Solde</th>
-                  </tr>
-              </thead>
-              <tbody>
+            <thead>
+              <tr>
+                <th style="color:white; font-size:13px;">Nom du compte</th>
+                <th style="color:white; font-size:13px;">Découvert autorisé</th>
+                <th style="color:white; font-size:13px; text-align:right;">Solde</th>
+              </tr>
+            </thead>
+            <tbody>
 
-                  <tr>
-                      <td ><span style="font-weight:bold; "><i class="fas fa-piggy-bank pr-2" style="color:#F39C6E; "></i>  Total</span></td>
-                      <td class="text-left"><%= @banques.sum("decouvert_autorise") %> €</td>
-                      <td class="text-left"><%= @banques.sum("solde") %> €</td>
-                  </tr>
+              <tr>
+                <td ><span style="font-weight:bold; "><i class="fas fa-piggy-bank pr-2" style="color:#F39C6E; "></i>  Total</span></td>
+                <td class="text-left"><%= @banques.sum("decouvert_autorise") %> €</td>
+                <td class="text-left"><%= @banques.sum("solde") %> €</td>
+              </tr>
 
-              </tbody>
+            </tbody>
           </table>
 
 
@@ -145,67 +160,73 @@
 
       <div class=" col-4">
 
-        <h4 class="mt-4 pt-4  pb-2 pl-3">Passif exigible </h4>
-
+        <div class="row pt-4 mt-4 pb-2 pl-3">
+          <div class="col-8">
+            <h4 class="">Passif éxigible</h4>
+          </div>
+          <div class="col-4 text-right pt-1">
+            <a href="<%=edit_passif_path%>"><i class="fas fa-edit pr-2" style="color:#F39C6E;"></i></a>
+          </div>
+        </div>
 
         <div class="container mt-4" style=" overflow-y: scroll; height:7em; width: auto;  scrollbar-face-color: #006400; ">
 
-            <table style="width:100%;">
-                <thead>
-                    <tr>
-                      <th style="font-size:13px;">Passif</th>
-                      <th class="text-right" style="font-size:13px;">Montant </th>
-                    </tr>
-                </thead>
-                <tbody>
+          <table style="width:100%;">
+            <thead>
+              <tr>
+                <th style="font-size:13px;">Passif</th>
+                <th class="text-right" style="font-size:13px;">Montant </th>
+              </tr>
+            </thead>
+            <tbody>
 
-                    <tr>
-                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> Salaires</td>
-                        <td class="text-right"><%=  @passif.salaires.to_i.abs %> €</td>
-                    </tr>
-                    <tr>
-                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> Loyers</td>
-                        <td class="text-right"><%=  @passif.loyers.to_i.abs %> €</td>
-                    </tr>
-                    <tr>
-                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> charges</td>
-                        <td class="text-right"><%=  @passif.charges.to_i.abs %> €</td>
-                    </tr>
-                    <tr>
-                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> Mensualités d'emprunt</td>
-                        <td class="text-right"><%=  @passif.echeances.to_i.abs %> €</td>
-                    </tr>
-                    <tr>
-                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Dettes fiscales</td>
-                        <td class="text-right"><%=  @passif.dette_fiscale.to_i.abs %> €</td>
-                    </tr>
-                    <tr>
-                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Dettes fournisseurs</td>
-                        <td class="text-right"><%=  @passif.dette_fournisseur.to_i.abs %> €</td>
-                    </tr>
+              <tr>
+                <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> Salaires</td>
+                <td class="text-right"><%=  @passif.salaires.to_i.abs %> €</td>
+              </tr>
+              <tr>
+                <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> Loyers</td>
+                <td class="text-right"><%=  @passif.loyers.to_i.abs %> €</td>
+              </tr>
+              <tr>
+                <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> charges</td>
+                <td class="text-right"><%=  @passif.charges.to_i.abs %> €</td>
+              </tr>
+              <tr>
+                <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> Mensualités d'emprunt</td>
+                <td class="text-right"><%=  @passif.echeances.to_i.abs %> €</td>
+              </tr>
+              <tr>
+                <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Dettes fiscales</td>
+                <td class="text-right"><%=  @passif.dette_fiscale.to_i.abs %> €</td>
+              </tr>
+              <tr>
+                <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Dettes fournisseurs</td>
+                <td class="text-right"><%=  @passif.dette_fournisseur.to_i.abs %> €</td>
+              </tr>
 
 
-                </tbody>
-            </table>
+            </tbody>
+          </table>
 
         </div>
         <div class="container space-between pt-2 pb-4 mb-4" style="wdth:100%;">
 
           <table style="width:100%;">
-              <thead>
-                  <tr>
-                    <th style="color:white; font-size:13px;">libellé</th>
-                    <th style="color:white; font-size:13px;">Montant de la facture</th>
-                  </tr>
-              </thead>
-              <tbody>
+            <thead>
+              <tr>
+                <th style="color:white; font-size:13px;">libellé</th>
+                <th style="color:white; font-size:13px;">Montant de la facture</th>
+              </tr>
+            </thead>
+            <tbody>
 
-                  <tr>
-                      <td ><span style="font-weight:bold; color:#ef6737"><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Total</span></td>
-                      <td class="text-right"><%=@sous_total_passif %> €</td>
-                  </tr>
+              <tr>
+                <td ><span style="font-weight:bold; color:#ef6737"><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Total</span></td>
+                <td class="text-right"><%=@sous_total_passif %> €</td>
+              </tr>
 
-              </tbody>
+            </tbody>
           </table>
 
         </div>
@@ -218,17 +239,17 @@
 
 
 
+    </div>
   </div>
-</div>
 
 
 
-<div class="container" style="margin-top:4em;">
+  <div class="container" style="margin-top:4em;">
 
 
-  <% if @total_actif > @total_passif.abs %>
+    <% if @total_actif > @total_passif.abs %>
 
-  <div class="container" style="margin-bottom:10em;">
+    <div class="container" style="margin-bottom:10em;">
 
 
       <p style="width:70%;" class="my-4 py-4"><strong>Vous sentez que la santé financière de votre entreprise se tend dangereusement mais l’état de cessation des paiements ne semble pas atteint.</strong></p>
@@ -280,39 +301,129 @@
 
       <p>La loi de sauvegarde des entreprises du 26 juillet 2005 a institué une procédure de sauvegarde pour les sociétés en difficultés mais qui ne sont pas en état de cessation des paiements. Cette procédure leur permet d'arrêter un plan, sous le contrôle du Tribunal, pour apurer leur passif afin de poursuivre l'activité et de maintenir l'emploi.</p>
 
-  </div>
+    </div>
 
     <%else%>
 
-  <div class="container" style="margin-bottom:10em;">
+    <div class="container" style="margin-bottom:5em;">
 
-    <h4 class="my-4 py-4">Si la cessation des paiements est constatée, il n’est plus possible de bénéficier :</h4>
+      <h4 class="my-4 py-4">Si la cessation des paiements est constatée, il n’est plus possible de bénéficier :</h4>
 
-    <ul class="pb-4" style="list-style-type: none;">
-      <li class="pb-2">
-        <i class="fas fa-times-circle pr-1" style="color:#F39C6E;"></i> Du <strong>mandat ad hoc</strong>, procédure qui consiste à solliciter l’aide d’un mandataire pour évaluer les difficultés et trouver une solution permettant d’y remédier.
-      </li>
-      <li>
-     <i class="fas fa-times-circle pr-1" style="color:#F39C6E;"></i>De la <strong>procédure de sauvegarde judiciaire</strong> qui est une procédure collective destinée à traiter les difficultés de l’entreprise.
-      </li>
-    </ul>
+      <ul class="pb-4" style="list-style-type: none;">
+        <li class="pb-2">
+          <i class="fas fa-times-circle pr-1" style="color:#F39C6E;"></i> Du <strong>mandat ad hoc</strong>, procédure qui consiste à solliciter l’aide d’un mandataire pour évaluer les difficultés et trouver une solution permettant d’y remédier.
+        </li>
+        <li>
+          <i class="fas fa-times-circle pr-1" style="color:#F39C6E;"></i>De la <strong>procédure de sauvegarde judiciaire</strong> qui est une procédure collective destinée à traiter les difficultés de l’entreprise.
+        </li>
+      </ul>
 
-    <h4 class="my-4 py-4">Toutefois, la cessation des paiements autorise :</h4>
+      <h4 class="my-4 py-4">Toutefois, la cessation des paiements autorise :</h4>
 
-    <ul style="list-style-type: none;">
-      <li class="pb-2">
-    <i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de conciliation</strong> si elle date de moins de 45 jours. La procédure de conciliation permet la recherche d’un accord avec les principaux créanciers de l’entreprise.
-      </li>
-      <li class="pb-2">
-    <i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de redressement judiciaire</strong> qui est une procédure collective destinée à permettre la continuation ou la cession de l’entreprise. Cette procédure suppose que le rétablissement de l’entreprise soit possible.
-      </li>
-      <li class="pb-2">
-    <i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de liquidation judiciaire</strong> qui suppose une impossibilité de redressement pour l’entreprise.
-    </ul>
+      <ul style="list-style-type: none;">
+        <li class="pb-2">
+          <i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de conciliation</strong> si elle date de moins de 45 jours. La procédure de conciliation permet la recherche d’un accord avec les principaux créanciers de l’entreprise.
+        </li>
+        <li class="pb-2">
+          <i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de redressement judiciaire</strong> qui est une procédure collective destinée à permettre la continuation ou la cession de l’entreprise. Cette procédure suppose que le rétablissement de l’entreprise soit possible.
+        </li>
+        <li class="pb-2">
+          <i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de liquidation judiciaire</strong> qui suppose une impossibilité de redressement pour l’entreprise.
+        </ul>
 
 
-  </div>
+      </div>
 
-  <%end%>
 
-</div>
+
+
+      <%end%>
+
+    </div>
+
+
+
+    <!-- ======= Cta Section ======= -->
+    <section  class="jumbotron2">
+      <div class="container">
+
+        <div class="text-center text-lg-left ">
+          <h3>Prenez contact avec nous dès maintenant...</h3>
+          <p class="pt-4"> Nous vous proposons une <strong>solution simple</strong> afin de vous éclairer sur la situation concrète de votre entreprise à l'égard d'une <strong>éventuelle situation de cessation des paiements et de vous informer sur les solutions pouvant être mises en œuvre</strong>.</p>
+
+        </div>
+
+      </section><!-- End Cta Section -->
+
+
+      <section>
+      <div class="container ">
+      <%= form_tag url_for(message_index_path(@user)), :message => @message, method: 'post',class:"register-form" do %>
+        <div class="row pl-4 pr-4">
+
+          <%if current_user.is_societe %>
+          <div class="col-lg-6 my-4">
+            <div class="form-group">
+              <label><i class="fas fa-euro-sign opacity-80"></i></label>
+              <%= text_field_tag 'Nom', nil, value: current_user.societe.nom, class:"form-control", class:"input"  %>
+            </div>
+          </div>
+          <div class="col-lg-6 my-4">
+            <div class="form-group">
+              <label><i class="fas fa-euro-sign opacity-80"></i></label>
+              <%= text_field_tag 'prenom', nil, value: current_user.societe.prenom, class:"form-control", class:"input"  %>
+            </div>
+          </div>
+          <%else%>
+          <div class="col-lg-6 my-4">
+            <div class="form-group">
+              <label><i class="fas fa-euro-sign opacity-80"></i></label>
+              <%= text_field_tag 'nom', nil, value: current_user.personne.nom, class:"form-control", class:"input"  %>
+            </div>
+          </div>
+          <div class="col-lg-6 my-4">
+            <div class="form-group">
+              <label><i class="fas fa-euro-sign opacity-80"></i></label>
+              <%= text_field_tag 'prenom', nil, value: current_user.personne.prenom, class:"form-control", class:"input"  %>
+            </div>
+          </div>
+          <%end%>
+
+          <div class="col-lg-6 my-4">
+            <div class="form-group contact-block1">
+              <label><i class="fas fa-money-check opacity-80"></i></label>
+              <%= text_field_tag 'email', nil, value:current_user.email, class:"form-control",  class:"input" %>
+            </div>
+          </div>
+
+          <%if current_user.is_societe %>
+          <div class="col-lg-6 my-4">
+            <div class="form-group">
+              <label><i class="fas fa-euro-sign opacity-80"></i></label>
+              <%= text_field_tag 'telephone', nil, value: current_user.societe.telephone, class:"form-control", class:"input"  %>
+            </div>
+          </div>
+          <%else%>
+          <div class="col-lg-6 my-4">
+            <div class="form-group">
+              <label><i class="fas fa-euro-sign opacity-80"></i></label>
+              <%= text_field_tag 'telephone', nil, value: current_user.personne.telephone, class:"form-control", class:"input"  %>
+            </div>
+          </div>
+          <%end%>
+
+
+          <div class="col-lg-12 my-4">
+            <div class="form-group">
+              <label><i class="fas fa-euro-sign opacity-80"></i></label>
+              <%= text_field_tag 'message', nil, placeholder: 'Votre message', class:"form-control", class:"input"  %>
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 mt-2 text-right ">
+            <%= submit_tag " Envoyer ", class: "btn mt-2", style:"border-radius:20px;" %>
+            <%end%>
+          </div>
+        </div>
+        </section>

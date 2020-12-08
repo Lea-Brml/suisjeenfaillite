@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   resources :societe
 
 
+  resources :message
+
+
   resources :users do
     resources :passif
     resources :banque
