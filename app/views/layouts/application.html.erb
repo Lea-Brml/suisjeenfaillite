@@ -50,9 +50,8 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="<%=root_path%>">Accueil</a></li>
+          <li class=""><a href="<%=root_path%>">Accueil</a></li>
           <li><a href="<%=root_path(anchor:"cta")%>">Comment ça marche ?</a></li>
-          <li><a href="#portfolio">Témoignages</a></li>
           <%if user_signed_in? %>
           <li class="drop-down"><a class="btn-get-started">Mon compte <i class="pl-2 fas fa-angle-down"></i></a >
             <ul>
@@ -68,7 +67,7 @@
             </ul>
           </li>
           <%end%>
-          <li><a href="<%=root_path(anchor:"contact")%>" class="btn">Contactez-nous</a></li>
+          <li><a href="<%=root_path(anchor:"contact")%>"class="btn-outline">Contactez-nous</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 

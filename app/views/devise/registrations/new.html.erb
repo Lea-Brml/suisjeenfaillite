@@ -38,9 +38,9 @@
 
               <div class="form-group">
 
-                <%= f.radio_button :is_societe, '1', :checked => true, class:"label-agree-term" %>
+                <%= f.radio_button :is_societe, '1', :checked => true, class:"label-agree-term", id:"agree-term" %>
 
-                <label for="agree-term" class="label-agree-term"><span><span></span></span>Inscription en tant que <strong>société</strong></label>
+                <label for="agree-term" class="label label-agree-term"><span><span></span></span>Inscription en tant que <strong>société</strong></label>
               </div>
 
             </div>
@@ -50,7 +50,7 @@
             <div class="col-6">
 
               <div class="form-group">
-                <%= f.radio_button :is_societe, '0' %>
+                <%= f.radio_button :is_societe, '0', class:" label-agree-term", id:"agree-term"  %>
 
                 <label for="agree-term" class="label-agree-term"><span><span></span></span>Inscription en tant que <strong>personne physique</strong></label>
               </div>
