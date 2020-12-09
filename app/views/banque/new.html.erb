@@ -1,9 +1,9 @@
 
-<div class="registration-form pt-4 ">
+<div class="registration-form pt-4 pb-4">
 
   <div class="container sign-up-form mt-4 pt-4">
 
-    <div class="py-4 my-4 row" style="  display: flex;
+    <div class="py-4 mt-4 mb-3 row" style="  display: flex;
       ">
 
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -11,16 +11,16 @@
 
         <% if @banques.empty? %>
 
-        <div class="d-none d-md-block">
+        <div class="d-none d-md-block ">
 
-        <%= image_tag "Statistics-pana.png" , style:"width:100%;"%>
+        <%= image_tag "Statistics-pana.png" , style:"width:80%;"%>
 
         </div>
 
         <%else%>
 
 
-        <div class="container mb-2" style="margin-top:5em; ">
+        <div class="container " style="margin-top:5em; ">
 
 
         <span style="color:#ef6737; font-weight:bold;" >Derniers ajouts </span>
@@ -147,8 +147,20 @@
                 </div>
 
                 <div class="col-lg-12 mt-4 pt-4 text-right">
-                  <span style="font-size:12px;">Etape 3/4</span>
+
+                  <span style="opacity:50%; font-weight:200;">1</span>  <%= image_tag "next.jpg" , style:"width:3%; opacity:50%;", class:"mb-1"%>
+                  <span style="opacity:50%; font-weight:200;">2</span>
+                  <%= image_tag "next.jpg" , style:"width:3%; opacity:50%;", class:"mb-1"%>
+                  <span style="color:grey; font-weight:400;">Etape 3</span>
+                  <%= image_tag "next.jpg" , style:"width:3%;", class:"mb-1"%>
+                  <span style="opacity:50%; font-weight:200;">4</span>
+
                 </div>
+
+
+
+
+
 
               </div>
 

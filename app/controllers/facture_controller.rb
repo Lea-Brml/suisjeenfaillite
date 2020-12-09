@@ -26,8 +26,8 @@ class FactureController < ApplicationController
           redirect_to new_facture_path
           flash[:success] = "La facture a bien été ajoutée."
         else
-          render action: :new
-          flash[:success] = "Une erreur est survenur, veuillez renseigner un montant valide."
+          redirect_to new_facture_path
+          flash[:success] = "Une erreur est survenue, veuillez renseigner tous les champs obligatoires. Si la valeure est nule, indiquer '0'"
         end
 
   end

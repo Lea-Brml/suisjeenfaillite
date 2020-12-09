@@ -17,7 +17,8 @@ before_action :authenticate_user!
         if @passif.save
           redirect_to new_facture_path
         else
-          render action: :new
+          redirect_to new_passif_path
+          flash[:success] = "Une erreur est survenue, veuillez renseigner tous les champs obligatoires. Si la valeure est nule, indiquer '0'"
         end
 
   end

@@ -16,12 +16,13 @@ class PersonneController < ApplicationController
         if @personne.save
           redirect_to user_path(current_user)
         else
-          render action: :new
+          redirect_to new_personne_path
+          flash[:success] = "Une erreur est survenue, veuillez renseigner tous les champs obligatoires."
         end
 
   end
 
-  
+
 
 
 end

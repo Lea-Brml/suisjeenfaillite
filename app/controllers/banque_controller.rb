@@ -37,8 +37,8 @@ class BanqueController < ApplicationController
             redirect_to new_banque_path
             flash[:success] = "La banque a bien été ajoutée."
           else
-            render action: :new
-            flash[:success] = "Une erreur est survenue, veuillez renseigner des informations valides."
+            redirect_to new_banque_path
+            flash[:success] = "Une erreur est survenue, veuillez renseigner tous les champs obligatoires. Si la valeure est nule, indiquer '0'"
           end
 
     end

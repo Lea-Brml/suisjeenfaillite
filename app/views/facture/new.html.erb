@@ -1,5 +1,5 @@
 
-<div class="registration-form pt-4 pb-4 mb-1">
+<div class="registration-form pt-4  pb-3">
 
   <div class="container sign-up-form mt-4 pt-4">
 
@@ -9,9 +9,9 @@
 
         <% if @factures.empty? %>
 
-        <div class="d-none d-md-block">
+        <div class="d-none d-md-block ">
 
-        <%= image_tag "Statistics-pana.png" , style:"width:100%;"%>
+        <%= image_tag "Statistics-pana.png" , style:"width:80%;"%>
 
         </div>
 
@@ -130,7 +130,14 @@
               </div>
 
               <div class="col-lg-12 mt-4 pt-4 text-right">
-                <span style="font-size:12px;">Etape 2/3</span>
+
+                <span style="opacity:50%; font-weight:200;">1</span>  <%= image_tag "next.jpg" , style:"width:3%; opacity:50%;", class:"mb-1"%>
+                <span style="color:grey; font-weight:400;">Etape 2</span>
+                <%= image_tag "next.jpg" , style:"width:3%; ", class:"mb-1"%>
+                <span style="opacity:50%; font-weight:200;">3</span>
+                <%= image_tag "next.jpg" , style:"width:3%; opacity:50%;", class:"mb-1"%>
+                <span style="opacity:50%; font-weight:200;">4</span>
+
               </div>
 
 

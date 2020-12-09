@@ -32,7 +32,7 @@
             <%= render "devise/shared/error_messages", resource: resource %>
 
 
-          <div class="row mb-2 mt-2">
+          <div class="row  mt-2">
 
             <div class="col-6">
 
@@ -49,9 +49,8 @@
 
             <div class="col-6">
 
-              <div class="form-group">
+              <div class="form-group ">
                 <%= f.radio_button :is_societe, '0', class:" label-agree-term", id:"agree-term"  %>
-
                 <label for="agree-term" class="label-agree-term"><span><span></span></span>Inscription en tant que <strong>personne physique</strong></label>
               </div>
 
@@ -85,7 +84,7 @@
             </div>
 
 
-            <%= f.submit "Valider", class:"btn btn-form my-2" %>
+            <%= f.submit "Valider", class:"btn btn-form mt-2" %>
             <% end %>
 
             <%= render "devise/shared/links" %>

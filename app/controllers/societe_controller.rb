@@ -16,7 +16,8 @@ class SocieteController < ApplicationController
         if @societe.save
           redirect_to user_path(current_user)
         else
-          render action: :new
+          redirect_to new_societe_path
+          flash[:success] = "Une erreur est survenue, veuillez renseigner tous les champs obligatoires."
         end
 
   end
