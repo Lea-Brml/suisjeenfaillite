@@ -364,50 +364,50 @@
           <%if current_user.is_societe %>
           <div class="col-lg-6 my-4">
             <div class="form-group">
-              <label><i class="fas fa-euro-sign opacity-80"></i></label>
-              <%= text_field_tag 'Nom', nil, value: current_user.societe.nom, class:"form-control", class:"input"  %>
+              <label><i class="fas fa-user opacity-80"></i></label>
+              <%= text_field_tag 'Nom', nil, value: current_user.societe.nom,  class:"input"  %>
             </div>
           </div>
           <div class="col-lg-6 my-4">
             <div class="form-group">
-              <label><i class="fas fa-euro-sign opacity-80"></i></label>
-              <%= text_field_tag 'prenom', nil, value: current_user.societe.prenom, class:"form-control", class:"input"  %>
+              <label><i class="fas fa-user opacity-80"></i></label>
+              <%= text_field_tag 'prenom', nil, value: current_user.societe.prenom,  class:"input"  %>
             </div>
           </div>
           <%else%>
           <div class="col-lg-6 my-4">
             <div class="form-group">
-              <label><i class="fas fa-euro-sign opacity-80"></i></label>
-              <%= text_field_tag 'nom', nil, value: current_user.personne.nom, class:"form-control", class:"input"  %>
+              <label><i class="fas fa-user opacity-80"></i></label>
+              <%= text_field_tag 'nom', nil, value: current_user.personne.nom,  class:"input"  %>
             </div>
           </div>
           <div class="col-lg-6 my-4">
             <div class="form-group">
-              <label><i class="fas fa-euro-sign opacity-80"></i></label>
-              <%= text_field_tag 'prenom', nil, value: current_user.personne.prenom, class:"form-control", class:"input"  %>
+              <label><i class="fas fa-user opacity-80"></i></label>
+              <%= text_field_tag 'prenom', nil, value: current_user.personne.prenom,  class:"input"  %>
             </div>
           </div>
           <%end%>
 
           <div class="col-lg-6 my-4">
             <div class="form-group contact-block1">
-              <label><i class="fas fa-money-check opacity-80"></i></label>
-              <%= text_field_tag 'email', nil, value:current_user.email, class:"form-control",  class:"input" %>
+              <label><i class="far fa-envelope opacity-80"></i></label>
+              <%= text_field_tag 'email', nil, value:current_user.email,   class:"input" %>
             </div>
           </div>
 
           <%if current_user.is_societe %>
           <div class="col-lg-6 my-4">
             <div class="form-group">
-              <label><i class="fas fa-euro-sign opacity-80"></i></label>
-              <%= text_field_tag 'telephone', nil, value: current_user.societe.telephone, class:"form-control", class:"input"  %>
+              <label><i class="fas fa-phone opacity-80"></i></label>
+              <%= text_field_tag 'telephone', nil, value: current_user.societe.telephone,  class:"input"  %>
             </div>
           </div>
           <%else%>
           <div class="col-lg-6 my-4">
             <div class="form-group">
-              <label><i class="fas fa-euro-sign opacity-80"></i></label>
-              <%= text_field_tag 'telephone', nil, value: current_user.personne.telephone, class:"form-control", class:"input"  %>
+              <label><i class="fas fa-phone opacity-80"></i></label>
+              <%= text_field_tag 'telephone', nil, value: current_user.personne.telephone,  class:"input"  %>
             </div>
           </div>
           <%end%>
@@ -415,8 +415,8 @@
 
           <div class="col-lg-12 my-4">
             <div class="form-group">
-              <label><i class="fas fa-euro-sign opacity-80"></i></label>
-              <%= text_field_tag 'message', nil, placeholder: 'Votre message', class:"form-control", class:"input"  %>
+              <label><i class="far fa-envelope opacity-80"></i></label>
+              <%= text_field_tag 'message', nil, placeholder: 'Votre message',  class:"input"  %>
             </div>
           </div>
 
