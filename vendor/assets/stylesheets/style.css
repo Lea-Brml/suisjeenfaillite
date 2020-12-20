@@ -512,14 +512,15 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
+
+
 #hero .carousel-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
-  text-align: center;
   position: relative;
-  height: 70vh;
+  height: 75vh;
   padding-top: 60px;
 }
 
@@ -531,10 +532,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero p {
-  width: 80%;
+  width: 100%;
   -webkit-animation-delay: 0.4s;
   animation-delay: 0.4s;
-  margin: 0 auto 30px auto;
   color: #fff;
 }
 
@@ -555,7 +555,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 1px;
-  display: inline-block;
   padding: 12px 32px;
   border-radius: 50px;
   transition: 0.5s;

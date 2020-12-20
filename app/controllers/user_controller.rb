@@ -6,7 +6,7 @@ def show
 
   @user = current_user.id
   @banque = Banque.where(user_id:@user)
-  @passif = Passif.find(@user)
+  @passif = Passif.find_by(user_id:params[:id])
 
   @factures = Facture.where(user_id:@user).order(created_at: :desc)
   @banques = Banque.where(user_id:@user).order(created_at: :desc)

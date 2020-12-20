@@ -1,11 +1,13 @@
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
-    <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
+  <section id="hero" class="d-flex flex-column justify-content-end align-items-left">
+    <div id="heroCarousel" class="container carousel ">
+
+
 
 
       <!-- Slide 1 -->
-      <div class="carousel-item active">
+      <div class="carousel-item active" >
         <div class="carousel-container">
 
 
@@ -16,13 +18,13 @@
                 <% end %>
 
 
-          <h2 class="">Suis-je en faillite ?</h2>
+          <h2 class="text-right">Suis-je en faillite ?</h2>
 
 
 
           <% if user_signed_in? && current_user.banques.empty? && current_user.factures.empty? %>
 
-          <p class="animate__animated fanimate__adeInUp">Accédez dès maintenant à notre simulateur en ligne !</p>
+          <p class="">Accédez dès maintenant à notre simulateur en ligne !</p>
 
           <%= link_to 'Commencer la simulation', new_passif_path, class:"btn btn-get-started " ,  class:"btn btn-get-started "%>
 
@@ -100,6 +102,12 @@
 
 
       </div>
+
+
+
+      </div>
+
+
     </section><!-- End About Section -->
 
     <!-- ======= Cta Section ======= -->
@@ -133,37 +141,29 @@
 
         <div class="row text-center mt-4" style="display-flex;  ">
 
-          <div class="col-sm-12 col-md-6 col-lg-3 text-center">
+          <div class="col-sm-12 col-md-6 col-lg-4 text-center">
 
-            <%= image_tag "inscription.png", style:"width:30%", class:"mb-4"%>
+            <%= image_tag "1.png", style:"width:46%", class:"mb-4"%>
             <p style="color: grey ;">
-              Inscrivez-vous gratuitement dès maintenant
+              Inscrivez-vous gratuitement dès maintenant et accédez à notre simulateur en ligne.
             </p>
 
           </div>
 
 
-          <div class="col-sm-12 col-md-6 col-lg-3 text-center">
-            <%= image_tag "simulation.png", style:"width:30%", class:"mb-4"%>
+          <div class="col-sm-12 col-md-6 col-lg-4 text-center">
+            <%= image_tag "2.png", style:"width:46%", class:"mb-4"%>
             <p style="color: grey ;">
-            Accédez à notre simulateur en ligne
+              En quelques clics, faites un point sur la santé financière de votre entreprise.
             </p>
           </div>
 
 
-          <div class="col-sm-12 col-md-6 col-lg-3 text-center">
-            <%= image_tag "etat.png", style:"width:30%", class:"mb-4"%>
-            <p style="color: grey ;">
-            En quelques clics, faites un point sur la santé financière de votre entreprise
+          <div class="col-sm-12 col-md-6 col-lg-4 text-center">
+            <%= image_tag "3.png", style:"width:46%", class:"mb-4"%>
+            <p style="color: grey;">
+            Découvrez nos conseils personnalisés...
             </p>
-          </div>
-
-
-          <div class="col-sm-12 col-md-6 col-lg-3 text-center">
-            <%= image_tag "conseil.png", style:"width:30% ; ", class:"mb-4"%>
-            <p style="color: grey ;">
-            Découvrez nos conseils pour...
-            </P>
           </div>
 
 
