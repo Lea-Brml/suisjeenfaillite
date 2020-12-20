@@ -1,0 +1,132 @@
+
+<div class="registration-form pt-4  pb-3">
+
+  <div class="container sign-up-form mt-4 pt-4">
+
+    <div class="py-4 my-4 row">
+
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+
+
+
+        <div class="container " style="margin-top:8em; ">
+
+
+        <span style="color:#ef6737; font-weight:bold;" >Vos comptes bancaires </span>
+
+        </div>
+
+
+        <div class="container" style=" overflow-y: scroll; height:10em; width: auto;     scrollbar-face-color: #006400; ">
+
+
+          <table style="width:100%;">
+              <thead>
+                  <tr>
+                    <th>Nom de la banque</th>
+                    <th>Découvert autorisé</th>
+                    <th>Solde</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <% @banques.each do |t| %>
+
+                  <tr>
+                      <td ><i class="fas fa-piggy-bank pr-2" style="color:#F39C6E; "></i> <%=  t.banque_name %></td>
+                      <td class="text-left"><%=  t.decouvert_autorise %> €</td>
+                      <td class="text-left"><%=  t.solde %> €</td>
+                  </tr>
+
+
+                <%end%>
+              </tbody>
+          </table>
+
+      </div>
+      <hr>
+      <div class="container space-between pt-2" style="wdth:100%;">
+
+        <table style="width:100%;">
+            <thead>
+                <tr>
+                  <th style="color:white;">Nom de la banque</th>
+                  <th style="color:white;">Découvert autorisé</th>
+                  <th style="color:white;">Solde</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td ><span style="font-weight:bold; "><i class="fas fa-piggy-bank pr-2" style="color:#F39C6E; "></i>  Total</span></td>
+                    <td class="text-left"><%= @banques.sum("decouvert_autorise") %> €</td>
+                    <td class="text-left"><%= @banques.sum("solde") %> €</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+        </DIV>
+
+
+
+
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+          <h2 class="col-12 text-center mb-4 pb-4 mt-4 ">Modifier votre compte <%=@banqueup.banque_name%> :</h2>
+
+
+          <%= form_tag url_for(action:'update'), method: "patch" do %>
+
+
+            <div class='row pt-3'>
+
+              <div class="col-lg-12 py-4">
+                <div class="form-group contact-block1">
+                  <label><i class="fas fa-file-invoice opacity-80"></i></label>
+                  <%= text_field_tag 'banque_name', @banqueup.banque_name,  class:"input" %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 my-4">
+                <div class="form-group">
+                  <p>Découvert autorisé</p>
+                  <label><i class="fas fa-euro-sign opacity-80"></i></label>
+                  <%= text_field_tag 'decouvert_autorise', @banqueup.decouvert_autorise,  class:"input" %>
+                </div>
+              </div>
+
+              <div class="col-lg-12">
+                <p>Solde</p>
+                <div class="form-group">
+                  <label><i class="fas fa-euro-sign opacity-80"></i></label>
+                  <%= text_field_tag 'solde', @banqueup.solde,  class:"input" %>
+                </div>
+              </div>
+
+
+              <div class="col-6 mt-4 text-right">
+                <%= submit_tag "Modifier le compte", class:"btn btn-form", style:"border-radius:20px; margin:2em 0;"  %>
+
+              <% end %>
+              </div>
+
+              <div class="col-6 mt-4" style="padding-top:2em;">
+                <a href="<%= banque_path%>" class="btn-outline" data-confirm="Êtes vous sûr de vouloir supprimer votre compte  <%=@banqueup.banque_name%>?" data-method="DELETE" >Supprimer le compte</a>
+              </div>
+
+
+
+        </div>
+
+
+        </div>
+
+        </div>
+
+      </div>
+
+    </div>

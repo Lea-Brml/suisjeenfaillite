@@ -37,8 +37,8 @@
           <h4 class="">Factures clients</h4>
         </div>
         <div class="col-4 text-right pt-1">
-          <a href="<%=new_facture_path%>"><i class="fas fa-plus-square pr-2" style="color:#2a2c39;"></i></a>
-          <a href=""><i class="fas fa-edit pr-2" style="color:#F39C6E;"></i></a>
+          <i class="fas fa-plus-square pr-2" style="color:#2a2c39;" data-toggle="modal" data-target="#exampleModal1"></i>
+
         </div>
       </div>
 
@@ -57,8 +57,8 @@
 
             <tr>
               <td >
-                <i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>
-                <%=  t.libelle %></td>
+                <i class="fas fa-file-invoice pr-2" style="color:#F39C6E;" data-toggle="modal" data-target="#exampleModal3"></i>
+                <a href="<%=edit_facture_path(t.id)%>"><%=  t.libelle %></a></td>
                 <td class="text-right"><%=  t.facture_montant %> €</td>
               </tr>
 
@@ -100,8 +100,8 @@
             <h4 class="">Banques</h4>
           </div>
           <div class="col-4 text-right pt-1">
-            <a href="<%=new_banque_path%>"><i class="fas fa-plus-square pr-2" style="color:#2a2c39;"></i></a>
-            <a href=""><i class="fas fa-edit pr-2" style="color:#F39C6E;"></i></a>
+            <i class="fas fa-plus-square pr-2" style="color:#2a2c39;" data-toggle="modal" data-target="#exampleModal2"></i>
+
           </div>
         </div>
 
@@ -120,7 +120,7 @@
               <% @banques.each do |t| %>
 
               <tr>
-                <td ><i class="fas fa-piggy-bank pr-2" style="color:#F39C6E; "></i> <%=  t.banque_name %></td>
+                <td ><i class="fas fa-piggy-bank pr-2" style="color:#F39C6E; "></i> <a href="<%=edit_banque_path(t.id)%>"><%=  t.banque_name %></a></td>
                 <td class="text-left"><%=  t.decouvert_autorise %> €</td>
                 <td class="text-right"><%=  t.solde %> €</td>
               </tr>
@@ -427,3 +427,105 @@
           </div>
         </div>
         </section>
+
+
+
+        <!-- Modal Banque -->
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document" style='height:100vh;'>
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ajouter un nouveau compte bancaire :</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+
+                <%= form_tag url_for(banque_index_path(current_user)), :banque => @banque, method: 'post',class:"register-form" do %>
+                  <div class="row">
+
+                    <div class="col-lg-12 my-4">
+                      <div class="form-group contact-block1">
+                        <label><i class="fas fa-money-check opacity-80"></i></label>
+                        <%= text_field_tag 'banque_name', nil, placeholder: 'Nom de la banque', class:"input" %>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label><i class="fas fa-euro-sign opacity-80"></i></label>
+                        <%= text_field_tag 'solde', nil, placeholder: 'Solde du compte',  class:"input"  %>
+                      </div>
+                    </div>
+
+
+                    <div class="col-lg-12 my-4">
+                      <div class="form-group">
+                        <label><i class="fas fa-euro-sign opacity-80"></i></label>
+                        <%= text_field_tag 'decouvert_autorise', nil, placeholder: 'Découvert autorisé', class:"input"  %>
+                      </div>
+                    </div>
+
+
+                    <div class="col-lg-3 mt-2 text-right ">
+                      <%= submit_tag " Ajouter ", class: "btn mt-2", style:"border-radius:20px;" %>
+                      <%end%>
+                    </div>
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        </div>
+
+
+<!-- Modal Facture -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style='height:100vh;'>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter un nouvelle facturel client :</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+        <%= form_tag url_for(facture_index_path(current_user)), :facture => @facture, method: 'post' do %>
+
+          <div class='row'>
+
+            <div class="col-lg-12">
+              <div class="form-group contact-block1">
+                <label><i class="fas fa-file-invoice opacity-80"></i></label>
+                <%= text_field_tag 'libelle', nil, placeholder: 'Libellé',  class:"input" %>
+              </div>
+            </div>
+
+            <div class="col-lg-12 my-4">
+              <div class="form-group">
+                <label><i class="fas fa-euro-sign opacity-80"></i></label>
+                <%= text_field_tag 'facture_montant', nil, placeholder: 'Montant de la facture',  class:"input" %>
+              </div>
+            </div>
+
+
+            <div class="col-lg-3 mt-4 text-right">
+              <%= submit_tag "    Ajouter    ", class: "btn ", style:"border-radius:20px;" %>
+              <%end%>
+            </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</div>

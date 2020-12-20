@@ -1,0 +1,120 @@
+
+<div class="registration-form pt-4  pb-3">
+
+  <div class="container sign-up-form mt-4 pt-4">
+
+    <div class="py-4 my-4 row">
+
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+
+
+
+        <div class="container " style="margin-top:5em; ">
+
+
+        <span style="color:#ef6737; font-weight:bold;" >Vos factures </span>
+
+        </div>
+
+
+        <div class="container" style=" overflow-y: scroll; height:10em; width: auto;     scrollbar-face-color: #006400; ">
+
+
+            <table style="width:100%;">
+                <thead>
+                    <tr>
+                      <th>Libellé</th>
+                      <th class="text-right">Montant de la facture</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% @factures.each do |t| %>
+
+                    <tr>
+                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> <%=  t.libelle %></td>
+                        <td class="text-right"><%=  t.facture_montant %> €</td>
+                    </tr>
+
+
+                  <%end%>
+                </tbody>
+            </table>
+
+        </div>
+        <hr>
+        <div class="container space-between pt-2" style="wdth:100%;">
+
+          <table style="width:100%;">
+              <thead>
+                  <tr>
+                    <th style="color:white;">libellé</th>
+                    <th style="color:white;">Montant de la facture</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                  <tr>
+                      <td ><span style="font-weight:bold; color:#ef6737"><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Total</span></td>
+                      <td class="text-right"><%= @factures.sum("facture_montant") %> €</td>
+                  </tr>
+
+              </tbody>
+          </table>
+
+
+
+        </DIV>
+
+
+
+
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+          <h2 class="col-12 text-center mb-4 pb-4 ">Modifier la facture :</h2>
+
+
+          <%= form_tag url_for(action:'update'), method: "patch" do %>
+
+
+            <div class='row pt-3'>
+
+              <div class="col-lg-12">
+                <div class="form-group contact-block1">
+                  <label><i class="fas fa-file-invoice opacity-80"></i></label>
+                  <%= text_field_tag 'libelle', @factureup.libelle,  class:"input" %>
+                </div>
+              </div>
+
+              <div class="col-lg-12 my-4">
+                <div class="form-group">
+                  <label><i class="fas fa-euro-sign opacity-80"></i></label>
+                  <%= text_field_tag 'facture_montant', @factureup.facture_montant,  class:"input" %>
+                </div>
+              </div>
+
+
+              <div class="col-6 mt-4 text-right">
+                <%= submit_tag "Modifier la facture", class:"btn btn-form", style:"border-radius:20px; margin:2em 0;"  %>
+
+              <% end %>
+              </div>
+
+              <div class="col-6 mt-4" style="padding-top:2em;">
+                <a href="<%= facture_path%>" class="btn-outline" data-confirm="Êtes vous sûr de vouloir supprimer la facture <%=@factureup.libelle%>?" data-method="DELETE" >Supprimer la facture</a>
+              </div>
+
+
+
+        </div>
+
+
+        </div>
+
+        </div>
+
+      </div>
+
+    </div>
