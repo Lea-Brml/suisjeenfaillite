@@ -9,6 +9,11 @@
 # General
 --------------------------------------------------------------*/
 
+
+.font14 {
+  font-size:14px;
+}
+
 .footer-title {
   color:white;
 }
@@ -104,8 +109,6 @@
   display: inline-block;
   transition: background-color 0.6s ease;
 }
-
-
 
 
 
@@ -502,7 +505,12 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(0deg, #2a2c39 0%, #33364a 100%);
+  /*background: linear-gradient(0deg, #2a2c39 0%, #33364a 100%);*/
+  /* background-image:  url("sef.png"); */
+  background-image: linear-gradient(to right, white 0%,rgba(255,255,255,0) 69%), url("https://images.unsplash.com/photo-1596079890744-c1a0462d0975?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80") ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   padding: 0;
 }
 
@@ -519,7 +527,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero h2 {
-  color: #fff;
+  /* color: #313447; */
   margin-bottom: 30px;
   font-size: 48px;
   font-weight: 700;
@@ -529,7 +537,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   -webkit-animation-delay: 0.4s;
   animation-delay: 0.4s;
-  color: #fff;
+  color: #313447;
+  font-size:22px;
 }
 
 #hero .carousel-control-prev, #hero .carousel-control-next {
@@ -1821,8 +1830,9 @@ figure {
   text-align: center; }
 
 .term-service {
-  font-size: 13px;
-  color: #222; }
+  font-size: 14px;
+  color: orange;
+}
 
 .signup-form {
   margin-left: 75px;
@@ -2009,3 +2019,19 @@ label.valid {
     margin-bottom: 10px; } }
 
 /*# sourceMappingURL=style.css.map */
+
+
+/*================================================
+Start Important Part
+==================================================*/
+
+.underline--magical {
+  background-image: linear-gradient(120deg, #f9c789 0%, #ffd5a3 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 1.2em;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
+  &:hover {
+    background-size: 100% 88%;
+  }
+}

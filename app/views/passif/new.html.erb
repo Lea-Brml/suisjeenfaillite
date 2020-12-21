@@ -1,3 +1,28 @@
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Points sur l’engagement dans le cadre de l’utilisation du site :</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p class="font14">• ce site permet d’apprécier les éléments pris en compte pour la cessation de paiement.</p>
+
+              <p class="font14">• Les éléments (bancaires, financiers, comptables…) que je suis invité à compléter sur le site ne sont toutefois pas limitatifs. Une adaptation en fonction des particularités de chaque activité est bien entendu possible, voire souhaitable.</p>
+
+              <p class="font14">•  En fonction de ces éléments enregistrés, sur lesquels le site n’effectue aucune vérification de cohérence, un calcul est mis en œuvre pour déterminer la présence ou non d’une suspicion de cessation de paiement.</p>
+
+              <p class="font14">•  Bien entendu, cette première approche n’est pas suffisante pour arrêter définitivement une position sur mon entreprise. Il conviendra de se rapprocher d’un professionnel pour étudier, de manière approfondie, ma situation avant d’envisager toutes démarches administratives ou juridiques.</p>
+
+              <p class="font14">•  En aucun cas, la responsabilité des personnes en charge du site ne pourra être engagée du fait du résultat du calcul délivré ou des prises de décision qui auront pu être arrêtées sur la base de ces résultats.</p>
+
+              <button type="button" class=" btn btn-form" data-dismiss="modal">J'ai compris.</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="registration-form pt-4 mt-4 mb-2" style="display:flex;justify-content:center;">
 
@@ -11,7 +36,7 @@
         <%= msg %>
       </div>
     <% end %>
-    
+
         <%= form_tag url_for(passif_index_path(@user.id)), :passif => @passif, method: 'post' do %>
 
 
@@ -110,3 +135,11 @@
       </div>
 
 </div>
+
+
+
+<script>
+    $(document).ready(function(){
+        $("#myModal").modal('show');
+    });
+</script>

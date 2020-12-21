@@ -38,7 +38,7 @@
 
               <div class="form-group">
 
-                <%= f.radio_button :is_societe, '1', :checked => true, class:"label-agree-term", id:"agree-term" %>
+                <%= f.radio_button :is_societe, '1', :checked => true %>
 
                 <label for="agree-term" class="label label-agree-term"><span><span></span></span>Inscription en tant que <strong>société</strong></label>
               </div>
@@ -77,7 +77,7 @@
 
             <div class="form-group">
               <%= f.check_box :regle1, id:"agree-term", class:"agree-term"%>
-              <label for="agree-term" class="label-agree-term"><span><span></span></span>J'accepte.... <a href="#" class="term-service">Terms of service</a></label>
+              <label for="agree-term" class="label-agree-term"><span><span></span></span>J'accepte.... <span  class="term-service" data-toggle="modal" data-target="#exampleModal1">Terms of service</span></label>
               <br>
               <%= f.check_box :regle2, id:"agree-term", class:"agree-term"%>
               <label for="agree-term" class="label-agree-term"><span><span></span></span>J'accepte...</label>
@@ -101,4 +101,42 @@
 
   </div>
 
+</div>
+
+
+
+
+<!-- Modal Facture -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style='height:100vh;'>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">        En me connectant sur ce site,  j’ai compris et j’accepte que :</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+
+
+      <p>• ce site permet d’apprécier les éléments pris en compte pour la cessation de paiement.</p>
+
+      <p>• Les éléments (bancaires, financiers, comptables…) que je suis invité à compléter sur le site ne sont toutefois pas limitatifs. Une adaptation en fonction des particularités de chaque activité est bien entendu possible, voire souhaitable.</p>
+
+      <p>•  En fonction de ces éléments enregistrés, sur lesquels le site n’effectue aucune vérification de cohérence, un calcul est mis en œuvre pour déterminer la présence ou non d’une suspicion de cessation de paiement.</p>
+
+      <p>•  Bien entendu, cette première approche n’est pas suffisante pour arrêter définitivement une position sur mon entreprise. Il conviendra de se rapprocher d’un professionnel pour étudier, de manière approfondie, ma situation avant d’envisager toutes démarches administratives ou juridiques.</p>
+
+      <p>•  En aucun cas, la responsabilité des personnes en charge du site ne pourra être engagée du fait du résultat du calcul délivré ou des prises de décision qui auront pu être arrêtées sur la base de ces résultats.</p>
+
+
+
+
+
+      </div>
+
+    </div>
+  </div>
 </div>

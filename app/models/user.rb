@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :regle1, presence:true
   validates :regle2, presence:true
 
-
+  validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "Veuillez renseigner une adresse email avec un format valide." }
 
    has_many :factures
 

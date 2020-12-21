@@ -1,9 +1,11 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-end align-items-left">
-    <div id="heroCarousel" class="container carousel ">
 
+    <div class="hero-one"></div>
+    <div class="hero-two"></div>
 
+    <div id="heroCarousel" class="container carousel " style="z-index:1;">
 
 
       <!-- Slide 1 -->
@@ -26,20 +28,23 @@
 
           <p class="">Accédez dès maintenant à notre simulateur en ligne !</p>
 
-          <%= link_to 'Commencer la simulation', new_passif_path, class:"btn btn-get-started " ,  class:"btn btn-get-started "%>
+          <%= link_to 'Commencer la simulation', new_passif_path, class:"btn  ", style:"font-size:20px"%>
 
 
           <% elsif user_signed_in? %>
 
           <p class="animate__animated fanimate__adeInUp">Accédez dès maintenant à votre simulation !</p>
 
-          <%= link_to 'Ma simulation', user_path(current_user), class:"btn btn-get-started " %>
+          <%= link_to 'Ma simulation', user_path(current_user), class:"btn ", style:"font-size:20px" %>
 
           <%else%>
 
-          <p class="animate__animated fanimate__adeInUp">Inscrivez-vous gratuitement et accédez à notre simulateur pour évaluer la date de cessation de paiement de votre entreprise, et être informé sur les solutions pouvant être mises en œuvre</p>
+          <p class="animate__animated fanimate__adeInUp">Inscrivez-vous gratuitement et accédez à notre <strong>simulateur en ligne</strong> qui vous permet d'<strong>évaluer la date de cessation de paiement de votre entreprise</strong>, et être informé sur les solutions pouvant être mises en œuvre</p>
 
-          <%= link_to 'Accéder au simulateur', new_user_registration_path, class:"btn-get-started" %>
+<!--<span class="underline--magical"> -->
+
+
+          <%= link_to 'Accéder au simulateur', new_user_registration_path, class:"btn", style:"font-size:20px" %>
           <%end%>
 
         </div>
@@ -58,7 +63,7 @@
         <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
       </g>
       <g class="wave3">
-        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+        <use xlink:href="#wave-path" x="50" y="5" fill="#fff">
       </g>
     </svg>
 
@@ -111,7 +116,7 @@
     </section><!-- End About Section -->
 
     <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta" style="background-image:linear-gradient(rgb(42, 44, 57, 0.5), rgb(42, 44, 57, 0.5)), url(<%=asset_path "suisjeenfaillite-home.png"%>);background-position:bottom;">
+    <section id="cta" class="cta" style="background-image:linear-gradient(rgb(42, 44, 57, 0.5), rgb(42, 44, 57, 0.5)), url(<%=asset_path "suisjeenfaillite-home.png"%>);background-position:bottom; ">
       <div class="container">
 
         <div class="row" >
@@ -137,6 +142,11 @@
           <h2>Comment ça marche ?</h2>
           <p>Ce que nous vous proposons</p>
         </div>
+
+
+
+        <p class="pt-4"> Nous vous proposons une <strong>solution simple</strong> afin de vous éclairer sur la situation concrète de votre entreprise à l'égard d'une <strong>éventuelle situation de cessation des paiements et de vous informer sur les solutions pouvant être mises en œuvre</strong>.</p>
+
 
 
         <div class="row text-center mt-4" style="display-flex;  ">
@@ -317,7 +327,6 @@
                   </div>
                 </div>
                 </section>
-
 
 
 
