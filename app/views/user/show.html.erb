@@ -6,7 +6,7 @@
 
 
     <div class="alert alert-success alert-dismissible fade show my-4 pt-4" role="alert">
-      <p style="font-size:18px;">Non suspicion de cessation des paiements</p>
+      <p style="font-size:18px; text-align:center;">Non suspicion de cessation des paiements</p>
     </div>
 
 
@@ -15,7 +15,7 @@
 
 
     <div class="alert alert-danger alert-dismissible fade show my-4" role="alert">
-      <p class="my-4"style="font-size:18px;"><strong>Suspicion de cessation des paiements</strong>.</p>
+      <p class="my-4"style="font-size:18px; text-align:center;"><strong>Suspicion de cessation des paiements</strong>.</p>
     </div>
 
     <%end%>
@@ -232,15 +232,46 @@
         </div>
 
 
-
-
       </div>
 
+    </div> <!-- end row -->
+
+    <div class="row pb-4 mb-4 pt-4" style=" display:felx; justify-content:space-around;">
 
 
+      <div class="col-2 card-passif">
+        <span class="pl-3 pt-3"><span class="money"><%=@passif.salaires.to_i.abs%> </span><i class="fas fa-euro-sign grey"></i></span><br>
+        <span class="pl-3 pb-4 grey ft-small">Salaires </span>
+      </div>
+
+      <div class="col-2 card-passif">
+        <span class="pl-3 pt-3"><span class="money"><%=@passif.loyers.to_i.abs%> </span><i class="fas fa-euro-sign grey"></i></span><br>
+        <span class="pl-3 pb-4 grey ft-small">Loyers </span>
+      </div>
+
+      <div class="col-2 card-passif">
+        <span class="pl-3 pt-3"><span class="money"><%=@passif.charges.to_i.abs%> </span><i class="fas fa-euro-sign grey"></i></span><br>
+        <span class="pl-3 pb-4 grey ft-small">Charges </span>
+      </div>
+
+      <div class="col-2 card-passif">
+        <span class="pl-3 pt-3"><span class="money"><%=@passif.echeances.to_i.abs%> </span><i class="fas fa-euro-sign grey"></i></span><br>
+        <span class="pl-3 pb-4 grey ft-small">Echéances </span>
+      </div>
+
+      <div class="col-2 card-passif">
+        <span class="pl-3 pt-3"><span class="money"><%=@passif.dette_fiscale.to_i.abs%> </span><i class="fas fa-euro-sign grey"></i></span><br>
+        <span class="pl-3 pb-4 grey ft-small">Dettes Fiscales </span>
+      </div>
+
+      <div class="col-12 text-right mt-4">
+        <a href="<%=edit_passif_path%>">Modifier les informations <i class="fas fa-edit pr-2" style="color:#F39C6E;"></i></a>
+      </div>
 
     </div>
+
   </div>
+
 
 
 

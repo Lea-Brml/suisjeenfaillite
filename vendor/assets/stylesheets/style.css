@@ -176,6 +176,21 @@
   width:100%;
 }
 
+.money {
+  font-size:32px;
+  font-weight: lighter;
+  color:grey;
+}
+
+
+.grey{
+  color:grey;
+}
+
+
+.ft-small {
+  font-size:14px;
+}
 
 .trait-orange::after {
     content: "";
@@ -184,6 +199,20 @@
     display: inline-block;
     background: #fd9042;
     margin: 0px 10px;
+}
+
+.card-passif {
+  /* Add shadows to create the "card" effect */
+  padding : 1.4em 1.4em;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 29px 0 rgba(68, 88, 144, 0.12);
+  transition: all 0.4s ease-in-out;  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card-passif:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1);
 }
 
 body {
@@ -202,6 +231,10 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
+}
+
+p {
+  text-align: justify;
 }
 
 /*--------------------------------------------------------------
@@ -920,7 +953,7 @@ section {
 # Services
 --------------------------------------------------------------*/
 .services .icon-box {
-  padding: 30px;
+  padding: 0 2em;
   position: relative;
   overflow: hidden;
   border-radius: 10px;
