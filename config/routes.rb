@@ -5,6 +5,11 @@ Rails.application.routes.draw do
 
   root 'static_pages#index'
 
+  get '/conditions-generales-utilisation', to: 'static_pages#cgu'
+
+  get '/politique-utilisation-donnees', to: 'static_pages#politique'
+
+
   resources :passif
 
   resources :banque

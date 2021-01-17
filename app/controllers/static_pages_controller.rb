@@ -4,6 +4,23 @@ class StaticPagesController < ApplicationController
 
   end
 
-  def secret
+
+  def cgu
+
+
   end
+
+
+  def politique
+
+
+  end
+
+
+  def secret
+
+
+  end
+
+  
 end
