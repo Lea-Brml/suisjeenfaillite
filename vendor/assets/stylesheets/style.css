@@ -978,6 +978,19 @@ section {
   position: absolute;
   left: -2.8em;
   top: calc(50% - 30px);
+  -webkit-transition:-webkit-transform .9s;
+  -moz-transition:-moz-transform .9s;
+  -o-transition:-o-transform .9s;
+  -ms-transition:-ms-transform .9s;
+  transition:transform .9s;
+}
+
+.services .icon:hover {
+  -webkit-transform:rotate(360deg);
+  -moz-transform:rotate(360deg);
+  -o-transform:rotate(360deg);
+  -ms-transform:rotate(360deg);
+  transform:rotate(360deg);
 }
 
 .services .icon i {
