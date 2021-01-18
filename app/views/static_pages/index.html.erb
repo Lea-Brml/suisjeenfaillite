@@ -28,23 +28,50 @@
 
           <p class="">Accédez dès maintenant à notre simulateur en ligne !</p>
 
-          <%= link_to 'Commencer la simulation', new_passif_path, class:"btn  ", style:"font-size:20px"%>
+          <div class="portfolio-experiment">
+            <a href="<%=new_passif_path%>">
+              <span class="text2">Commencer la Simulation</span>
+              <span class="line -right"></span>
+              <span class="line -top"></span>
+              <span class="line -left"></span>
+              <span class="line -bottom"></span>
+            </a>
+          </div>
+          <%- #<%= link_to 'Commencer la simulation', new_passif_path, class:"btn  ", style:"font-size:20px"-%>
 
 
           <% elsif user_signed_in? %>
 
-          <p class="animate__animated fanimate__adeInUp">Accédez dès maintenant à votre simulation !</p>
+          <p>Accédez dès maintenant à votre simulation !</p>
 
-          <%= link_to 'Ma simulation', user_path(current_user), class:"btn ", style:"font-size:20px" %>
+
+          <div class="portfolio-experiment">
+            <a href="<%=user_path(current_user)%>">
+              <span class="text2">Ma Simulation</span>
+              <span class="line -right"></span>
+              <span class="line -top"></span>
+              <span class="line -left"></span>
+              <span class="line -bottom"></span>
+            </a>
+          </div>
+          <%-# commented line <%= link_to 'Ma simulation', user_path(current_user), class:"btn ", style:"font-size:20px" -%>
 
           <%else%>
 
-          <p class="animate__animated fanimate__adeInUp">Inscrivez-vous gratuitement et accédez à notre <strong>simulateur en ligne</strong> qui vous permet d'<strong>évaluer la date de cessation de paiement de votre entreprise</strong>, et être informé sur les solutions pouvant être mises en œuvre</p>
+          <p>Inscrivez-vous gratuitement et accédez à notre <strong>simulateur en ligne</strong> qui vous permet d'<strong>évaluer la date de cessation de paiement de votre entreprise</strong>, et être informé sur les solutions pouvant être mises en œuvre</p>
 
 <!--<span class="underline--magical"> -->
 
+          <div class="portfolio-experiment">
+            <a href="<%=new_user_registration_path%>">
+              <span class="text2">Accéder au simulateur</span>
+              <span class="line -right"></span>
+              <span class="line -top"></span>
+              <span class="line -left"></span>
+              <span class="line -bottom"></span>
+            </a>
+          </div>
 
-          <%= link_to 'Accéder au simulateur', new_user_registration_path, class:"btn", style:"font-size:20px" %>
           <%end%>
 
         </div>
@@ -122,11 +149,20 @@
         <div class="row" >
           <div class="col-sm-12 col-md-12 col-lg-9 text-center text-lg-left ">
             <h3>Simulez l'état financier de votre entreprise</h3>
-            <p class="pt-4"> Nous vous proposons une <strong>solution simple</strong> afin de vous éclairer sur la situation concrète de votre entreprise à l'égard d'une <strong>éventuelle situation de cessation des paiements et de vous informer sur les solutions pouvant être mises en œuvre</strong>.</p>
+            <p class="pt-4 mt-4"> Nous vous proposons une <strong>solution simple</strong> afin de vous éclairer sur la situation concrète de votre entreprise à l'égard d'une <strong>éventuelle situation de cessation des paiements et de vous informer sur les solutions pouvant être mises en œuvre</strong>.</p>
 
           </div>
           <div class="col-sm-12 col-md-12 col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Inscrivez-vous gratuitement</a>
+            <div class="portfolio-experiment">
+              <a href="<%=new_user_registration_path%>">
+                <span class="text">Inscrivez-vous gratuitement</span>
+                <span class="line -right"></span>
+                <span class="line -top"></span>
+                <span class="line -left"></span>
+                <span class="line -bottom"></span>
+              </a>
+            </div>
+            <!--<a class="cta-btn align-middle" >Inscrivez-vous gratuitement</a>-->
           </div>
         </div>
 
