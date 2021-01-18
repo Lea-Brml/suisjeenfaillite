@@ -10,9 +10,13 @@ def show
 
   @factures = Facture.where(user_id:@user).order(created_at: :desc)
   @banques = Banque.where(user_id:@user).order(created_at: :desc)
+  @fournisseurs = Fournisseur.where(user_id:@user).order(created_at: :desc)
 
 
-  @sous_total_passif = @passif.salaires.to_i.abs + @passif.charges.to_i.abs + @passif.loyers.to_i.abs + @passif.echeances.to_i.abs + @passif.dette_fiscale.to_i.abs + @passif.dette_fournisseur.to_i.abs
+  @total_fournisseur =  current_user.fournisseurs.sum("montant_fournisseur")
+
+
+  @sous_total_passif = @passif.salaires.to_i.abs + @passif.charges.to_i.abs + @passif.loyers.to_i.abs + @passif.echeances.to_i.abs + @passif.dette_fiscale.to_i.abs + @total_fournisseur
 
 
    @total_solde_positif = 0

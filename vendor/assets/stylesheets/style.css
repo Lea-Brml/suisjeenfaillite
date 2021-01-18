@@ -10,6 +10,8 @@
 --------------------------------------------------------------*/
 
 
+
+
 .font14 {
   font-size:14px;
 }
@@ -208,7 +210,10 @@
   background: #fff;
   box-shadow: 0 2px 29px 0 rgba(68, 88, 144, 0.12);
   transition: all 0.4s ease-in-out;  transition: 0.3s;
+  overflow: hidden;
 }
+
+
 
 /* On mouse-over, add a deeper shadow */
 .card-passif:hover {
@@ -971,7 +976,7 @@ section {
 
 .services .icon {
   position: absolute;
-  left: -20px;
+  left: -2.8em;
   top: calc(50% - 30px);
 }
 
@@ -979,6 +984,11 @@ section {
   font-size: 64px;
   line-height: 1;
   transition: 0.5s;
+}
+
+.fa-adjust::before {
+    content: "\f434";
+}
 }
 
 .services .title {

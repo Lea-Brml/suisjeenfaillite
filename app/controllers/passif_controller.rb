@@ -13,7 +13,7 @@ before_action :authenticate_user!
   def create
 
 
-    @passif = Passif.new(salaires: params[:salaires],charges: params[:charges], loyers: params[:loyers], echeances: params[:echeances], dette_fiscale: params[:dette_fiscale], dette_fournisseur: params[:dette_fournisseur], user_id:current_user.id)
+    @passif = Passif.new(salaires: params[:salaires],charges: params[:charges], loyers: params[:loyers], echeances: params[:echeances], dette_fiscale: params[:dette_fiscale], user_id:current_user.id)
         if @passif.save
           redirect_to new_facture_path
         else
@@ -46,7 +46,7 @@ before_action :authenticate_user!
 
 
 
-        if @passiff.update(salaires: params[:salaires],charges: params[:charges], loyers: params[:loyers], echeances: params[:echeances], dette_fiscale: params[:dette_fiscale], dette_fournisseur: params[:dette_fournisseur])
+        if @passiff.update(salaires: params[:salaires],charges: params[:charges], loyers: params[:loyers], echeances: params[:echeances], dette_fiscale: params[:dette_fiscale])
           redirect_to user_path(current_user)
         else
           render :edit

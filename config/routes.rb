@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :facture
 
+  resources :fournisseur
+
   resources :user
 
   resources :personne
@@ -30,6 +32,7 @@ Rails.application.routes.draw do
     resources :passif
     resources :banque
     resources :facture
+    resources :fournisseur
     resources :personne
     resources :societe
   end

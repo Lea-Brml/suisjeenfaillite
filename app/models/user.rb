@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
    has_many :factures
 
+   has_many :fournisseurs
+
    has_one :passif
 
    has_many :banques
