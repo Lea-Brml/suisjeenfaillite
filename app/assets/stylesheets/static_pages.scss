@@ -108,6 +108,11 @@ $color : #f26522;
       transition: transform 0.6s cubic-bezier(.2,0,0,1) 0.4s;
     }
 
+    .text2 {
+      transform: translate3d(0,0,0);
+      transition: transform 0.6s cubic-bezier(.2,0,0,1) 0.4s;
+    }
+
     &:after {
       transform: scale3d(0,1,1);
       right: -$thick;
