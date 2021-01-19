@@ -343,13 +343,12 @@ p {
   margin-left: 5px;
   transition: 0.3s;
   font-size: 14px;
-  border-radius: 50px;
   font-family: "Open Sans", sans-serif;
 
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  background: #ef6603;
+  color: #ef6603;
   text-decoration: none;
 }
 
