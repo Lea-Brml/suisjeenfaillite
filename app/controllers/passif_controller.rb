@@ -15,10 +15,10 @@ before_action :authenticate_user!
 
     @passif = Passif.new(salaires: params[:salaires],charges: params[:charges], loyers: params[:loyers], echeances: params[:echeances], dette_fiscale: params[:dette_fiscale], user_id:current_user.id)
         if @passif.save
-          redirect_to new_facture_path
+          redirect_to new_fournisseur_path
         else
           redirect_to new_passif_path
-          flash[:success] = "Une erreur est survenue, veuillez renseigner tous les champs obligatoires. Si la valeure est nule, indiquer '0'"
+          flash[:success] = "Une erreur est survenue, veuillez renseigner tous les champs obligatoires. Si la valeure est nulle, indiquer '0'"
         end
 
   end
