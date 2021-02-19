@@ -4,7 +4,7 @@ class UserController < ApplicationController
 def show
 
 
-  @user = current_user.id
+  @user = User.find(params[:id])
   @banque = Banque.where(user_id:@user)
   @passif = Passif.find_by(user_id:params[:id])
 

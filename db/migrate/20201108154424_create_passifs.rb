@@ -6,6 +6,7 @@ class CreatePassifs < ActiveRecord::Migration[5.2]
       t.integer :loyers
       t.integer :echeances
       t.integer :dette_fiscale
+      t.integer :autre
 
       t.belongs_to :user, index: true #cette ligne rajoute la référence à la table users
 

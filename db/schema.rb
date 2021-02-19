@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2021_01_18_124033) do
     t.integer "loyers"
     t.integer "echeances"
     t.integer "dette_fiscale"
+    t.integer "autre"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -97,7 +98,7 @@ ActiveRecord::Schema.define(version: 2021_01_18_124033) do
     t.boolean "is_societe"
     t.boolean "regle1"
     t.boolean "regle2"
-    t.string "entreprise_name"
+    t.boolean "is_admin"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

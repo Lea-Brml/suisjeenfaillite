@@ -9,7 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.boolean :is_societe
       t.boolean :regle1
       t.boolean :regle2
-      t.string :entreprise_name
+      t.boolean :is_admin
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
