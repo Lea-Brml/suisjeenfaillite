@@ -328,7 +328,7 @@
 
     <%else%>
 
-    <div class="container" style="margin-bottom:5em;">
+    <div style="margin-bottom:5em;">
 
       <h4 class="my-4 py-4">Si la cessation des paiements est constatée, il n’est plus possible de bénéficier :</h4>
 
@@ -382,7 +382,7 @@
       <section>
       <div class="container ">
       <%= form_tag url_for(message_index_path(@user)), :message => @message, method: 'post',class:"register-form" do %>
-        <div class="row pl-4 pr-4">
+        <div class="row ">
 
           <%if current_user.is_societe %>
           <div class="col-lg-6 my-4">
@@ -436,10 +436,9 @@
           <%end%>
 
 
-          <div class="col-lg-12 my-4">
+          <div class="col-lg-12 my-4 pt-4">
             <div class="form-group">
-              <label><i class="far fa-envelope opacity-80"></i></label>
-              <%= text_field_tag 'message', nil, placeholder: 'Votre message',  class:"input"  %>
+              <%= text_area_tag 'message', nil, placeholder: 'Votre message',  class:"input", style:"width:100%; border-radius:8px; border-color:grey; opacity:80%;" , rows:"8"   %>
             </div>
           </div>
 

@@ -26,7 +26,7 @@
 
           <% if user_signed_in? && current_user.banques.empty? && current_user.factures.empty? %>
 
-          <p class="">Accédez dès maintenant à notre simulateur en ligne !</p>
+          <p  style="margin:2em 0em; text-align:right;">Accédez dès maintenant à notre simulateur en ligne !</p>
 
           <div class="portfolio-experiment">
             <a href="<%=new_passif_path%>">
@@ -42,7 +42,7 @@
 
           <% elsif user_signed_in? %>
 
-          <p>Accédez dès maintenant à votre simulation !</p>
+          <p style="margin:2em 0em; text-align:right;">Accédez dès maintenant à votre simulation.</p>
 
 
           <div class="portfolio-experiment">
@@ -58,7 +58,7 @@
 
           <%else%>
 
-          <p>Inscrivez-vous gratuitement et accédez à notre <strong>simulateur en ligne</strong> qui vous permet d'<strong>évaluer la date de cessation de paiement de votre entreprise</strong>, et être informé sur les solutions pouvant être mises en œuvre</p>
+          <p class="pt-4 mt-4" style="margin:1em 0em;">Inscrivez-vous gratuitement et accédez à notre <strong>simulateur en ligne</strong> qui vous permet d'<strong>évaluer la date de cessation de paiement de votre entreprise</strong>, et être informé sur les solutions pouvant être mises en œuvre</p>
 
 <!--<span class="underline--magical"> -->
 
@@ -73,6 +73,7 @@
           </div>
 
           <%end%>
+
 
         </div>
       </div>
@@ -99,12 +100,12 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+    <section id="about" class="about hero-home">
       <div class="container">
 
-        <div class="section-title " >
-          <h2>Une solution simple, pour vous éclairer sur la situation de votre entreprise</h2>
-          <p>Êtes-vous en faillite ? </p>
+        <div class="section-title row" >
+          <p class="ml-3">Êtes-vous en faillite ? </p>
+          <h2 class="col-10 text-left">Une solution simple, pour vous éclairer sur la situation de votre entreprise</h2>
         </div>
 
         <div class="row content pt-4" style="display:flex; align-items:center;" >
@@ -113,22 +114,22 @@
             <p>
               La détermination de la date de cessation des paiements est le préalable nécessaire pour fixer les mesures de protection de l'entreprise qui peuvent être mises en œuvre.
             </p>
-
+            <br>
             <p>
               Juridiquement, la faillite d'une entreprise est caractérisée quand elle est en situation de "cessation des paiements".
             </p>
-            <ul>
-              <li><i class="fas fa-check-double"></i> définition légale</li>
-              <li><i class="fas fa-check-double"></i> références textuelles</li>
-              <li><i class="fas fa-check-double"></i> références textuelles</li>
+            <ul class="col-11 my-4 py-4">
+              <li><i class="fas fa-check-double"></i> définition légale Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</li>
+              <li><i class="fas fa-check-double"></i> références textuelles Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</li>
+              <li><i class="fas fa-check-double"></i> références textuelles Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</li>
             </ul>
 
 
           </div>
 
-          <div class="col-sm-12 col-md-12 col-lg-6 pt-4 pt-lg-0">
+          <div class="col-sm-12 col-md-12 col-lg-6 pt-4 pt-lg-0 text-right">
 
-              <%= image_tag "suis-je-en-faillite.jpg" , style:"width:80%;"%>
+              <%-# <%= image_tag "suis-je-en-faillite.jpg" , style:"width:80%;" -%>
 
           </div>
 
@@ -174,9 +175,9 @@
       <div class="container">
 
 
-        <div class="section-title" >
-          <h2>Comment ça marche ?</h2>
-          <p>Ce que nous vous proposons</p>
+        <div class="section-title col-10 py-4 my-4" >
+          <p>Comment ça marche ?</p>
+          <h2>Vous sentez que la santé financière de votre entreprise se tend ? Faisons le point ensembles.  </h2>
         </div>
 
 
@@ -220,15 +221,22 @@
 
 
 <section style="background-color:#fcfcfc;">
+
+
+
         <div class="container">
 
+          <div class="section-title col-10 py-4 my-4" >
+            <p>Foire aux questions</p>
+            <h2>Cet espace vous permet d'accéder aux réponses des questions les plus fréquemment posées.</h2>
+          </div>
 
-          <div class="tab-content my-4" >
+          <div class="pl-3 my-4 pb-4" >
 
-                  <p class=" pl-4 ml-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            <p >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                     magna aliqua.
-                  </p>
+            </p>
 
           </div>
 
@@ -305,14 +313,14 @@
     <section id="contact" class="contact">
       <div class="container">
 
-        <div class="section-title" >
-          <h2>Contact</h2>
+        <div class="section-title col-10" >
           <p>Contactez-nous</p>
+          <h2>Vous avez une question ? Prenez contact avec nous dès maintenant.</h2>
         </div>
 
 
               <section>
-              <div class="container ">
+              <div >
               <%= form_tag url_for(message_index_path(@user)), :message => @message, method: 'post',class:"register-form" do %>
                 <div class="row pl-4 pr-4">
 
@@ -349,10 +357,9 @@
 
 
 
-                  <div class="col-lg-12 my-4">
+                  <div class="col-lg-12 my-4 pt-4">
                     <div class="form-group">
-                      <label><i class="far fa-envelope opacity-80"></i></label>
-                      <%= text_field_tag 'message', nil, placeholder: 'Votre message', class:"input"  %>
+                      <%= text_area_tag 'message', nil, placeholder: '       Votre message', class:"input", style:"width:100%; border-radius:8px; border-color:grey; opacity:80%;" , rows:"8" %>
                     </div>
                   </div>
 

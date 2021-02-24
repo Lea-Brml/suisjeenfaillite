@@ -542,24 +542,30 @@ p {
   width: 100%;
   overflow: hidden;
   position: relative;
-  /*background: linear-gradient(0deg, #2a2c39 0%, #33364a 100%);*/
+  /* background: linear-gradient(0deg, #2a2c39 0%, #33364a 100%); */
   /* background-image:  url("sef.png"); */
-  background-image: linear-gradient(to right, white 0%,rgba(255,255,255,0) 69%), url("https://images.unsplash.com/photo-1596079890744-c1a0462d0975?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80") ;
+  /* background-image: linear-gradient(to right, white 0%,rgba(255,255,255,0) 69%), url("https://images.unsplash.com/photo-1596079890744-c1a0462d0975?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80") ;*/
+  background-image: linear-gradient(to right, white 0%,rgba(255,255,255,0) 54%), url("suis-je-en-faillite-home-2.jpg") ;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   padding: 0;
 }
 
-
+.hero-home {
+  background-image: linear-gradient(to left, white 0%,rgba(255,255,255,0) 54%), url("suis-je-en-faillite-3.jpg") ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
 
 #hero .carousel-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-end;
   flex-direction: column;
   position: relative;
-  height: 75vh;
+  height: 100vh;
   padding-top: 60px;
 }
 
@@ -575,7 +581,8 @@ p {
   -webkit-animation-delay: 0.4s;
   animation-delay: 0.4s;
   color: #313447;
-  font-size:22px;
+  font-size:20px;
+  text-align:justify;
 }
 
 #hero .carousel-control-prev, #hero .carousel-control-next {
@@ -724,7 +731,7 @@ section {
   padding-bottom: 40px;
 }
 
-.section-title h2 {
+.section-title p {
   font-size: 14px;
   font-weight: 500;
   padding: 0;
@@ -736,7 +743,7 @@ section {
   font-family: "Poppins", sans-serif;
 }
 
-.section-title h2::after {
+.section-title p::after {
   content: "";
   width: 120px;
   height: 1px;
@@ -745,12 +752,12 @@ section {
   margin: 4px 10px;
 }
 
-.section-title p {
+.section-title h2 {
   margin: 0;
   margin: 0;
   font-size: 36px;
-  font-weight: 400;
-  text-transform: uppercase;
+  font-weight: lighter;
+
   font-family: "Poppins", sans-serif;
   color: #2a2c39;
 }
