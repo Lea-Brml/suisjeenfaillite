@@ -1,6 +1,6 @@
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-end align-items-left" style="  background-image: linear-gradient(to right, white 0%,rgba(255,255,255,0) 54%), url(<%=asset_path "suis-je-en-faillite-home-2.jpg"%>) ;">
+  <section id="hero" class="d-flex flex-column justify-content-end align-items-left" style="  background-image: linear-gradient(to right, white 0%,rgba(255,255,255,0) 64%), url(<%=asset_path "hp1.jpg"%>) ;">
 
     <div class="hero-one"></div>
     <div class="hero-two"></div>
@@ -58,7 +58,7 @@
 
           <%else%>
 
-          <p class="pt-4 mt-4" style="margin:1em 0em;">Inscrivez-vous gratuitement et accédez à notre <strong>simulateur en ligne</strong> qui vous permet d'<strong>évaluer la date de cessation de paiement de votre entreprise</strong>, et être informé sur les solutions pouvant être mises en œuvre</p>
+          <p class="pt-4 mt-4" style="margin:1em 0em; padding-left:2em;">Inscrivez-vous gratuitement et accédez à notre <strong>simulateur en ligne</strong> qui vous permet d'<strong>évaluer la date de cessation de paiement de votre entreprise</strong>, et être informé sur les solutions pouvant être mises en œuvre</p>
 
 <!--<span class="underline--magical"> -->
 
@@ -104,24 +104,30 @@
       <div class="container">
 
         <div class="section-title col-8 " >
-          <p class="ml-3">Êtes-vous en faillite ? </p>
+          <p >Êtes-vous en faillite ? </p>
           <h2 class="text-left">Une solution simple, pour vous éclairer sur la situation de votre entreprise</h2>
         </div>
 
-        <div class="row content pt-4" style="display:flex; align-items:center;" >
-          <div class="col-sm-12 col-md-12 col-lg-6 mb-4">
+        <div class="row content pt-4 " style="display:flex; align-items:center;" >
 
-            <p>
+          <div class="col-sm-12 col-md-12 col-lg-7 mb-4">
+
+            <p class="headline2">
               La détermination de la date de cessation des paiements est le préalable nécessaire pour fixer les mesures de protection de l'entreprise qui peuvent être mises en œuvre.
             </p>
             <br>
-            <p>
+            <p class="headline2">
               Juridiquement, la faillite d'une entreprise est caractérisée quand elle est en situation de "cessation des paiements".
             </p>
-            <ul class="col-11 my-4 pb-4">
+
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-6 mb-4">
+
+            <ul class="col-11 my-4 pb-4 tagline font20">
               <li><i class="fas fa-check-double"></i> définition légale Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</li>
               <li><i class="fas fa-check-double"></i> références textuelles Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</li>
-              <li><i class="fas fa-check-double"></i> références textuelles Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</li>
+              <li class="mb-4 pb-4"><i class="fas fa-check-double"></i> références textuelles Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</li>
             </ul>
 
 
@@ -182,33 +188,33 @@
 
 
 
-        <p class="pt-4"> Nous vous proposons une <strong>solution simple</strong> afin de vous éclairer sur la situation concrète de votre entreprise à l'égard d'une <strong>éventuelle situation de cessation des paiements et de vous informer sur les solutions pouvant être mises en œuvre</strong>.</p>
+        <p class="pt-4 headline"> Nous vous proposons une <strong>solution simple</strong> afin de vous éclairer sur la situation concrète de votre entreprise à l'égard d'une <strong>éventuelle situation de cessation des paiements et de vous informer sur les solutions pouvant être mises en œuvre</strong>.</p>
 
 
 
         <div class="row text-center py-4 my-4" >
 
-          <div class="col-sm-12 col-md-6 col-lg-4" >
+          <div class="col-sm-12 col-md-6 col-lg-4 " >
 
-            <%= image_tag "sef1.png", style:"width:100% ;", class:"my-4 pb-4 text-center"%>
-            <p style="color: grey ; width:80%; text-align:center;" class="mx-auto">
+            <%= image_tag "12.png", style:"width:75%; ;", class:"my-4 pb-4 text-center headline2"%>
+            <p style="color: grey ; width:80%; text-align:center;" class="mx-auto tagline">
               Inscrivez-vous gratuitement dès maintenant et accédez à notre simulateur en ligne.
             </p>
 
           </div>
 
 
-          <div class="col-sm-12 col-md-6 col-lg-4 text-center" >
-            <%= image_tag "sef2.png", style:"width:100%", class:"my-4 pb-4"%>
-            <p style="color: grey ; width:80%; text-align:center;" class="mx-auto">
+          <div class="col-sm-12 col-md-6 col-lg-4 text-center " >
+            <%= image_tag "22.png", style:"width:75%;", class:"my-4 pb-4 headline2"%>
+            <p style="color: grey ; width:80%; text-align:center;" class="mx-auto tagline">
               En quelques clics, faites un point sur la santé financière de votre entreprise.
             </p>
           </div>
 
 
-          <div class="col-sm-12 col-md-6 col-lg-4 text-center">
-            <%= image_tag "sef3.png", style:"width:100%", class:"my-4 pb-4"%>
-            <p style="color: grey ; width:80%; text-align:center;" class="mx-auto">
+          <div class="col-sm-12 col-md-6 col-lg-4 text-center " >
+            <%= image_tag "32.png", style:"width:75%;", class:"my-4 pb-4 headline2"%>
+            <p style="color: grey ; width:80%; text-align:center;" class="mx-auto tagline">
             Découvrez nos conseils personnalisés...
             </p>
           </div>
@@ -246,8 +252,8 @@
 
         <ul class="faq-list" style="list-style: none;">
 
-          <li  >
-            <a data-toggle="collapse" class="" href="#faq1"><i class="fas fa-caret-down mr-3"></i> Non consectetur a erat nam at lectus urna duis? </a>
+          <li  class="headline">
+            <a class="font20" data-toggle="collapse" class="" href="#faq1"><i class="fas fa-caret-down mr-3"></i> Non consectetur a erat nam at lectus urna duis? </a>
             <div id="faq1" class="collapse show" >
               <p >
                 Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
@@ -255,8 +261,8 @@
             </div>
           </li>
 
-          <li  >
-            <a data-toggle="collapse" href="#faq2" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? </a>
+          <li  class="headline">
+            <a class="font20" data-toggle="collapse" href="#faq2" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? </a>
             <div id="faq2" class="collapse" >
               <p >
                 Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
@@ -264,8 +270,8 @@
             </div>
           </li>
 
-          <li  >
-            <a data-toggle="collapse" href="#faq3" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? </a>
+          <li  class="headline">
+            <a class="font20" data-toggle="collapse" href="#faq3" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? </a>
             <div id="faq3" class="collapse" >
               <p >
                 Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
@@ -273,8 +279,8 @@
             </div>
           </li>
 
-          <li  >
-            <a data-toggle="collapse" href="#faq4" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</a>
+          <li  class="headline">
+            <a class="font20" data-toggle="collapse" href="#faq4" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</a>
             <div id="faq4" class="collapse" >
               <p >
                 Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
@@ -282,8 +288,8 @@
             </div>
           </li>
 
-          <li  data-aos-delay="500">
-            <a data-toggle="collapse" href="#faq5" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Tempus quam pellentesque nec nam aliquam sem et tortor consequat? </a>
+          <li  class="headline">
+            <a class="font20" data-toggle="collapse" href="#faq5" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Tempus quam pellentesque nec nam aliquam sem et tortor consequat? </a>
             <div id="faq5" class="collapse" >
               <p >
                 Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
@@ -291,7 +297,7 @@
             </div>
           </li>
 
-          <li  data-aos-delay="600">
+          <li  class="headline">
             <a data-toggle="collapse" href="#faq6" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? </a>
             <div id="faq6" class="collapse" >
               <p >
@@ -393,34 +399,8 @@
 
 
   <script>
-
-    var slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
-
-</script>
+    ScrollReveal().reveal('.headline');
+    ScrollReveal().reveal('.headline2', { delay: 300 });
+    ScrollReveal().reveal('.tagline', { delay: 500 });
+    ScrollReveal().reveal('.punchline', { delay: 2000 });
+  </script>
