@@ -1,5 +1,5 @@
 
-<div class="registration-form pt-4">
+<div class="registration-form pt-4 hero-form">
 
   <div class="container sign-up-form mt-4 mb-3">
 
@@ -28,8 +28,7 @@
 
               <div class="col-lg-6 my-4">
                 <div class="form-group contact-block1">
-                  <label><i class="fas fa-user opacity-80"></i></label>
-                  <%= text_field_tag 'nom', nil, placeholder: 'Nom du dirigeant', class:"form-control",  class:"input"  %>
+                  <%= text_field_tag 'nom', nil, placeholder: 'Nom du dirigeant', class:"form-control",  class:"form-control"  %>
                 </div>
               </div>
 
@@ -37,23 +36,20 @@
 
               <div class="col-lg-6 my-4">
                 <div class="form-group">
-                  <label><i class="fas fa-user opacity-80"></i></label>
-                  <%= text_field_tag 'prenom', nil, placeholder: 'Prénom du dirigeant', class:"form-control",  class:"input"  %>
+                  <%= text_field_tag 'prenom', nil, placeholder: 'Prénom du dirigeant', class:"form-control",  class:"form-control"  %>
                 </div>
               </div>
 
               <div class="col-lg-12 ">
                 <div class="form-group">
-                  <label><i class="fas fa-phone opacity-80"></i></label>
-                  <%= text_field_tag 'telephone', nil, placeholder: 'Numéro de téléphone', class:"form-control",  class:"input"  %>
+                  <%= text_field_tag 'telephone', nil, placeholder: 'Numéro de téléphone', class:"form-control",  class:"form-control"  %>
                 </div>
               </div>
 
 
               <div class="col-lg-12 my-4">
                 <div class="form-group contact-block1">
-                  <label><i class="fas fa-user opacity-80"></i></label>
-                  <%= text_field_tag 'forme_sociale', nil, placeholder: 'Forme Sociale', class:"form-control",  class:"input"  %>
+                  <%= text_field_tag 'forme_sociale', nil, placeholder: 'Forme Sociale', class:"form-control",  class:"form-control"  %>
                 </div>
               </div>
 
@@ -61,8 +57,7 @@
 
               <div class="col-lg-12 ">
                 <div class="form-group">
-                  <label><i class="fas fa-user opacity-80"></i></label>
-                  <%= text_field_tag 'denomination_sociale', nil, placeholder: 'Dénomination Sociale', class:"form-control",  class:"input"  %>
+                  <%= text_field_tag 'denomination_sociale', nil, placeholder: 'Dénomination Sociale', class:"form-control",  class:"form-control"  %>
                 </div>
               </div>
 
@@ -71,7 +66,7 @@
 
 
               <div class="col-lg-12 mt-4">
-                <%= submit_tag "    Terminer la simulation    ", class: "btn btn-form my-4", style:"border-radius:20px;" %>
+                <%= submit_tag "    Terminer la simulation    ", class: "btn-get-started scrollto", style:"border-radius:20px;" %>
                 <%end%>
               </div>
 

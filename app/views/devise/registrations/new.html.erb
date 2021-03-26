@@ -1,31 +1,27 @@
 
-
-
-
-<div class="main ">
+<div class="main hero-form">
 
 
   <div class=" row" style="display:flex;align-items:center;">
 
 
-
-    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 d-none d-md-block">
+    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-6 d-none d-md-block">
       <div class="text-center">
-        <%= image_tag "login.jpg" , style:"width:80%;"%>
+        <%= image_tag "login.jpg" , style:"width:60%;"%>
       </div>
     </div>
 
 
-    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-6">
 
 
-      <section class="signup registration-form">
+      <section class="signup registration-form pr-4">
 
-        <div class="container mx-4 px-4">
+        <div class="container mx-4 px-2">
           <div class="signup-content ">
 
 
-            <h2 class="form-title my-4">Inscription</h2>
+            <h2 class="form-title mb-4">Inscription</h2>
 
 
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name),class:"register-form") do |f| %>
@@ -34,7 +30,7 @@
 
           <div class="row  mt-2">
 
-            <div class="col-6">
+            <div class="col-5">
 
               <div class="form-group">
 
@@ -47,7 +43,7 @@
 
 
 
-            <div class="col-6">
+            <div class="col-7">
 
               <div class="form-group ">
                 <%= f.radio_button :is_societe, '0', class:" label-agree-term", id:"agree-term"  %>
@@ -60,18 +56,15 @@
 
 
           <div class="form-group">
-            <label><i class="far fa-envelope opacity-80"></i></label>
-            <%= f.email_field :email, autofocus: true , class:"form-control", placeholder: "Email",  class:"input"%>
+            <%= f.email_field :email, autofocus: true , class:"form-control icon-mail", placeholder: "Email"%>
+          </div>
+
+          <div class="form-group my-4 py-2">
+            <%= f.password_field :password, autocomplete: "new-password", class:"form-control icon-block", placeholder: "Mot de passe" %>
           </div>
 
           <div class="form-group">
-            <label><i class="fas fa-unlock opacity-80"></i></label>
-            <%= f.password_field :password, autocomplete: "new-password", class:"form-control", placeholder: "Mot de passe",  class:"input" %>
-          </div>
-
-          <div class="form-group">
-            <label><i class="fas fa-lock opacity-80"></i></label>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control", placeholder: "Confirmation mot de passe",  class:"input"%>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control icon-block", placeholder: "Confirmation mot de passe"%>
           </div>
 
 
@@ -84,7 +77,7 @@
             </div>
 
 
-            <%= f.submit "Valider", class:"btn btn-form mt-2" %>
+            <%= f.submit "Valider", class:"btn-get-started scrollto mt-2 " %>
             <% end %>
 
             <%= render "devise/shared/links" %>

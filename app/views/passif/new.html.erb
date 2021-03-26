@@ -33,9 +33,9 @@
 </div>
 
 
-<div class="registration-form pt-4 mt-4 mb-4 " style="display:flex;justify-content:center;">
+<div class="registration-form pt-4 hero-form" style="display:flex;justify-content:center;">
 
-  <div class="container sign-up-form my-4 pb-4" >
+  <div class="container sign-up-form my-4 pb-4 pt-4" >
 
 
     <h2 class="col-12 text-center py-4 mt-4 mb-3">Passif exigible</h2>
@@ -57,8 +57,7 @@
               <div class="col-lg-12 my-3">
                 <div class="form-group contact-block1 pb-4">
                   Salaires : <span class="exemple">Salaires brut des employés non payés à échéance.</span>
-                  <label><i class="fas fa-euro-sign opacity-80"></i></label>
-                  <%= text_field_tag 'salaires', nil, class:" input" %>
+                  <%= text_field_tag 'salaires', nil, class:" form-control icon-euro" %>
                 </div>
               </div>
 
@@ -67,8 +66,7 @@
               <div class="col-lg-12 my-3 pb-4">
                  Charges : <span class="exemple">Par exemple : charges sociales patronales, charges sociales non salariées… non payées à échéance.</span>
                 <div class="form-group">
-                   <label><i class="fas fa-euro-sign opacity-80"></i></label>
-                  <%= text_field_tag 'charges', nil, class:"input"%>
+                   <%= text_field_tag 'charges', nil,  class:"form-control icon-euro" %>
                 </div>
               </div>
 
@@ -76,8 +74,7 @@
               <div class="col-lg-12 my-3 pb-4">
                 Mensualités d'emprunts : <span class="exemple">Mensualités non payées à échéance (sauf accord préalable de l’organisme bancaire)</span>
                 <div class="form-group">
-                  <label><i class="fas fa-euro-sign opacity-80"></i></label>
-                  <%= text_field_tag 'echeances', nil,  class:"input"  %>
+                  <%= text_field_tag 'echeances', nil,  class:"form-control icon-euro"  %>
                 </div>
               </div>
 
@@ -90,27 +87,25 @@
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 my-3">
 
 
-            <div class="col-lg-12 my-3 pb-4">
+            <div class="col-lg-12 my-3 pb-2">
               Loyers : <span class="exemple">Par exemple : </span>
               <div class="form-group ">
-                <label><i class="fas fa-euro-sign opacity-80"></i></label>
-                <%= text_field_tag 'loyers', nil,  class:"input"  %>
+                <%= text_field_tag 'loyers', nil,  class:"form-control icon-euro"  %>
               </div>
             </div>
 
 
-              <div class="col-lg-12 my-3 pb-4">
+              <div class="col-lg-12 pb-4">
                 Dettes Fiscales : <span class="exemple">Dettes non payées à échéances (sauf échéancier convenu avec l’administration ou contestation de la dette fiscale).</span>
                 <div class="form-group contact-block1">
-                  <label><i class="fas fa-euro-sign opacity-80"></i></label>
-                  <%= text_field_tag 'dette_fiscale', nil, class:"input"  %>
+                  <%= text_field_tag 'dette_fiscale', nil,  class:"form-control icon-euro"   %>
                 </div>
               </div>
 
 
 
               <div class="col-lg-12 mt-4 pt-4">
-                <%= submit_tag "    Etape suivante    ", class: "btn btn-form", style:"border-radius:20px; margin-top:2em;" %>
+                <%= submit_tag "    Etape suivante    ", class: "btn-get-started scrollto", style:"border-radius:20px; margin-top:1em;" %>
                 <%end%>
               </div>
 

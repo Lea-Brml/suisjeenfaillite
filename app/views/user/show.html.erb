@@ -25,148 +25,21 @@
 </div>
 
 
-<div class="container one-edge-shadow" style="margin-top:-8em; background-color:white; border-radius:20px; ">
+<div class="container one-edge-shadow" style="margin-top:-10em;  ">
 
-  <div class=" row">
-
-
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-
-      <div class="row pt-4 mt-4 pb-2 pl-3">
-        <div class="col-8">
-          <h4 class="">Banques</h4>
-        </div>
-        <div class="col-4 text-right pt-1">
-          <i class="fas fa-plus-square pr-2" style="color:#2a2c39;" data-toggle="modal" data-target="#exampleModal2"></i>
-
-        </div>
-      </div>
-
-      <div class="container mt-4" style=" overflow-y: scroll; height:6em; width: auto;  scrollbar-face-color: #006400; ">
+  <div class=" row" style="display:flex; justify-content:space-around;">
 
 
-        <table style="width:100%;">
-          <thead>
-            <tr>
-              <th style="font-size:13px;">Nom du compte</th>
-              <th style="font-size:13px;">Découvert autorisé</th>
-              <th style="font-size:13px; text-align:right;">Solde</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @banques.each do |t| %>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-6 mb-2">
+      <div class="feature-block">
+        <hr>
 
-            <tr>
-              <td ><i class="fas fa-piggy-bank pr-2" style="color:#F39C6E; "></i> <a href="<%=edit_banque_path(t.id)%>"><%=  t.banque_name %></a></td>
-              <td class="text-left"><%=  t.decouvert_autorise %> €</td>
-              <td class="text-right"><%=  t.solde %> €</td>
-            </tr>
-
-
-            <%end%>
-          </tbody>
-        </table>
-
-      </div>
-      <div class="container space-between pt-2 pb-4 mb-4" style="wdth:100%;">
-
-        <table style="width:100%;">
-          <thead>
-            <tr>
-              <th style="color:white; font-size:13px;">Nom du compte</th>
-              <th style="color:white; font-size:13px;">Découvert autorisé</th>
-              <th style="color:white; font-size:13px; text-align:right;">Solde</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            <tr>
-              <td ><span style="font-weight:bold; "><i class="fas fa-piggy-bank pr-2 pt-2" style="color:#F39C6E; "></i>  Total</span></td>
-              <td class="text-left pt-2" style="font-weight:bold;"><%= @banques.sum("decouvert_autorise") %> €</td>
-              <td class="text-left pt-2" style="font-weight:bold;"><%= @banques.sum("solde") %> €</td>
-            </tr>
-
-          </tbody>
-        </table>
-
-
-      </div>
-
-    </div>
-
-
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-
-      <div class="row pt-4 mt-4 pb-2 pl-3">
-        <div class="col-8">
-          <h4 class="">Actifs réalisables</h4>
-        </div>
-        <div class="col-4 text-right pt-1">
-          <i class="fas fa-plus-square pr-2" style="color:#2a2c39;" data-toggle="modal" data-target="#exampleModal1"></i>
-
-        </div>
-      </div>
-
-      <div class="container mt-4" style=" overflow-y: scroll; height:6em; width: auto;  scrollbar-face-color: #006400; ">
-
-
-        <table style="width:100%;">
-          <thead>
-            <tr>
-              <th style="font-size:13px;">Libellé</th>
-              <th class="text-right" style="font-size:13px;">Montant de l'actif'</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @factures.each do |t| %>
-
-            <tr>
-              <td >
-                <i class="fas fa-file-invoice pr-2" style="color:#F39C6E;" data-toggle="modal" data-target="#exampleModal3"></i>
-                <a href="<%=edit_facture_path(t.id)%>"><%=  t.libelle %></a></td>
-                <td class="text-right"><%=  t.facture_montant %> €</td>
-              </tr>
-
-
-              <%end%>
-            </tbody>
-          </table>
-
-        </div>
-        <div class="container space-between pt-2 pb-4 mb-4" style="wdth:100%;">
-
-          <table style="width:100%;">
-            <thead>
-              <tr>
-                <th style="color:white;">libellé</th>
-                <th style="color:white;">Montant de l'actif'</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              <tr>
-                <td ><span style="font-weight:bold;"><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Total</span></td>
-                <td class="text-right" style="font-weight:bold;"><%= @factures.sum("facture_montant") %> €</td>
-              </tr>
-
-            </tbody>
-          </table>
-
-        </div>
-
-      </div>
-
-
-
-
-      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-
-        <div class="row pt-4 mt-4 pb-2 pl-3">
+        <div class="row pl-3">
           <div class="col-8">
-            <h4 class="">Dettes Fournisseurs</h4>
+            <h4 class="">Banques</h4>
           </div>
           <div class="col-4 text-right pt-1">
-            <i class="fas fa-plus-square pr-2" style="color:#2a2c39;" data-toggle="modal" data-target="#exampleModal3"></i>
+            <i class="fas fa-plus-square pr-2" style="color:#2a2c39;" data-toggle="modal" data-target="#exampleModal2"></i>
 
           </div>
         </div>
@@ -177,18 +50,87 @@
           <table style="width:100%;">
             <thead>
               <tr>
-                <th style="font-size:13px;">Fournisseur</th>
-                <th class="text-right" style="font-size:13px;">Montant dû</th>
+                <th style="font-size:13px;">Nom du compte</th>
+                <th style="font-size:13px;">Découvert autorisé</th>
+                <th style="font-size:13px; text-align:right;">Solde</th>
               </tr>
             </thead>
             <tbody>
-              <% @fournisseurs.each do |t| %>
+              <% @banques.each do |t| %>
+
+              <tr>
+                <td ><i class="fas fa-piggy-bank pr-2" style="color:#71c55d; "></i> <a href="<%=edit_banque_path(t.id)%>"><%=  t.banque_name %></a></td>
+                <td class="text-left"><%=  t.decouvert_autorise %> €</td>
+                <td class="text-right"><%=  t.solde %> €</td>
+              </tr>
+
+
+              <%end%>
+            </tbody>
+          </table>
+
+        </div>
+        <div class="container space-between pt-2 " style="wdth:100%;">
+
+          <table style="width:100%;">
+            <thead>
+              <tr>
+                <th style="color:white; font-size:13px;">Nom du compte</th>
+                <th style="color:white; font-size:13px;">Découvert autorisé</th>
+                <th style="color:white; font-size:13px; text-align:right;">Solde</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td ><span style="font-weight:bold; "><i class="fas fa-piggy-bank pr-2 pt-2" style="color:#71c55d; "></i>  Total</span></td>
+                <td class="text-left pt-2" style="font-weight:bold;"><%= @banques.sum("decouvert_autorise") %> €</td>
+                <td class="text-right pt-2" style="font-weight:bold;"><%= @banques.sum("solde") %> €</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+
+        </div>
+
+      </div>
+
+    </div> <!-- end card banque -->
+
+
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-6 mb-2">
+      <div class="feature-block">
+        <hr>
+
+        <div class="row pl-3">
+          <div class="col-8">
+            <h4 class="">Actifs réalisables</h4>
+          </div>
+          <div class="col-4 text-right pt-1">
+            <i class="fas fa-plus-square pr-2" style="color:#2a2c39;" data-toggle="modal" data-target="#exampleModal1"></i>
+
+          </div>
+        </div>
+
+        <div class="container mt-4" style=" overflow-y: scroll; height:6em; width: auto;  scrollbar-face-color: #006400; ">
+
+
+          <table style="width:100%;">
+            <thead>
+              <tr>
+                <th style="font-size:13px;">Libellé</th>
+                <th class="text-right" style="font-size:13px;">Montant de l'actif'</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @factures.each do |t| %>
 
               <tr>
                 <td >
-                  <i class="fas fa-file-invoice pr-2" style="color:#F39C6E;" data-toggle="modal" data-target="#exampleModal3"></i>
-                  <a href="<%=edit_fournisseur_path(t.id)%>"><%=  t.nom_fournisseur %></a></td>
-                  <td class="text-right"><%=  t.montant_fournisseur %> €</td>
+                  <i class="fas fa-file-invoice pr-2" style="color:#71c55d;"></i>
+                  <a href="<%=edit_facture_path(t.id)%>"><%=  t.libelle %></a></td>
+                  <td class="text-right"><%=  t.facture_montant %> €</td>
                 </tr>
 
 
@@ -197,20 +139,20 @@
             </table>
 
           </div>
-          <div class="container space-between pt-2 pb-4 mb-4" style="wdth:100%;">
+          <div class="container space-between pt-2 " style="wdth:100%;">
 
             <table style="width:100%;">
               <thead>
                 <tr>
-                  <th style="color:white;">Fournisseur</th>
-                  <th style="color:white;">Montant dû</th>
+                  <th style="color:white;">libellé</th>
+                  <th style="color:white;">Montant de l'actif'</th>
                 </tr>
               </thead>
               <tbody>
 
                 <tr>
-                  <td ><span style="font-weight:bold;"><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Total</span></td>
-                  <td class="text-right" style="font-weight:bold;"><%= @fournisseurs.sum("montant_fournisseur") %> €</td>
+                  <td ><span style="font-weight:bold;"><i class="fas fa-file-invoice pr-2" style="color:#71c55d;"></i>Total</span></td>
+                  <td class="text-right" style="font-weight:bold;"><%= @factures.sum("facture_montant") %> €</td>
                 </tr>
 
               </tbody>
@@ -219,48 +161,172 @@
           </div>
 
         </div>
+      </div> <!-- end card actif -->
+
+
+
+
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-6">
+        <div class="feature-block">
+          <hr>
+
+          <div class="row  pl-3">
+            <div class="col-8">
+              <h4 class="">Dettes Fournisseurs</h4>
+            </div>
+            <div class="col-4 text-right pt-1">
+              <i class="fas fa-plus-square pr-2" style="color:#2a2c39;" data-toggle="modal" data-target="#exampleModal3"></i>
+
+            </div>
+          </div>
+
+          <div class="container mt-4" style=" overflow-y: scroll; height:6em; width: auto;  scrollbar-face-color: #006400; ">
+
+
+            <table style="width:100%;">
+              <thead>
+                <tr>
+                  <th style="font-size:13px;">Fournisseur</th>
+                  <th class="text-right" style="font-size:13px;">Montant dû</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @fournisseurs.each do |t| %>
+
+                <tr>
+                  <td >
+                    <i class="fas fa-file-invoice pr-2" style="color:#71c55d;"></i>
+                    <a href="<%=edit_fournisseur_path(t.id)%>"><%=  t.nom_fournisseur %></a></td>
+                    <td class="text-right"><%=  t.montant_fournisseur %> €</td>
+                  </tr>
+
+
+                  <%end%>
+                </tbody>
+              </table>
+
+            </div>
+            <div class="container space-between pt-2 " style="wdth:100%;">
+
+              <table style="width:100%;">
+                <thead>
+                  <tr>
+                    <th style="color:white;">Fournisseur</th>
+                    <th style="color:white;">Montant dû</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr>
+                    <td ><span style="font-weight:bold;"><i class="fas fa-file-invoice pr-2" style="color:#71c55d;"></i>Total</span></td>
+                    <td class="text-right" style="font-weight:bold;"><%= @fournisseurs.sum("montant_fournisseur") %> €</td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+            </div>
+
+          </div>
+        </div>  <!-- end card fournisseur -->
+
+
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-6">
+          <div class="feature-block">
+            <hr>
+            <div class="row  pl-3">
+              <div class="col-8">
+                <h4 class="">Passif exigible</h4>
+              </div>
+              <div class="col-4 text-right pt-1">
+                <a href="<%=edit_passif_path%>"><i class="far fa-edit pr-2" style="color:#2a2c39;"></i></a>
+              </div>
+            </div>
+
+            <div class="container mt-4" style=" overflow-y: scroll; height:6em; width: auto;  scrollbar-face-color: #006400; ">
+
+
+              <table style="width:100%;">
+                <thead>
+                  <tr>
+                    <th style="font-size:13px;">Passif</th>
+                    <th class="text-right" style="font-size:13px;">Montant dû</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td >
+                      <i class="fas fa-file-invoice pr-2" style="color:#71c55d;"></i> Salaires
+                    </td>
+                    <td class="text-right">
+                      <%=@passif.salaires.to_i.abs%> €
+                    </td>
+                  </tr>
+                  <tr>
+                    <td >
+                      <i class="fas fa-file-invoice pr-2" style="color:#71c55d;"></i> Loyers
+                    </td>
+                    <td class="text-right">
+                      <%=@passif.loyers.to_i.abs%> €
+                    </td>
+                  </tr>
+                  <tr>
+                    <td >
+                      <i class="fas fa-file-invoice pr-2" style="color:#71c55d;"></i> Charges
+                    </td>
+                    <td class="text-right">
+                      <%=@passif.charges.to_i.abs%> €
+                    </td>
+                  </tr>
+                  <tr>
+                    <td >
+                      <i class="fas fa-file-invoice pr-2" style="color:#71c55d;"></i> Echéances
+                    </td>
+                    <td class="text-right">
+                      <%=@passif.echeances.to_i.abs%> €
+                    </td>
+                  </tr>
+                  <tr>
+                    <td >
+                      <i class="fas fa-file-invoice pr-2" style="color:#71c55d;"></i> Dettes Fiscales
+                    </td>
+                    <td class="text-right">
+                      <%=@passif.dette_fiscale.to_i.abs%> €
+                    </td>
+                  </tr>
+                </tbody>
+                </table>
+
+
+              </div>
+              <div class="container space-between pt-2 " style="wdth:100%;">
+
+                <table style="width:100%;">
+                  <thead>
+                    <tr>
+                      <th style="color:white;">passif</th>
+                      <th style="color:white;">Montant dû</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <tr>
+                      <td ><span style="font-weight:bold;"><i class="fas fa-file-invoice pr-2" style="color:#71c55d;"></i>Total</span></td>
+                      <td class="text-right" style="font-weight:bold;"> €</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+
+              </div>
+
+            </div>
+          </div>  <!-- end card fournisseur -->
 
 
     </div> <!-- end row -->
 
-    <div class="row pb-4 mb-4 pt-4 services" style=" display:felx; justify-content:space-around;">
 
-
-      <div class="col-sm-12 col-md-6 col-lg-2 card-passif">
-        <div class="icon"><i class="fas fa-adjust" style="color: #2A2C39; opacity:50%;"></i></div>
-        <span class="pl-3 pt-3"><span class="money"><%=@passif.salaires.to_i.abs%> </span><i class="fas fa-euro-sign grey"></i></span><br>
-        <span class="pl-3 pb-4 grey ft-small">Salaires </span>
-      </div>
-
-      <div class=" col-sm-12 col-md-6 my-2 col-lg-2 card-passif">
-        <div class="icon"><i class="fas fa-adjust" style="color: #4AB7D8;opacity:50%;"></i></div>
-        <span class="pl-3 pt-3"><span class="money"><%=@passif.loyers.to_i.abs%> </span><i class="fas fa-euro-sign grey"></i></span><br>
-        <span class="pl-3 pb-4 grey ft-small">Loyers </span>
-      </div>
-
-      <div class="col-sm-12 col-md-6 my-2 col-lg-2 card-passif">
-        <div class="icon"><i class="fas fa-adjust" style="color: #52973D;opacity:50%;"></i></div>
-        <span class="pl-3 pt-3"><span class="money"><%=@passif.charges.to_i.abs%> </span><i class="fas fa-euro-sign grey"></i></span><br>
-        <span class="pl-3 pb-4 grey ft-small">Charges </span>
-      </div>
-
-      <div class="col-sm-12 col-md-6 my-2 col-lg-2 card-passif">
-        <div class="icon"><i class="fas fa-adjust" style="color: #ff689b;opacity:50%;"></i></div>
-        <span class="pl-3 pt-3"><span class="money"><%=@passif.echeances.to_i.abs%> </span><i class="fas fa-euro-sign grey"></i></span><br>
-        <span class="pl-3 pb-4 grey ft-small">Echéances </span>
-      </div>
-
-      <div class="col-sm-12 col-md-6 my-2 col-lg-2 card-passif">
-        <div class="icon"><i class="fas fa-adjust" style="color: #DC7836;opacity:50%;"></i></div>
-        <span class="pl-3 pt-3"><span class="money"><%=@passif.dette_fiscale.to_i.abs%> </span><i class="fas fa-euro-sign grey"></i></span><br>
-        <span class="pl-3 pb-4 grey ft-small">Dettes Fiscales </span>
-      </div>
-
-      <div class="col-12 text-right mt-4">
-        <a href="<%=edit_passif_path%>">Modifier les informations <i class="fas fa-edit pr-2" style="color:#F39C6E;"></i></a>
-      </div>
-
-    </div>
 
   </div>
 
@@ -279,7 +345,7 @@
 
       <h3 class='pb-4 '>Plusieurs procédures préventives vous sont ouvertes.</h3>
 
-      <h4 class="my-4"><i class="fas fa-check-circle pr-2" style="color:green;"></i> Le mandat ad hoc</h4>
+      <h3 class="my-4"><i class="fas fa-check-circle pr-2" style="color:green;"></i> Le mandat ad hoc</h3>
 
       <p>Le mandat ad hoc est l'une des deux procédures préventives (avec la conciliation) qui sont à la disposition des entreprises connaissant des difficultés de nature à compromettre la continuité de l'exploitation. Ce sont des procédures de règlement amiable des difficultés des entreprises.</p>
 
@@ -297,7 +363,7 @@
 
 
 
-      <h4 class="my-4 py-4"> <i class="fas fa-check-circle pr-2" style="color:green;"></i> La procédure de conciliation</h4>
+      <h3 class="my-4 py-4"> <i class="fas fa-check-circle pr-2" style="color:green;"></i> La procédure de conciliation</h3>
 
       <p>La conciliation est une des deux procédures préventives (avec le mandat ad hoc) qui sont à la disposition des entreprises qui connaissent des difficultés de nature à compromettre la continuité de leur exploitation. Ce sont des procédures de règlement amiable des difficultés des entreprises.</p>
 
@@ -320,7 +386,7 @@
 
 
 
-      <h4 class="my-4 py-4"> <i class="fas fa-check-circle pr-2" style="color:green;"></i> Sauvegarde des entreprises</h4>
+      <h3 class="my-4 py-4"> <i class="fas fa-check-circle pr-2" style="color:green;"></i> Sauvegarde des entreprises</h3>
 
       <p>La loi de sauvegarde des entreprises du 26 juillet 2005 a institué une procédure de sauvegarde pour les sociétés en difficultés mais qui ne sont pas en état de cessation des paiements. Cette procédure leur permet d'arrêter un plan, sous le contrôle du Tribunal, pour apurer leur passif afin de poursuivre l'activité et de maintenir l'emploi.</p>
 
@@ -330,28 +396,28 @@
 
     <div style="margin-bottom:5em;">
 
-      <h4 class="my-4 py-4">Si la cessation des paiements est constatée, il n’est plus possible de bénéficier :</h4>
+      <h3 class="my-4 py-4">Si la cessation des paiements est constatée, il n’est plus possible de bénéficier :</h3>
 
       <ul class="pb-4" style="list-style-type: none;">
         <li class="pb-2">
-          <i class="fas fa-times-circle pr-1" style="color:#F39C6E;"></i> Du <strong>mandat ad hoc</strong>, procédure qui consiste à solliciter l’aide d’un mandataire pour évaluer les difficultés et trouver une solution permettant d’y remédier.
+          <p><i class="fas fa-times-circle pr-1" style="color:#F39C6E;"></i> Du <strong>mandat ad hoc</strong>, procédure qui consiste à solliciter l’aide d’un mandataire pour évaluer les difficultés et trouver une solution permettant d’y remédier.</p>
         </li>
         <li>
-          <i class="fas fa-times-circle pr-1" style="color:#F39C6E;"></i>De la <strong>procédure de sauvegarde judiciaire</strong> qui est une procédure collective destinée à traiter les difficultés de l’entreprise.
+          <p><i class="fas fa-times-circle pr-1" style="color:#F39C6E;"></i> De la <strong>procédure de sauvegarde judiciaire</strong> qui est une procédure collective destinée à traiter les difficultés de l’entreprise.</p>
         </li>
       </ul>
 
-      <h4 class="my-4 py-4">Toutefois, la cessation des paiements autorise :</h4>
+      <h3 class="my-4 py-4">Toutefois, la cessation des paiements autorise :</h3>
 
       <ul style="list-style-type: none;">
         <li class="pb-2">
-          <i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de conciliation</strong> si elle date de moins de 45 jours. La procédure de conciliation permet la recherche d’un accord avec les principaux créanciers de l’entreprise.
+            <p><i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de conciliation</strong> si elle date de moins de 45 jours. La procédure de conciliation permet la recherche d’un accord avec les principaux créanciers de l’entreprise.</p>
         </li>
         <li class="pb-2">
-          <i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de redressement judiciaire</strong> qui est une procédure collective destinée à permettre la continuation ou la cession de l’entreprise. Cette procédure suppose que le rétablissement de l’entreprise soit possible.
+            <p><i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de redressement judiciaire</strong> qui est une procédure collective destinée à permettre la continuation ou la cession de l’entreprise. Cette procédure suppose que le rétablissement de l’entreprise soit possible.</p>
         </li>
         <li class="pb-2">
-          <i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de liquidation judiciaire</strong> qui suppose une impossibilité de redressement pour l’entreprise.
+            <p><i class="fas fa-check-circle pr-2" style="color:green;"></i>L’<strong>ouverture d’une procédure de liquidation judiciaire</strong> qui suppose une impossibilité de redressement pour l’entreprise.</p>
         </ul>
 
 
@@ -387,50 +453,43 @@
           <%if current_user.is_societe %>
           <div class="col-lg-6 my-4">
             <div class="form-group">
-              <label><i class="fas fa-user opacity-80"></i></label>
-              <%= text_field_tag 'Nom', nil, value: current_user.societe.nom,  class:"input"  %>
+              <%= text_field_tag 'Nom', nil, value: current_user.societe.nom,  class:"form-control icon-user"  %>
             </div>
           </div>
           <div class="col-lg-6 my-4">
             <div class="form-group">
-              <label><i class="fas fa-user opacity-80"></i></label>
-              <%= text_field_tag 'prenom', nil, value: current_user.societe.prenom,  class:"input"  %>
+              <%= text_field_tag 'prenom', nil, value: current_user.societe.prenom,  class:"form-control icon-user"  %>
             </div>
           </div>
           <%else%>
           <div class="col-lg-6 my-4">
             <div class="form-group">
-              <label><i class="fas fa-user opacity-80"></i></label>
-              <%= text_field_tag 'nom', nil, value: current_user.personne.nom,  class:"input"  %>
+              <%= text_field_tag 'nom', nil, value: current_user.personne.nom,  class:"form-control icon-user"  %>
             </div>
           </div>
           <div class="col-lg-6 my-4">
             <div class="form-group">
-              <label><i class="fas fa-user opacity-80"></i></label>
-              <%= text_field_tag 'prenom', nil, value: current_user.personne.prenom,  class:"input"  %>
+              <%= text_field_tag 'prenom', nil, value: current_user.personne.prenom,  class:"form-control icon-user"  %>
             </div>
           </div>
           <%end%>
 
           <div class="col-lg-6 my-4">
             <div class="form-group contact-block1">
-              <label><i class="far fa-envelope opacity-80"></i></label>
-              <%= text_field_tag 'email', nil, value:current_user.email,   class:"input" %>
+              <%= text_field_tag 'email', nil, value:current_user.email,   class:"form-control icon-mail" %>
             </div>
           </div>
 
           <%if current_user.is_societe %>
           <div class="col-lg-6 my-4">
             <div class="form-group">
-              <label><i class="fas fa-phone opacity-80"></i></label>
-              <%= text_field_tag 'telephone', nil, value: current_user.societe.telephone,  class:"input"  %>
+              <%= text_field_tag 'telephone', nil, value: current_user.societe.telephone,  class:"form-control icon-phone"  %>
             </div>
           </div>
           <%else%>
           <div class="col-lg-6 my-4">
             <div class="form-group">
-              <label><i class="fas fa-phone opacity-80"></i></label>
-              <%= text_field_tag 'telephone', nil, value: current_user.personne.telephone,  class:"input"  %>
+              <%= text_field_tag 'telephone', nil, value: current_user.personne.telephone,  class:"form-control icon-phone"  %>
             </div>
           </div>
           <%end%>
@@ -438,22 +497,14 @@
 
           <div class="col-lg-12 my-4 pt-4">
             <div class="form-group">
-              <%= text_area_tag 'message', nil, placeholder: 'Votre message',  class:"input", style:"width:100%; border-radius:8px; border-color:grey; opacity:80%;" , rows:"8"   %>
+              <%= text_area_tag 'message', nil, placeholder: 'Votre message',  class:"form-control", style:"width:100%; border-radius:8px; border-color:grey; opacity:80%;" , rows:"8"   %>
             </div>
           </div>
 
 
           <div class="col-lg-3 mt-2 text-right ">
 
-            <div class="portfolio-experiment">
-              <button type="submit" name="your_name" value="your_value" class="text">
-                <span class="text2">Envoyer</span>
-                <span class="line -right"></span>
-                <span class="line -top"></span>
-                <span class="line -left"></span>
-                <span class="line -bottom"></span>
-              </button>
-            </div>
+            <%= submit_tag "    Envoyer    ", class: "btn-get-started scrollto", style:"border-radius:20px; margin-top:1em;" %>
 
             <%end%>
           </div>
@@ -480,37 +531,25 @@
 
                     <div class="col-lg-12 my-4">
                       <div class="form-group contact-block1">
-                        <label><i class="fas fa-money-check opacity-80"></i></label>
-                        <%= text_field_tag 'banque_name', nil, placeholder: 'Nom de la banque', class:"input" %>
+                        <%= text_field_tag 'banque_name', nil, placeholder: 'Nom de la banque', class:"form-control icon-file" %>
                       </div>
                     </div>
 
                     <div class="col-lg-12">
                       <div class="form-group">
-                        <label><i class="fas fa-euro-sign opacity-80"></i></label>
-                        <%= text_field_tag 'solde', nil, placeholder: 'Solde du compte',  class:"input"  %>
+                                <%= text_field_tag 'solde', nil, placeholder: 'Solde du compte',  class:"form-control icon-euro"  %>
                       </div>
                     </div>
 
 
                     <div class="col-lg-12 my-4">
                       <div class="form-group">
-                        <label><i class="fas fa-euro-sign opacity-80"></i></label>
-                        <%= text_field_tag 'decouvert_autorise', nil, placeholder: 'Découvert autorisé', class:"input"  %>
+                                <%= text_field_tag 'decouvert_autorise', nil, placeholder: 'Découvert autorisé', class:"form-control icon-euro"  %>
                       </div>
                     </div>
 
 
-                    <div class="col-lg-6 mt-2 text-right ">
-                      <div class="portfolio-experiment">
-                        <button type="submit" name="your_name" value="your_value" class="text">
-                          <span class="text3">Ajouter</span>
-                          <span class="line -right"></span>
-                          <span class="line -top"></span>
-                          <span class="line -left"></span>
-                          <span class="line -bottom"></span>
-                        </button>
-                      </div>
+                      <%= submit_tag "Ajouter", class: " btn btn-form" %>
                       <%end%>
                     </div>
 
@@ -519,7 +558,6 @@
 
             </div>
           </div>
-        </div>
 
         </div>
 
@@ -543,29 +581,19 @@
 
             <div class="col-lg-12">
               <div class="form-group contact-block1">
-                <label><i class="fas fa-file-invoice opacity-80"></i></label>
-                <%= text_field_tag 'libelle', nil, placeholder: 'Libellé',  class:"input" %>
+                <%= text_field_tag 'libelle', nil, placeholder: 'Libellé',  class:"form-control icon-file" %>
               </div>
             </div>
 
             <div class="col-lg-12 my-4">
               <div class="form-group">
-                <label><i class="fas fa-euro-sign opacity-80"></i></label>
-                <%= text_field_tag 'facture_montant', nil, placeholder: 'Montant de la facture',  class:"input" %>
+                <%= text_field_tag 'facture_montant', nil, placeholder: 'Montant de la facture',  class:"form-control icon-euro" %>
               </div>
             </div>
 
 
             <div class="col-lg-6 mt-4 text-right">
-              <div class="portfolio-experiment">
-                <button type="submit" name="your_name" value="your_value" class="text">
-                  <span class="text3">Ajouter</span>
-                  <span class="line -right"></span>
-                  <span class="line -top"></span>
-                  <span class="line -left"></span>
-                  <span class="line -bottom"></span>
-                </button>
-              </div>
+                <%= submit_tag "Ajouter", class: " btn btn-form" %>
               <%end%>
             </div>
 
@@ -599,29 +627,19 @@
 
             <div class="col-lg-12">
               <div class="form-group contact-block1">
-                <label><i class="fas fa-file-invoice opacity-80"></i></label>
-                <%= text_field_tag 'nom_fournisseur', nil, placeholder: 'Fournisseur',  class:"input" %>
+                <%= text_field_tag 'nom_fournisseur', nil, placeholder: 'Fournisseur',  class:"form-control icon-file" %>
               </div>
             </div>
 
             <div class="col-lg-12 my-4">
               <div class="form-group">
-                <label><i class="fas fa-euro-sign opacity-80"></i></label>
-                <%= text_field_tag 'montant_fournisseur', nil, placeholder: 'Montant dû',  class:"input" %>
+                <%= text_field_tag 'montant_fournisseur', nil, placeholder: 'Montant dû',  class:"form-control icon-euro" %>
               </div>
             </div>
 
 
             <div class="col-lg-6 mt-4 text-right">
-              <div class="portfolio-experiment">
-                <button type="submit" name="your_name" value="your_value" class="text">
-                  <span class="text3">Ajouter</span>
-                  <span class="line -right"></span>
-                  <span class="line -top"></span>
-                  <span class="line -left"></span>
-                  <span class="line -bottom"></span>
-                </button>
-              </div>
+              <%= submit_tag "Ajouter", class: " btn btn-form"%>
               <%end%>
             </div>
 

@@ -42,70 +42,126 @@
 
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center ">
-    <div class="container d-flex align-items-center">
 
-      <div class="logo mr-auto">
-        <a href="<%=root_path%>"><h1 class="text-light">Suis-je en faillite</h1> <span>.com</span></a>
+  <!-- ======= Header ======= -->
+  <header id="header" class="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="<%=root_path%>">Suis-je en<span> faillite</span>.fr</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" title="" /></a>-->
       </div>
 
-
-      <nav class="nav-menu d-none d-lg-block mobil-nav">
-        <ul>
-          <li class=""><a href="<%=root_path%>">Accueil</a></li>
-          <li><a href="<%=root_path(anchor:"features")%>">Comment ça marche ?</a></li>
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="<%=root_path%>">Accueil</a></li>
+          <li><a href="<%=root_path%>">Notre solution</a></li>
+          <li><a href="<%=root_path(anchor:"testimonials")%>">F.A.Q</a></li>
+          <li><a href="<%=root_path(anchor:"team")%>">Qui sommes-nous ?</a></li>
           <%if user_signed_in? %>
-          <li class="drop-down"><a class="btn-get-started">Mon compte <i class="pl-2 fas fa-angle-down"></i></a >
+          <li class="menu-has-children"><a href="">Mon compte</a>
             <ul>
-              <li><a href="<%=user_path(current_user)%>">Ma simulation</a></li>
+              <li><a href="<%=user_path(current_user)%>">Ma Simulation</a></li>
               <li><%= link_to "Deconnexion", destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>
           <%else%>
-          <li class="drop-down"><a class="btn-get-started">S'inscrire / Se connecter</a>
+          <li class="menu-has-children"><a href="">Mon compte</a>
             <ul>
-              <li><a href="<%=new_user_session_path %>">Se connecter</a></li>
-              <li><a href="<%=new_user_registration_path%>">S'inscrire</a></li>
+              <li><a href="<%=new_user_session_path %>">Se Connecter</a></li>
+              <li><a href="<%=new_user_registration_path %>">S'inscrire</a></li>
             </ul>
           </li>
           <%end%>
-          <li>
-            <a href="<%=root_path(anchor:"contact")%>" class="btn-outline">Contactez-nous</a>
-          </li>
+          <li><a href="<%=root_path(anchor:"contact")%>">Contactez-nous</a></li>
         </ul>
-      </nav><!-- .nav-menu -->
-
+      </nav><!-- #nav-menu-container -->
     </div>
   </header><!-- End Header -->
 
 
 
+
   <body>
+
+
+
     <%= yield %>
 
+    <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+
+    <!-- ======= Footer ======= -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row" style="text-align:right;">
+
+          <div class="col-md-12 col-lg-3">
+            <div class="footer-logo text-left">
+
+              <a class="navbar-brand" href="<%=root_path%>">Suis-je en faillite<span>.fr</span></a>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the.</p>
+
+            </div>
+          </div>
 
 
+          <div class="col-sm-6 col-md-3 col-lg-4">
+            <div class="list-menu">
 
-      <!-- ======= Footer ======= -->
-      <footer id="footer">
-        <div class="container">
+              <h4>A Propos </h4>
 
+              <ul class="list-unstyled">
+                <li><a href="<%=root_path%>">Notre solution</a></li>
+                <li><a href="<%=root_path%>">Qui sommes-nous ?</a></li>
+              </ul>
 
-            <h1 style="color:white;" class="text-light footer-title"><a href="<%=root_path%>">Suis-je en faillite<span class="pl-2"style="font-size:12px;color:#ef6603;">.com</span></a></h1>
+            </div>
+          </div>
 
-          <div class="copyright mt-4 pt-4">
-              <a href="<%=conditions_generales_utilisation_path%>" class="twitter"><i>conditions générales d'utilisation</i></a>
-              <span class="px-2"style="font-size:12px;color:#ef6603;"> | </span>
-              <a href="<%=politique_utilisation_donnees_path%>" class="google-plus"><i>politique d'utilisation des données</i></a>
+          <div class="col-sm-6 col-md-3 col-lg-3">
+            <div class="list-menu">
+
+              <h4>Mentions Légales</h4>
+
+              <ul class="list-unstyled">
+                <li><a href="<%=conditions_generales_utilisation_path%>">Conditions générales d'utilisation</a></li>
+                <li><a href="<%=politique_utilisation_donnees_path%>" class="google-plus">Politique d'utilisation des données</a></li>
+              </ul>
+
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-3 col-lg-2">
+            <div class="list-menu">
+
+              <h4>Contact</h4>
+
+              <ul class="list-unstyled">
+                <li><a href="<%=root_path%>">Nous-contacter</a></li>
+                <li><a href="<%=root_path%>">FB    LKN </a></li>
+              </ul>
+
+            </div>
           </div>
 
         </div>
-      </footer><!-- End Footer -->
+      </div>
 
-      <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+      <div class="copyrights">
+        <div class="container">
+          <p>&copy; Copyrights SuisJeEnFaillite.fr . Tous droits réservés.</p>
+        </div>
+      </div>
 
+    </footer><!-- End  Footer -->
+
+
+
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
 
   </body>
 

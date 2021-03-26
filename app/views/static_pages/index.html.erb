@@ -1,401 +1,472 @@
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-end align-items-left" style="  background-image: linear-gradient(to right, white 0%,rgba(255,255,255,0) 64%), url(<%=asset_path "hp1.jpg"%>) ;">
-
-    <div class="hero-one"></div>
-    <div class="hero-two"></div>
-
-    <div id="heroCarousel" class="container carousel " style="z-index:1;">
 
 
-      <!-- Slide 1 -->
-      <div class="carousel-item active" >
-        <div class="carousel-container">
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+  <div class="hero-container" >
+    <h1 class="py-4 my-4">Suis-je en faillite ?</h1>
+    <p >Nous vous proposons une <strong>solution simple</strong> afin de vous éclairer sur la <strong>situation concrète de votre entreprise à l'égard d'une éventuelle situation de cessation des paiements</strong> et de vous informer sur les solutions pouvant être mises en œuvre.</p>
+
+    <% if user_signed_in? && current_user.banques.empty? && current_user.factures.empty? %>
+      <a href="<%=new_passif_path%>" class="btn-get-started scrollto">Débuter la simulation</a>
+    <% elsif user_signed_in? %>
+      <a href="<%=user_path(current_user)%>" class="btn-get-started scrollto">Mon Compte</a>
+    <%else%>
+      <a href="<%=new_user_registration_path%>" class="btn-get-started scrollto">Simulez l'état financier de votre entreprise</a>
+    <%end%>
+
+    <!--<div class="btns">
+      <a href="#"><i class="fa fa-apple fa-3x"></i> App Store</a>
+      <a href="#"><i class="fa fa-play fa-3x"></i> Google Play</a>
+      <a href="#"><i class="fa fa-windows fa-3x"></i> windows</a>
+    </div>-->
+
+  </div>
 
 
-                <% flash.each do |type, msg| %>
-                  <div class="alert alert-info margin-top:100px; " style="z-index:1">
-                    <%= msg %>
-                  </div>
-                <% end %>
+</section><!-- End Hero Section -->
 
+<main id="main">
 
-          <h2 class="text-right">Suis-je en faillite ?</h2>
+  <!-- ======= Get Started Section ======= -->
+  <section id="get-started" class="padd-section text-center">
 
+    <div class="container" data-aos="fade-up">
+      <div class="section-title text-center">
 
+        <h2>Une solution simple, pour vous éclairer sur la situation de votre entreprise</h2>
+        <p class="separator pt-4 mt-4">Inscrivez-vous gratuitement et accédez à notre simulateur en ligne qui vous permet d'évaluer la date de cessation de paiement de votre entreprise, et être informé sur les solutions pouvant être mises en œuvre</p>
 
-          <% if user_signed_in? && current_user.banques.empty? && current_user.factures.empty? %>
-
-          <p  style="margin:2em 0em; text-align:right;">Accédez dès maintenant à notre simulateur en ligne !</p>
-
-          <div class="portfolio-experiment">
-            <a href="<%=new_passif_path%>">
-              <span class="text2">Commencer la Simulation</span>
-              <span class="line -right"></span>
-              <span class="line -top"></span>
-              <span class="line -left"></span>
-              <span class="line -bottom"></span>
-            </a>
-          </div>
-          <%- #<%= link_to 'Commencer la simulation', new_passif_path, class:"btn  ", style:"font-size:20px"-%>
-
-
-          <% elsif user_signed_in? %>
-
-          <p style="margin:2em 0em; text-align:right;">Accédez dès maintenant à votre simulation.</p>
-
-
-          <div class="portfolio-experiment">
-            <a href="<%=user_path(current_user)%>">
-              <span class="text2">Ma Simulation</span>
-              <span class="line -right"></span>
-              <span class="line -top"></span>
-              <span class="line -left"></span>
-              <span class="line -bottom"></span>
-            </a>
-          </div>
-          <%-# commented line <%= link_to 'Ma simulation', user_path(current_user), class:"btn ", style:"font-size:20px" -%>
-
-          <%else%>
-
-          <p class="pt-4 mt-4" style="margin:1em 0em; padding-left:2em;">Inscrivez-vous gratuitement et accédez à notre <strong>simulateur en ligne</strong> qui vous permet d'<strong>évaluer la date de cessation de paiement de votre entreprise</strong>, et être informé sur les solutions pouvant être mises en œuvre</p>
-
-<!--<span class="underline--magical"> -->
-
-          <div class="portfolio-experiment">
-            <a href="<%=new_user_registration_path%>">
-              <span class="text2">Accéder au simulateur</span>
-              <span class="line -right"></span>
-              <span class="line -top"></span>
-              <span class="line -left"></span>
-              <span class="line -bottom"></span>
-            </a>
-          </div>
-
-          <%end%>
-
-
-        </div>
       </div>
-
     </div>
 
-    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
-      <defs>
-        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
-      </defs>
-      <g class="wave1">
-        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
-      </g>
-      <g class="wave2">
-        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
-      </g>
-      <g class="wave3">
-        <use xlink:href="#wave-path" x="50" y="5" fill="#fff">
-      </g>
-    </svg>
+    <div class="container">
+      <div class="row">
 
-  </section><!-- End Hero -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+          <div class="feature-block">
 
-  <main id="main">
+            <%= image_tag "sef1.png", class:"img-fluid"%>
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about hero-home" style="background-image: linear-gradient(to left, white 0%,rgba(255,255,255,0) 54%), url(<%=asset_path "suis-je-en-faillite-3.jpg"%>) ;">
-      <div class="container">
+            <h4>Simulation gratuite</h4>
+            <p>Inscrivez-vous dès maintenant et accédez gratuitement à notre simulateur en ligne.</p>
 
-        <div class="section-title col-8 " >
-          <p >Êtes-vous en faillite ? </p>
-          <h2 class="text-left">Une solution simple, pour vous éclairer sur la situation de votre entreprise</h2>
+          </div>
         </div>
 
-        <div class="row content pt-4 " style="display:flex; align-items:center;" >
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="feature-block">
 
-          <div class="col-sm-12 col-md-12 col-lg-7 mb-4">
+            <%= image_tag "sef2.png", class:"img-fluid"%>
 
-            <p class="headline2">
-              La détermination de la date de cessation des paiements est le préalable nécessaire pour fixer les mesures de protection de l'entreprise qui peuvent être mises en œuvre.
-            </p>
-            <br>
-            <p class="headline2">
-              Juridiquement, la faillite d'une entreprise est caractérisée quand elle est en situation de "cessation des paiements".
-            </p>
+            <h4>Simple, intuitif et rapide</h4>
+            <p>En 4 étapes, faites un point sur la santé financière de votre entreprise.</p>
 
+          </div>
         </div>
 
-        <div class="col-sm-12 col-md-12 col-lg-6 mb-4">
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="feature-block">
 
-            <ul class="col-11 my-4 pb-4 tagline font20">
-              <li><i class="fas fa-check-double"></i> définition légale Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</li>
-              <li><i class="fas fa-check-double"></i> références textuelles Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</li>
-              <li class="mb-4 pb-4"><i class="fas fa-check-double"></i> références textuelles Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</li>
+            <%= image_tag "sef3.png", class:"img-fluid"%>
+
+            <h4>Conseils personnalisés</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section><!-- End Get Started Section -->
+
+
+  <!-- ======= Newsletter Section ======= -->
+  <section id="newsletter" class="newsletter text-center">
+    <div class="overlay padd-section">
+      <div class="container" >
+
+
+
+        <div class="row text-left">
+          <div class="col-md-9 col-lg-9">
+
+            <h2 class="white">Vous sentez que la santé financière de votre entreprise se tend ? Faisons le point ensemble.</h2>
+            <p class="white">Inscrivez-vous gratuitement, et accédez à notre simulateur en ligne. </p>
+
+            <a href="#get-started" class="btn-get-started " >Accédez au simulateur</a>
+
+          </div>
+          <div class="col-md-3 col-lg-3">
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </section><!-- End Newsletter Section -->
+
+
+
+  <!-- ======= About Us Section ======= -->
+  <section id="about-us" class="about-us padd-section">
+    <div class="container" data-aos="fade-up">
+      <div class="row justify-content-center" style="align-items:center;">
+
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <img src="<%=image_path "faillite.png"%>" alt="About" data-aos="zoom-in" data-aos-delay="100", style="width:70%;">
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="about-content" data-aos="fade-left" data-aos-delay="100">
+
+            <h2>Comment définir la <span>"faillite"</span> </h2>
+            <p>Juridiquement, la faillite d'une entreprise est caractérisée lorsque cette dernière se trouve en situation de "cessation des paiements".</p>
+            <p>On dit ainsi qu’une société est en faillite lorsque ses actifs disponibles ne sont plus suffisants pour faire face à ses passifs exigibles.</p>
+            <p>La détermination de la date de cessation des paiements est le préalable nécessaire pour fixer les mesures de protection de l'entreprise qui peuvent être mises en œuvre.
+            </p>
+
+            <ul class="list-unstyled">
+              <li><i class="fa fa-angle-right"></i>Définitions légales</li>
+              <li><i class="fa fa-angle-right"></i>Référence texuelle</li>
+              <li><i class="fa fa-angle-right"></i>Référence textuelle</li>
             </ul>
 
-
-          </div>
-
-          <div class="col-sm-12 col-md-12 col-lg-6 pt-4 pt-lg-0 text-right">
-
-              <%-# <%= image_tag "suis-je-en-faillite.jpg" , style:"width:80%;" -%>
-
-          </div>
-
-
-      </div>
-
-
-
-      </div>
-
-
-    </section><!-- End About Section -->
-
-    <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta" >
-      <div class="container">
-
-        <div class="row" >
-          <div class="col-sm-12 col-md-12 col-lg-9 text-center text-lg-left ">
-            <h3>Simulez l'état financier de votre entreprise</h3>
-            <p class="pt-4 mt-4"> Nous vous proposons une <strong>solution simple</strong> afin de vous éclairer sur la situation concrète de votre entreprise à l'égard d'une <strong>éventuelle situation de cessation des paiements et de vous informer sur les solutions pouvant être mises en œuvre</strong>.</p>
-
-          </div>
-          <div class="col-sm-12 col-md-12 col-lg-3 cta-btn-container text-center">
-            <div class="portfolio-experiment">
-              <a href="<%=new_user_registration_path%>">
-                <span class="text">Inscrivez-vous gratuitement</span>
-                <span class="line -right"></span>
-                <span class="line -top"></span>
-                <span class="line -left"></span>
-                <span class="line -bottom"></span>
-              </a>
-            </div>
-            <!--<a class="cta-btn align-middle" >Inscrivez-vous gratuitement</a>-->
           </div>
         </div>
 
-      </div>
-    </section><!-- End Cta Section -->
-
-    <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
-      <div class="container">
 
 
-        <div class="section-title col-10 py-4 my-4" >
-          <p>Comment ça marche ?</p>
-          <h2>Vous sentez que la santé financière de votre entreprise se tend ? Faisons le point ensembles.  </h2>
-        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="about-content" data-aos="fade-left" data-aos-delay="100">
 
-
-
-        <p class="pt-4 headline"> Nous vous proposons une <strong>solution simple</strong> afin de vous éclairer sur la situation concrète de votre entreprise à l'égard d'une <strong>éventuelle situation de cessation des paiements et de vous informer sur les solutions pouvant être mises en œuvre</strong>.</p>
-
-
-
-        <div class="row text-center py-4 my-4" >
-
-          <div class="col-sm-12 col-md-6 col-lg-4 " >
-
-            <%= image_tag "12.png", style:"width:75%; ;", class:"my-4 pb-4 text-center headline2"%>
-            <p style="color: grey ; width:80%; text-align:center;" class="mx-auto tagline">
-              Inscrivez-vous gratuitement dès maintenant et accédez à notre simulateur en ligne.
+            <h2>Mesurez le risque de faillite de votre entreprise de façon <span>simple, autonome et sécurisée</span></h2>
+            <p>Juridiquement, la faillite d'une entreprise est caractérisée lorsque cette dernière se trouve en situation de "cessation des paiements".</p>
+            <p>On dit ainsi qu’une société est en faillite lorsque ses actifs disponibles ne sont plus suffisants pour faire face à ses passifs exigibles.</p>
+            <p>La détermination de la date de cessation des paiements est le préalable nécessaire pour fixer les mesures de protection de l'entreprise qui peuvent être mises en œuvre.
             </p>
 
           </div>
-
-
-          <div class="col-sm-12 col-md-6 col-lg-4 text-center " >
-            <%= image_tag "22.png", style:"width:75%;", class:"my-4 pb-4 headline2"%>
-            <p style="color: grey ; width:80%; text-align:center;" class="mx-auto tagline">
-              En quelques clics, faites un point sur la santé financière de votre entreprise.
-            </p>
-          </div>
-
-
-          <div class="col-sm-12 col-md-6 col-lg-4 text-center " >
-            <%= image_tag "32.png", style:"width:75%;", class:"my-4 pb-4 headline2"%>
-            <p style="color: grey ; width:80%; text-align:center;" class="mx-auto tagline">
-            Découvrez nos conseils personnalisés...
-            </p>
-          </div>
-
         </div>
 
+        <div class="col-sm-12 col-md-6 col-lg-6">
 
+          <img src="<%=image_path "suisjeenfaillite.png"%>" alt="About" data-aos="zoom-in" data-aos-delay="100">
+
+          <center>
+          <% if user_signed_in? && current_user.banques.empty? && current_user.factures.empty? %>
+            <a href="<%=new_passif_path%>" class="btn-get-started scrollto mx-auto" style=";">Débuter la simulation</a>
+          <% elsif user_signed_in? %>
+            <a href="<%=user_path(current_user)%>" class="btn-get-started scrollto btn-compte" style=";">Mon Compte</a>
+          <%else%>
+            <a href="<%=new_user_registration_path%>" class="btn-get-started scrollto" style=";">Simulez l'état financier de votre entreprise</a>
+          <%end%>
+          </center>
+
+        </div>
 
       </div>
-
-
-</section><!-- End Features Section -->
-
-
-<section style="background-color:#fcfcfc;">
+  </section><!-- End About Us Section -->
 
 
 
-        <div class="container">
 
-          <div class="section-title col-10 py-4 my-4" >
-            <p>Foire aux questions</p>
-            <h2>Cet espace vous permet d'accéder aux réponses des questions les plus fréquemment posées.</h2>
+  <section id="faq" style="background-color:#fcfcfc;">
+
+
+          <div class="container">
+
+            <div class="section-title  py-4 " >
+              <p style="color:#71C55D; font-weight:bold;  font-size:25px;">F.A.Q</p>
+              <h2>Cet espace vous permet d'accéder aux réponses des questions les plus fréquemment posées.</h2>
+            </div>
+
+            <div class="pb-4" >
+
+              <p >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                      magna aliqua.
+              </p>
+
+            </div>
+
+
+          <ul class="faq-list" style="list-style: none;">
+
+            <li  class="headline">
+              <a class="font20" data-toggle="collapse" class="" href="#faq1"><i class="fas fa-caret-down mr-3"></i> Non consectetur a erat nam at lectus urna duis? </a>
+              <div id="faq1" class="collapse show" >
+                <p >
+                  Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                </p>
+              </div>
+            </li>
+
+            <li  class="headline">
+              <a class="font20" data-toggle="collapse" href="#faq2" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? </a>
+              <div id="faq2" class="collapse" >
+                <p >
+                  Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                </p>
+              </div>
+            </li>
+
+            <li  class="headline">
+              <a class="font20" data-toggle="collapse" href="#faq3" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? </a>
+              <div id="faq3" class="collapse" >
+                <p >
+                  Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                </p>
+              </div>
+            </li>
+
+            <li  class="headline">
+              <a class="font20" data-toggle="collapse" href="#faq4" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</a>
+              <div id="faq4" class="collapse" >
+                <p >
+                  Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                </p>
+              </div>
+            </li>
+
+            <li  class="headline">
+              <a class="font20" data-toggle="collapse" href="#faq5" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Tempus quam pellentesque nec nam aliquam sem et tortor consequat? </a>
+              <div id="faq5" class="collapse" >
+                <p >
+                  Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                </p>
+              </div>
+            </li>
+
+            <li  class="headline mb-4">
+              <a data-toggle="collapse" href="#faq6" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? </a>
+              <div id="faq6" class="collapse" >
+                <p >
+                  Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
+                </p>
+              </div>
+            </li>
+
+          </ul>
+
           </div>
 
-          <div class="pl-3 my-4 pb-4" >
-
-            <p >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua.
-            </p>
-
-          </div>
-
-
-        <ul class="faq-list" style="list-style: none;">
-
-          <li  class="headline">
-            <a class="font20" data-toggle="collapse" class="" href="#faq1"><i class="fas fa-caret-down mr-3"></i> Non consectetur a erat nam at lectus urna duis? </a>
-            <div id="faq1" class="collapse show" >
-              <p >
-                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-              </p>
-            </div>
-          </li>
-
-          <li  class="headline">
-            <a class="font20" data-toggle="collapse" href="#faq2" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? </a>
-            <div id="faq2" class="collapse" >
-              <p >
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-              </p>
-            </div>
-          </li>
-
-          <li  class="headline">
-            <a class="font20" data-toggle="collapse" href="#faq3" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? </a>
-            <div id="faq3" class="collapse" >
-              <p >
-                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-              </p>
-            </div>
-          </li>
-
-          <li  class="headline">
-            <a class="font20" data-toggle="collapse" href="#faq4" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</a>
-            <div id="faq4" class="collapse" >
-              <p >
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-              </p>
-            </div>
-          </li>
-
-          <li  class="headline">
-            <a class="font20" data-toggle="collapse" href="#faq5" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Tempus quam pellentesque nec nam aliquam sem et tortor consequat? </a>
-            <div id="faq5" class="collapse" >
-              <p >
-                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-              </p>
-            </div>
-          </li>
-
-          <li  class="headline">
-            <a data-toggle="collapse" href="#faq6" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? </a>
-            <div id="faq6" class="collapse" >
-              <p >
-                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
-              </p>
-            </div>
-          </li>
-
-        </ul>
-
-        </div>
-
-  </section>
+    </section>
 
 
 
 
+  <!-- ======= Testimonials Section ======= -->
+  <section id="testimonials" class="padd-section text-center">
+    <div class="container" data-aos="fade-up">
+      <div class="row justify-content-center my-4">
+
+        <div class="col-md-8 my-4">
+
+          <div class="testimonials-content">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+              <div class="carousel-inner" role="listbox">
+
+                <h2>Nos utilisateurs en parlent le mieux</h2>
 
 
+                <div class="carousel-item  active">
+                  <div class="top-top">
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                      specimen book. It has survived not only five centuries.</p>
+                    <h4>Kimberly Tran<span>manager</span></h4>
 
-        <div class="section-title col-10" >
-          <p>Contactez-nous</p>
-          <h2>Vous avez une question ? Prenez contact avec nous dès maintenant.</h2>
-        </div>
-
-
-              <section>
-              <div >
-              <%= form_tag url_for(message_index_path(@user)), :message => @message, method: 'post',class:"register-form" do %>
-                <div class="row pl-4 pr-4">
-
-
-                  <div class="col-lg-6 my-4">
-                    <div class="form-group">
-                      <label><i class="fas fa-user opacity-80"></i></label>
-                      <%= text_field_tag 'nom', nil, placeholder:"Nom", class:"input"  %>
-                    </div>
                   </div>
-
-                  <div class="col-lg-6 my-4">
-                    <div class="form-group">
-                      <label><i class="fas fa-user opacity-80"></i></label>
-                      <%= text_field_tag 'prenom', nil,placeholder:"Prénom", class:"input"  %>
-                    </div>
-                  </div>
-
-
-                  <div class="col-lg-6 my-4">
-                    <div class="form-group contact-block1">
-                      <label><i class="far fa-envelope opacity-80"></i></label>
-                      <%= text_field_tag 'email', nil,placeholder:"Adresse mail",  class:"input" %>
-                    </div>
-                  </div>
-
-
-                  <div class="col-lg-6 my-4">
-                    <div class="form-group">
-                      <label><i class="fas fa-phone opacity-80"></i></label>
-                      <%= text_field_tag 'telephone', nil, placeholder:"Numéro de téléphone", class:"input"  %>
-                    </div>
-                  </div>
-
-
-
-                  <div class="col-lg-12 my-4 pt-4">
-                    <div class="form-group">
-                      <%= text_area_tag 'message', nil, placeholder: '       Votre message', class:"input", style:"width:100%; border-radius:8px; border-color:grey; opacity:80%;" , rows:"8" %>
-                    </div>
-                  </div>
-
-
-                  <div class="col-lg-3 mt-2 text-right ">
-                    <div class="portfolio-experiment">
-                      <button type="submit" name="your_name" value="your_value" class="text">
-                        <span class="text2">Envoyer</span>
-                        <span class="line -right"></span>
-                        <span class="line -top"></span>
-                        <span class="line -left"></span>
-                        <span class="line -bottom"></span>
-                      </button>
-                    </div>
-                  </div>
-
-                  <%end%>
-
                 </div>
-                </section>
+
+                <div class="carousel-item ">
+                  <div class="top-top">
+
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                      specimen book. It has survived not only five centuries.</p>
+                    <h4>Henderson<span>manager</span></h4>
+
+                  </div>
+                </div>
+
+                <div class="carousel-item ">
+                  <div class="top-top">
+
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                      specimen book. It has survived not only five centuries.</p>
+                    <h4>David Spark<span>manager</span></h4>
+
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="btm-btm">
+
+                <ul class="list-unstyled carousel-indicators">
+                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ul>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section><!-- End Testimonials Section -->
 
 
 
 
 
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="padd-section text-center">
 
-  </main><!-- End #main -->
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+
+          <h2>Une idée, une équipe, un projet</h2>
+          <p class="separator">Integer cursus bibendum augue ac cursus .</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6 col-md-4 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="team-block bottom">
+              <img src="assets/img/team/1.jpg" class="img-responsive" alt="img">
+              <div class="team-content">
+                <ul class="list-unstyled">
+                  <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+                <span>manager</span>
+                <h4>Gaël</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-md-4 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="team-block bottom">
+              <img src="assets/img/team/2.jpg" class="img-responsive" alt="img">
+              <div class="team-content">
+                <ul class="list-unstyled">
+                  <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+                <span>manager</span>
+                <h4>Raphaël</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-md-4 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="team-block bottom">
+              <img src="assets/img/team/3.jpg" class="img-responsive" alt="img">
+              <div class="team-content">
+                <ul class="list-unstyled">
+                  <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+                <span>manager</span>
+                <h4>Léa</h4>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </section><!-- End Team Section -->
+
+
+
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="padd-section hero-form">
+
+    <div class="container" data-aos="fade-up">
+      <div class="section-title text-center">
+        <h2>Vous avez une question ? </h2>
+        <p class="separator">Prenez contact avec nous dès maintenant, nous vous recontacterons dans les meilleurs délais. </p>
+      </div>
+
+      <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+
+
+
+        <div class="col-lg-10 col-md-8">
+          <div class="form">
+
+          <%= form_tag url_for(message_index_path(@user)), :message => @message, method: 'post',class:"register-form" do %>
+            <div class="row pl-4 pr-4">
+
+
+              <div class="col-lg-6 my-1">
+                <div class="form-group">
+                  <%= text_field_tag 'nom', nil, placeholder:"   Nom", class:"form-control icon-user"  %>
+                </div>
+              </div>
+
+              <div class="col-lg-6 my-1">
+                <div class="form-group">
+                  <%= text_field_tag 'prenom', nil,placeholder:"   Prénom", class:"form-control icon-user"  %>
+                </div>
+              </div>
+
+
+              <div class="col-lg-6 my-1">
+                <div class="form-group contact-block1">
+                  <%= text_field_tag 'email', nil,placeholder:"   Adresse mail",  class:"form-control icon-mail" %>
+                </div>
+              </div>
+
+
+              <div class="col-lg-6 my-1">
+                <div class="form-group">
+                  <%= text_field_tag 'telephone', nil, placeholder:"   Numéro de téléphone", class:"form-control icon-phone"  %>
+                </div>
+              </div>
+
+
+
+              <div class="col-lg-12 mt-4 ">
+                <div class="form-group">
+                  <%= text_area_tag 'message', nil, placeholder: '   Votre message', class:"input form-control icon-mail", rows:"8" %>
+                </div>
+              </div>
+
+              <%= submit_tag "    Envoyer    ", class: "btn-get-started scrollto mb-4", style:"border-radius:20px; margin-top:1em;" %>
+              <%end%>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+
+
+
+
 
 
   <script>

@@ -1,5 +1,5 @@
 
-<div class="registration-form pt-4 pb-4">
+<div class="registration-form pt-4 pb-4 hero-form">
 
   <div class="container sign-up-form mt-4 pt-4">
 
@@ -108,41 +108,38 @@
 
                 <div class="col-lg-12 my-4">
                   <div class="form-group contact-block1">
-                    <label><i class="fas fa-money-check opacity-80"></i></label>
-                    <%= text_field_tag 'banque_name', nil, placeholder: 'Nom de la banque', class:"input" %>
+                    <%= text_field_tag 'banque_name', nil, placeholder: 'Nom de la banque', class:"form-control " %>
                   </div>
                 </div>
 
                 <div class="col-lg-12">
                   <div class="form-group">
-                    <label><i class="fas fa-euro-sign opacity-80"></i></label>
-                    <%= text_field_tag 'solde', nil, placeholder: 'Solde du compte',  class:"input"  %>
+                    <%= text_field_tag 'solde', nil, placeholder: 'Solde du compte',  class:"form-control icon-euro"  %>
                   </div>
                 </div>
 
 
-                <div class="col-lg-12 my-4">
+                <div class="col-lg-12 mt-3">
                   <div class="form-group">
-                    <label><i class="fas fa-euro-sign opacity-80"></i></label>
-                    <%= text_field_tag 'decouvert_autorise', nil, placeholder: 'Découvert autorisé', class:"input"  %>
+                    <%= text_field_tag 'decouvert_autorise', nil, placeholder: 'Découvert autorisé', class:"form-control icon-euro"  %>
                   </div>
                 </div>
 
 
                 <div class="col-lg-3 mt-2 text-right ">
-                  <%= submit_tag " Ajouter ", class: "btn mt-2", style:"border-radius:20px;" %>
+                  <%= submit_tag " Ajouter ", class: "btn-get-started scrollto", style:"border-radius:20px;" %>
                   <%end%>
                 </div>
 
-                <div class="col-lg-12 mt-4 pt-4">
+                <div class="col-lg-12 ">
                   <p style="font-size:12px;"><strong>veuillez renseigner vos différents comptes bancaires l'un après l'autre</strong>. Une fois les différents comptes ajoutés, veuillez passer à l'étape suivante. </p>
                 </div>
 
                 <div class="col-lg-12 mt-2 pt-2">
                 <% if current_user.is_societe %>
-                    <%= link_to 'Etape suivante', new_societe_path, class:" btn btn-form "%>
+                    <%= link_to 'Etape suivante', new_societe_path, class:" btn-get-started scrollto "%>
                 <%else%>
-                    <%= link_to 'Etape suivante', new_personne_path, class:" btn btn-form " %>
+                    <%= link_to 'Etape suivante', new_personne_path, class:" btn-get-started scrollto " %>
                 <%end%>
                 </div>
 
