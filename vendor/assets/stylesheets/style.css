@@ -68,7 +68,6 @@ opacity:60%;
   background-size: 1.2em;
   padding-left: 27px;
   opacity:60%;
-  margin
 }
 
 .icon-phone {
@@ -407,6 +406,7 @@ span {
 @media (max-width: 575px) {
   #hero .btns a {
     margin: 4px 8px;
+}
 }
 
 #hero .btns a:hover {
