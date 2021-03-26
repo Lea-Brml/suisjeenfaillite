@@ -407,7 +407,6 @@ span {
 @media (max-width: 575px) {
   #hero .btns a {
     margin: 4px 8px;
-  }
 }
 
 #hero .btns a:hover {
