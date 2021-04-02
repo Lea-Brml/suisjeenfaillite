@@ -3,49 +3,55 @@
 
   <div class="container sign-up-form mt-4 pt-4">
 
-    <div class="py-4 mt-4 mb-3 row" style="  display: flex;
-      ">
+    <div class="py-4 mt-4 mb-3 row" style="justify-content:space-between">
 
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 card mt-3" style="height:100%;">
 
 
         <% if @banques.empty? %>
 
         <div class="d-none d-md-block ">
 
-        <%= image_tag "Statistics-pana.png" , style:"width:80%;"%>
+          <div class="container title-ajouts2" style="margin-top:1.5em; margin-bottom:5em;">
+
+
+          <span " >Derniers ajouts </span>
+
+          <p class="font14 mt-4 pt-4 mb-4 pb-4"><i>Veuillez renseigner vos différents comptes bancaires l'un après l'autre. Une fois les différents comptes ajoutés, veuillez passer à l'étape suivante.</i></p>
+
+          </div>
 
         </div>
 
         <%else%>
 
 
-        <div class="container " style="margin-top:5em; ">
+        <div class="container title-ajouts2" style="margin-top:1.5em; ">
 
 
-        <span style="color:#ef6737; font-weight:bold;" >Derniers ajouts </span>
+        <span >Derniers ajouts </span>
 
         </div>
 
 
-        <div class="container" style=" overflow-y: scroll; height:10em; width: auto;     scrollbar-face-color: #006400; ">
+        <div class="mx-3 mt-4 pt-2" style=" overflow-y: scroll; height:10em; width: auto;     scrollbar-face-color: #006400; ">
 
 
             <table style="width:100%;">
                 <thead>
                     <tr>
-                      <th>Nom de la banque</th>
-                      <th>Découvert autorisé</th>
-                      <th>Solde</th>
+                      <th style="font-weight:lighter;">Nom de la banque</th>
+                      <th style="font-weight:lighter;" class="text-right">Découvert autorisé</th>
+                      <th style="font-weight:lighter;" class="text-right">Solde</th>
                     </tr>
                 </thead>
                 <tbody>
                   <% @banques.each do |t| %>
 
                     <tr>
-                        <td ><i class="fas fa-piggy-bank pr-2" style="color:#F39C6E; "></i> <%=  t.banque_name %></td>
-                        <td class="text-left"><%=  t.decouvert_autorise %> €</td>
-                        <td class="text-left"><%=  t.solde %> €</td>
+                        <td ><i class="fas fa-piggy-bank pr-2" ></i> <%=  t.banque_name %></td>
+                        <td class="text-right"><%=  t.decouvert_autorise %> €</td>
+                        <td class="text-right"><%=  t.solde %> €</td>
                     </tr>
 
 
@@ -55,22 +61,22 @@
 
         </div>
         <hr>
-        <div class="container space-between pt-2" style="wdth:100%;">
+        <div class="container space-between pt-2" style="margin-bottom:3em;">
 
           <table style="width:100%;">
               <thead>
                   <tr>
                     <th style="color:white;">Nom de la banque</th>
                     <th style="color:white;">Découvert autorisé</th>
-                    <th style="color:white;">Solde</th>
+                    <th style="color:white; ">Solde</th>
                   </tr>
               </thead>
               <tbody>
 
                   <tr>
-                      <td ><span style="font-weight:bold; "><i class="fas fa-piggy-bank pr-2" style="color:#F39C6E; "></i>  Total</span></td>
-                      <td class="text-left"><%= @banques.sum("decouvert_autorise") %> €</td>
-                      <td class="text-left"><%= @banques.sum("solde") %> €</td>
+                      <td ><span style="font-weight:bold; "><i class="fas fa-piggy-bank pr-2" ></i>  Total</span></td>
+                      <td class="text-right"><%= @banques.sum("decouvert_autorise") %> €</td>
+                      <td class="text-right"><%= @banques.sum("solde") %> €</td>
                   </tr>
 
               </tbody>
@@ -100,7 +106,7 @@
 
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
-          <h2 class="col-12 text-center mb-4 ">Banques</h2>
+          <h2 class="col-12 text-left mb-4 title-ajouts">Banques</h2>
 
 
             <%= form_tag url_for(banque_index_path(@user.id)), :banque => @banque, method: 'post',class:"register-form" do %>
@@ -108,7 +114,7 @@
 
                 <div class="col-lg-12 my-4">
                   <div class="form-group contact-block1">
-                    <%= text_field_tag 'banque_name', nil, placeholder: 'Nom de la banque', class:"form-control " %>
+                    <%= text_field_tag 'banque_name', nil, placeholder: 'Nom de la banque', class:"form-control icon-file" %>
                   </div>
                 </div>
 

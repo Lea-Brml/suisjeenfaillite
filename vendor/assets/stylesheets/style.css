@@ -5,6 +5,11 @@
 * License: https://bootstrapmade.com/license/
 */
 
+.font14 {
+  font-size:13px;
+}
+
+
 .jumbotron {
   height:28em;
   background-color:#EDF8EA;
@@ -57,7 +62,7 @@ background-image: url('file.png');
 background-repeat: no-repeat;
 background-position: 4px 7px;
 background-size: 1.2em;
-padding-left: 27px;
+padding-left: 30px;
 opacity:60%;
 }
 
@@ -75,7 +80,7 @@ opacity:60%;
   background-repeat: no-repeat;
   background-position: 4px 9px;
   background-size: 1.2em;
-  padding-left: 27px;
+  padding-left: 30px;
   opacity:60%;
 }
 
@@ -93,10 +98,22 @@ opacity:60%;
   background-repeat: no-repeat;
   background-position: 4px 9px;
   background-size: 1.2em;
-  padding-left: 27px;
+  padding-left: 30px;
   opacity:60%;
 }
 
+
+.title-ajouts{
+  color:#71c55d;
+  font-weight:lighter;
+  font-size:50px;
+}
+
+.title-ajouts2{
+  color:grey;
+  font-weight:lighter;
+  font-size:40px;
+}
 
 .feature-block {
   background: #fff none repeat scroll 0 0;

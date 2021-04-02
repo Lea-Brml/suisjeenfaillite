@@ -312,7 +312,7 @@
 
                     <tr>
                       <td ><span style="font-weight:bold;"><i class="fas fa-file-invoice pr-2" style="color:#71c55d;"></i>Total</span></td>
-                      <td class="text-right" style="font-weight:bold;"> €</td>
+                      <td class="text-right" style="font-weight:bold;"><%=@passif.salaires.to_i.abs + @passif.charges.to_i.abs + @passif.loyers.to_i.abs + @passif.echeances.to_i.abs + @passif.dette_fiscale.to_i.abs %> €</td>
                     </tr>
 
                   </tbody>
