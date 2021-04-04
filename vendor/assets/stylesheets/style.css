@@ -322,22 +322,17 @@ span {
 #hero {
   width: 100%;
   height: calc(100vh - 40px);
-  background: url(../img/hero-bg.png) center bottom no-repeat;
   background-size: 100%;
   position: relative;
   margin-top: 40px;
-}
-
-@media (min-width: 1025px) {
-  #hero {
-    background-attachment: fixed;
-  }
-}
-
-#hero .hero-container {
   background-image: url("hero-bg.png");
   background-position: bottom;
   background-repeat: no-repeat;
+}
+
+
+#hero .hero-container {
+
   height:100vh;
   position: absolute;
   bottom: 0;
