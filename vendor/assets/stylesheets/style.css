@@ -325,7 +325,7 @@ span {
   background-size: 100%;
   position: relative;
   margin-top: 40px;
-  background-image: url("hero-bg.png");
+  background: url("hero-bg.png");
   background-position: bottom;
   background-repeat: no-repeat;
 }
