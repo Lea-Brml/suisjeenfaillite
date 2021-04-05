@@ -342,16 +342,12 @@ span {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  text-align: center;
+  text-align: left;
 }
 
 #hero h1 {
   margin: 0 0 10px 0;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 56px;
-  font-family: "Philosopher", sans-serif;
-  color: #71c55d;
+
 }
 
 @media (max-width: 768px) {
@@ -367,7 +363,7 @@ span {
   font-size: 19px;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-  width:55%;
+  margin-right:4em;
 }
 
 @media (max-width: 768px) {

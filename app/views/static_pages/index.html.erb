@@ -3,8 +3,27 @@
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" style="background-image: url(<%= asset_path 'hero-bg.png' %>)">
-  <div class="hero-container" >
-    <h1 class="py-4 my-4">Suis-je en faillite ?</h1>
+
+
+
+  <div class="hero-container  row" style="display:flex; flex-direction:row;">
+
+    <div class="col-6 text-center">
+
+      <%= image_tag "suis-je-en-faillite.png", class:"img-fluid"%>
+
+    </div>
+
+    <div class="col-6">
+
+    <h1 class="title-ajouts2">Simulez la santé financière<br> de votre entreprise <br>de façon
+      <span
+         class="txt-rotate"
+         data-period="2000"
+         data-rotate='[ "simple.", "sécurisée.", "autonome."]'></span>
+    </h1>
+
+
     <p >Nous vous proposons une <strong>solution simple</strong> afin de vous éclairer sur la <strong>situation concrète de votre entreprise à l'égard d'une éventuelle situation de cessation des paiements</strong> et de vous informer sur les solutions pouvant être mises en œuvre.</p>
 
     <% if user_signed_in? && current_user.banques.empty? && current_user.factures.empty? %>
@@ -15,11 +34,10 @@
       <a href="<%=new_user_registration_path%>" class="btn-get-started scrollto">Simulez l'état financier de votre entreprise</a>
     <%end%>
 
-    <!--<div class="btns">
-      <a href="#"><i class="fa fa-apple fa-3x"></i> App Store</a>
-      <a href="#"><i class="fa fa-play fa-3x"></i> Google Play</a>
-      <a href="#"><i class="fa fa-windows fa-3x"></i> windows</a>
-    </div>-->
+
+
+
+    </div>
 
   </div>
 
@@ -464,16 +482,3 @@
 
 
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-
-
-
-
-
-
-  <script>
-    ScrollReveal().reveal('.headline');
-    ScrollReveal().reveal('.headline2', { delay: 300 });
-    ScrollReveal().reveal('.tagline', { delay: 500 });
-    ScrollReveal().reveal('.punchline', { delay: 2000 });
-  </script>
