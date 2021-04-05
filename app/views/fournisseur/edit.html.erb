@@ -1,24 +1,24 @@
 
-<div class="registration-form pt-4  pb-3">
+<div class="registration-form pt-4 pb-4 hero-form" style="background-image: url(<%= asset_path 'hero-bg.png' %>)">
 
   <div class="container sign-up-form mt-4 pt-4">
 
-    <div class="py-4 my-4 row">
+    <div class="py-4 my-4 row" style="justify-content:space-between">
 
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-
-
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 card">
 
 
-        <div class="container " style="margin-top:5em; ">
 
 
-        <span style="color:#ef6737; font-weight:bold;" >Vos Dettes Fournisseurs </span>
+        <div class="container " style="margin-top:1.5em; ">
+
+
+        <span class="title-ajouts2" >Vos Dettes Fournisseurs </span>
 
         </div>
 
 
-        <div class="container" style=" overflow-y: scroll; height:10em; width: auto;     scrollbar-face-color: #006400; ">
+        <div class="my-4 mx-3" style=" overflow-y: scroll; height:8em; width: auto;     scrollbar-face-color: #006400; ">
 
 
             <table style="width:100%;">
@@ -32,7 +32,7 @@
                   <% @fournisseurs.each do |t| %>
 
                     <tr>
-                        <td ><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i> <%=  t.nom_fournisseur %></td>
+                        <td ><i class="fas fa-file-invoice pr-2" ></i> <%=  t.nom_fournisseur %></td>
                         <td class="text-right"><%=  t.montant_fournisseur %> €</td>
                     </tr>
 
@@ -43,7 +43,7 @@
 
         </div>
         <hr>
-        <div class="container space-between pt-2" style="wdth:100%;">
+        <div class="container space-between pt-2" style="wdth:100%; margin-bottom:5em;">
 
           <table style="width:100%;">
               <thead>
@@ -55,7 +55,7 @@
               <tbody>
 
                   <tr>
-                      <td ><span style="font-weight:bold; color:#ef6737"><i class="fas fa-file-invoice pr-2" style="color:#F39C6E;"></i>Total</span></td>
+                      <td ><span style="font-weight:bold; "><i class="fas fa-file-invoice pr-2" ></i>Total</span></td>
                       <td class="text-right"><%= @fournisseurs.sum("montant_fournisseur") %> €</td>
                   </tr>
 
@@ -73,7 +73,7 @@
 
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
-          <h2 class="col-12 text-center mb-4 pb-4 ">Modifier la dette :</h2>
+          <h2 class="col-12 text-left title-ajouts mb-4 pb-4 ">Modifier la dette fournisseur :</h2>
 
 
           <%= form_tag url_for(action:'update'), method: "patch" do %>
@@ -83,15 +83,15 @@
 
               <div class="col-lg-12">
                 <div class="form-group contact-block1">
-                  <label><i class="fas fa-file-invoice opacity-80"></i></label>
-                  <%= text_field_tag 'nom_fournisseur', @fournisseurup.nom_fournisseur,  class:"input" %>
+                  <label>Libéllé</label>
+                  <%= text_field_tag 'nom_fournisseur', @fournisseurup.nom_fournisseur,  class:"form-control icon-file" %>
                 </div>
               </div>
 
               <div class="col-lg-12 my-4">
                 <div class="form-group">
-                  <label><i class="fas fa-euro-sign opacity-80"></i></label>
-                  <%= text_field_tag 'montant_fournisseur', @fournisseurup.montant_fournisseur,  class:"input" %>
+                  <label>Montant</label>
+                  <%= text_field_tag 'montant_fournisseur', @fournisseurup.montant_fournisseur,  class:"form-control icon-euro" %>
                 </div>
               </div>
 

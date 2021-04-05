@@ -12,8 +12,16 @@
 
 .jumbotron {
   height:28em;
-  background-color:#EDF8EA;
+  background-color:#4f576b;
 }
+
+.jumbotron2 {
+  height:18em;
+  background-color:#4f576b;
+  color:white;
+  display: flex;
+    align-items: center;
+  }
 
 .white {
   color:white;
@@ -208,6 +216,11 @@ span {
   width: 60%;
 }
 
+.green {
+  color: #71c55d;
+
+}
+
 
 
 .container-full {
@@ -391,13 +404,16 @@ span {
   transition: 0.5s;
   margin-bottom: 30px;
   border: 2px solid #71c55d;
-  color: #71c55d;
+  color: white;
+  background-color: #71c55d;
   text-decoration: none;
 }
 
 #hero .btn-get-started:hover {
-  background: #71c55d;
-  color: #fff;
+  background: white;
+  color: #71c55d;
+  border: 2px solid #71c55d;
+
 }
 
 #hero .btns a {
