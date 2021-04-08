@@ -8,30 +8,30 @@
 
   <div class="hero-container  row" style="display:flex; flex-direction:row;">
 
-    <div class="col-6 text-center">
+    <div class="col-md-12 col-lg-6 text-center d-none d-lg-block">
 
-      <%= image_tag "suis-je-en-faillite.png", class:"img-fluid", style:"width:58%;"%>
+      <%= image_tag "suis-je-en-faillite.png", class:"img-fluid", style:"width:52%;"%>
 
     </div>
 
-    <div class="col-6">
+    <div class="col-md-12 col-lg-6 pl-4 ">
 
-    <h1 class="title-ajouts2">Simulez la santé financière<br> de votre entreprise <br>de façon
+    <h1 class="title-ajouts2 height4">Procédure collective : êtes-vous<br>
       <span
-         class="txt-rotate green"
+         class="txt-rotate green "
          data-period="2000"
-         data-rotate='[ "simple.", "sécurisée.", "autonome."]'></span>
+         data-rotate='[ "en état de cessation des paiements ?", "dans une simple difficulté de trésorerie conjoncturelle ?", "en situation de dépôt de bilan ?"]'></span>
     </h1>
 
 
-    <p >Nous vous proposons une <strong>solution simple</strong> afin de vous éclairer sur la <strong>situation concrète de votre entreprise à l'égard d'une éventuelle situation de cessation des paiements</strong> et de vous informer sur les solutions pouvant être mises en œuvre.</p>
+    <p >Obtenez la réponse à cette question grâce à notre outil qui vous présentera aussi les solutions qui s’offrent à vous.</p>
 
     <% if user_signed_in? && current_user.banques.empty? && current_user.factures.empty? %>
       <a href="<%=new_passif_path%>" class="btn-get-started scrollto">Débuter la simulation</a>
     <% elsif user_signed_in? %>
       <a href="<%=user_path(current_user)%>" class="btn-get-started scrollto">Mon Compte</a>
     <%else%>
-      <a href="<%=new_user_registration_path%>" class="btn-get-started scrollto">Simulez l'état financier de votre entreprise</a>
+      <a href="<%=new_user_registration_path%>" class="btn-get-started scrollto">Je lance l'évaluation</a>
     <%end%>
 
 
@@ -53,7 +53,7 @@
       <div class="section-title text-center">
 
         <h2>Une solution simple, pour vous éclairer sur la situation de votre entreprise</h2>
-        <p class="separator pt-4 mt-4">Inscrivez-vous gratuitement et accédez à notre simulateur en ligne qui vous permet d'évaluer la date de cessation de paiement de votre entreprise, et être informé sur les solutions pouvant être mises en œuvre</p>
+        <p class="separator pt-4 mt-4">IInscrivez-vous et accédez à notre outil en ligne qui vous aidera à évaluer si votre entreprise est en état de cessation des paiements. Vous aurez également accès à des informations sur les solutions qui s’offrent à vous.</p>
 
       </div>
     </div>
@@ -66,8 +66,8 @@
 
             <%= image_tag "sef1.png", class:"img-fluid"%>
 
-            <h4>Simulation gratuite</h4>
-            <p>Inscrivez-vous dès maintenant et accédez gratuitement à notre simulateur en ligne.</p>
+            <h4>Simulation en ligne</h4>
+            <p>Inscrivez-vous dès maintenant et accédez à notre simulateur en ligne dans sa version gratuite.</p>
 
           </div>
         </div>
@@ -78,7 +78,7 @@
             <%= image_tag "sef2.png", class:"img-fluid"%>
 
             <h4>Simple, intuitif et rapide</h4>
-            <p>En 4 étapes, faites un point sur la santé financière de votre entreprise.</p>
+            <p>En seulement 4 étapes, notre outil évalue votre situation, vous oriente et vous informe.</p>
 
           </div>
         </div>
@@ -89,7 +89,7 @@
             <%= image_tag "sef3.png", class:"img-fluid"%>
 
             <h4>Conseils personnalisés</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            <p>A l’issue de la simulation, notre outil vous présente les options disponibles et adaptées à votre situation de trésorerie.</p>
 
           </div>
         </div>
@@ -110,10 +110,10 @@
         <div class="row text-right">
           <div class="col-md-9 col-lg-11">
 
-            <h2 >Vous sentez que la santé financière de votre entreprise se tend ? Faisons le point ensemble.</h2>
-            <p >Inscrivez-vous gratuitement, et accédez à notre simulateur en ligne. </p>
+            <h2 >Est-ce le moment de demander de l’aide au Tribunal de commerce ? Faisons le point ensemble.</h2>
+            <p class="pt-4">Inscrivez-vous et accédez à notre outil en ligne pour y voir plus clair. </p>
 
-            <a href="#get-started" class="btn-get-started " >Accédez au simulateur</a>
+            <a href="#get-started" class="btn-get-started " >Je lance l'évaluation</a>
 
           </div>
           <div class="col-md-3 col-lg-3">
@@ -142,17 +142,11 @@
         <div class="col-sm-12 col-md-6 col-lg-6">
           <div class="about-content" data-aos="fade-left" data-aos-delay="100">
 
-            <h2>Comment définir la <span>"faillite"</span> </h2>
-            <p>Juridiquement, la faillite d'une entreprise est caractérisée lorsque cette dernière se trouve en situation de "cessation des paiements".</p>
+            <h2>Qu'est-ce que l'état de "cessation des paiements" ?</h2>
+            <p>L’article L631-1 du Code de commerce prévoit que « (…) tout débiteur (…) qui est dans l'impossibilité de faire face au passif exigible avec son actif disponible est en cessation des paiements ».</p>
             <p>On dit ainsi qu’une société est en faillite lorsque ses actifs disponibles ne sont plus suffisants pour faire face à ses passifs exigibles.</p>
             <p>La détermination de la date de cessation des paiements est le préalable nécessaire pour fixer les mesures de protection de l'entreprise qui peuvent être mises en œuvre.
             </p>
-
-            <ul class="list-unstyled">
-              <li><i class="fa fa-angle-right"></i>Définitions légales</li>
-              <li><i class="fa fa-angle-right"></i>Référence texuelle</li>
-              <li><i class="fa fa-angle-right"></i>Référence textuelle</li>
-            </ul>
 
           </div>
         </div>
@@ -162,11 +156,9 @@
         <div class="col-sm-12 col-md-6 col-lg-6">
           <div class="about-content" data-aos="fade-left" data-aos-delay="100">
 
-            <h2>Mesurez le risque de faillite de votre entreprise de façon <span>simple, autonome et sécurisée</span></h2>
-            <p>Juridiquement, la faillite d'une entreprise est caractérisée lorsque cette dernière se trouve en situation de "cessation des paiements".</p>
-            <p>On dit ainsi qu’une société est en faillite lorsque ses actifs disponibles ne sont plus suffisants pour faire face à ses passifs exigibles.</p>
-            <p>La détermination de la date de cessation des paiements est le préalable nécessaire pour fixer les mesures de protection de l'entreprise qui peuvent être mises en œuvre.
-            </p>
+            <h2>Identifiez les solutions qui s'ouvrent à vous et anticipez grâce à notre outil</h2>
+            <p>Notre outil vous permet de déterminer si votre entreprise est actuellement en situation de cessation des paiements, sur la base des informations que vous saisissez.</p>
+            <p>N’hésitez pas à lancer l’outil régulièrement.</p>
 
           </div>
         </div>
@@ -181,7 +173,7 @@
           <% elsif user_signed_in? %>
             <a href="<%=user_path(current_user)%>" class="btn-get-started scrollto btn-compte" style=";">Mon Compte</a>
           <%else%>
-            <a href="<%=new_user_registration_path%>" class="btn-get-started scrollto" style=";">Simulez l'état financier de votre entreprise</a>
+            <a href="<%=new_user_registration_path%>" class="btn-get-started scrollto" style=";">Je lance la simulation</a>
           <%end%>
           </center>
 
@@ -219,7 +211,7 @@
               <a data-toggle="collapse" href="#faq1" class="collapsed"><i class="fas fa-caret-down mr-3"></i>Qu'est-ce que la "cessation des paiement" ? </a>
               <div id="faq1" class="collapse" >
                 <p >
-                  La cessation des paiements, ou faillite, se traduit par l'impossibilité de faire face au passif exigible avec son actif disponible (article L 631-1 du Code de commerce).
+                  La cessation des paiements se traduit par l'impossibilité de faire face au passif exigible avec son actif disponible (article L 631-1 du Code de commerce).
                 </p>
               </div>
             </li>
@@ -263,10 +255,20 @@
 
 
             <li  class="headline pt-3">
-              <a class="font20" data-toggle="collapse" href="#faq6" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Tempus quam pellentesque nec nam aliquam sem et tortor consequat? </a>
+              <a class="font20" data-toggle="collapse" href="#faq6" class="collapsed"><i class="fas fa-caret-down mr-3"></i> A quoi servent les données que je suis invité à saisir  sur suisjeenfaillite.fr ?
+ </a>
               <div id="faq6" class="collapse" >
                 <p >
-                  Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                  En droit français, le dirigeant d'une entreprise qui ne peut plus faire face à ses dettes doit la placer en procédure collective en constatant sa cessation des paiements. La société est dans l'incapacité de faire face au passif exigible avec l'actif disponible. La situation peut être rattrapée, avant que la société ne soit en "faillite". Les données saisies sur SEF permettent à notre logiciel de déterminer si votre société est en situation de cessation des paiements.
+                </p>
+              </div>
+            </li>
+
+            <li  class="headline pt-3">
+              <a class="font20" data-toggle="collapse" href="#faq7" class="collapsed"><i class="fas fa-caret-down mr-3"></i> Comment ces données seront-elles traitées, stockées ? </a>
+              <div id="faq7" class="collapse" >
+                <p >
+                  Les données sont stockées sur des serveurs [préciser selon que l'on prenne OVH, AWS, Infomaniak, etc], et traitées dans le respect des dispositions du Règlement Général sur la Protection des Données (RGPD). Votre utilisation du site implique votre consentement exprès à ce que les données que vous saisissez soient partagées avec des tiers, à titre gracieux ou payant, ce qui permet de financer le site et ouvre la possibilité pour que nos partenaires vous contactent [à moduler selon accès payant = pas de cession des données à des tiers ? Accès gratuit = données communiquées à des tiers ?]
                 </p>
               </div>
             </li>
@@ -356,7 +358,7 @@
         <div class="section-title text-center">
 
           <h2>Une idée, une équipe, un projet</h2>
-          <p class="separator">Integer cursus bibendum augue ac cursus .</p>
+
         </div>
 
         <div class="row">
@@ -366,11 +368,6 @@
               <img src="assets/img/team/1.jpg" class="img-responsive" alt="img">
               <div class="team-content">
                 <ul class="list-unstyled">
-                  <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                  <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                </ul>
-                <span>manager</span>
                 <h4>Gaël</h4>
               </div>
             </div>
@@ -381,11 +378,6 @@
               <img src="assets/img/team/2.jpg" class="img-responsive" alt="img">
               <div class="team-content">
                 <ul class="list-unstyled">
-                  <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                  <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                </ul>
-                <span>manager</span>
                 <h4>Raphaël</h4>
               </div>
             </div>
@@ -396,18 +388,18 @@
               <img src="assets/img/team/3.jpg" class="img-responsive" alt="img">
               <div class="team-content">
                 <ul class="list-unstyled">
-                  <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                  <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                </ul>
-                <span>manager</span>
                 <h4>Léa</h4>
               </div>
             </div>
           </div>
 
-
         </div>
+
+        <p class="separator pt-4 mt-4"> Gaël est avocat fiscaliste, inscrit au barreau de Paris depuis juin 2012. Avant cela il a été Directeur Fiscal de l’Association Nationale d’Assistance Administrative et Fiscale des Avocats (ANAAFA) pendant 6 ans. Il assiste les entreprises dans le traitement de questions fiscales variées (contentieux, conseil et suivi déclaratif), et a souvent l'occasion de constater que les dirigeants d'entreprise ne sont pas conscients de l'éventail des possibilités qui s'offrent à eux si la situation de cessation des paiements de leur entreprise est constatée à temps. Il a décidé de créer SEF après avoir développé les formules qui servent encore aujourd'hui de base au logiciel "SEF".<br><br>
+        Raphaël est avocat d'affaires depuis décembre 2000, inscrit au barreau de Paris. Il conseille des sociétés dans le cadre de leurs problématiques commerciales et contractuelles, avec un accent sur les questions de propriété intellectuelle et celles liées aux nouvelles technologies (données personnelles, données financières, logiciels, cybersécurité). Il a participé en tant que conseil et associé fondateur a plusieurs aventures entrepreneuriales construites sur un modèle SaaS et n'a pas hésité un instant à rejoindre Gaël dans l'aventure quand ce dernier lui a exposé les principes fondateurs de SEF.
+          <br><br>
+        Léa est chargée de communication digitale au sein d'un grand groupe immobilier et apporte son expertise web, de programmation et de data scientist à SEF.</p>
+
       </div>
     </section><!-- End Team Section -->
 
@@ -420,7 +412,7 @@
     <div class="container" data-aos="fade-up">
       <div class="section-title text-center">
         <h2>Vous avez une question ? </h2>
-        <p class="separator">Prenez contact avec nous dès maintenant, nous vous recontacterons dans les meilleurs délais. </p>
+        <p class="separator text-center">Prenez contact avec nous dès maintenant, nous vous recontacterons dans les meilleurs délais. </p>
       </div>
 
       <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
