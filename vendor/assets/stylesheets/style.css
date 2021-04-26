@@ -413,7 +413,32 @@ span {
   text-decoration: none;
 }
 
+
 #hero .btn-get-started:hover {
+  background: white;
+  color: #71c55d;
+  border: 2px solid #71c55d;
+
+}
+
+.btn-get-started2 {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 11px 56px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin-bottom: 30px;
+  border: 2px solid #71c55d;
+  color: white;
+  background-color: #71c55d;
+  text-decoration: none;
+}
+
+.btn-get-started2:hover {
   background: white;
   color: #71c55d;
   border: 2px solid #71c55d;
@@ -825,11 +850,11 @@ section {
 }
 
 #get-started .feature-block a {
-  color: #505050;
+  color: #71c55d;
   font-size: 12px;
   font-weight: 600;
   text-decoration: none;
-  text-transform: capitalize;
+  text-transform: uppercase;
   transition: 0.3s;
 }
 

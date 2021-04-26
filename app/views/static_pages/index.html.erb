@@ -16,7 +16,7 @@
 
     <div class="col-md-12 col-lg-7 pl-4 ">
 
-    <h1 class="title-ajouts2 pr-4">Procédure collective : êtes-vous 
+    <h1 class="title-ajouts2 pr-4">Procédure collective : êtes-vous
       <span
          class="green ">en état de cessation des paiements ? Dans une simple difficulté de trésorerie conjoncturelle ? En situation de dépôt de bilan ?</span>
       <!--
@@ -71,13 +71,13 @@
             <%= image_tag "sef1.png", class:"img-fluid"%>
 
             <h4>Simulation en ligne</h4>
-            <p>Inscrivez-vous dès maintenant et accédez à notre simulateur en ligne dans sa version gratuite.</p>
+            <p class="pb-4 mb-4">Inscrivez-vous dès maintenant et accédez à notre simulateur en ligne dans sa version gratuite.</p>
             <% if user_signed_in? && current_user.banques.empty? && current_user.factures.empty? %>
-              <a href="<%=new_passif_path%>" class="btn-get-started scrollto">Débuter la simulation</a>
+              <a href="<%=new_passif_path%>" class="btn-get-started scrollto mt-2">Débuter la simulation</a>
             <% elsif user_signed_in? %>
-              <a href="<%=user_path(current_user)%>" class="btn-get-started scrollto">Mon Compte</a>
+              <a href="<%=user_path(current_user)%>" class="btn-get-started scrollto mt-2">Mon Compte</a>
             <%else%>
-              <a href="<%=new_user_registration_path%>" class="btn-get-started scrollto">Je lance l'évaluation</a>
+              <a href="<%=new_user_registration_path%>" class="btn-get-started scrollto mt-2">Je lance l'évaluation</a>
             <%end%>
 
           </div>
@@ -89,13 +89,13 @@
             <%= image_tag "sef2.png", class:"img-fluid"%>
 
             <h4>Simple, intuitif et rapide</h4>
-            <p>En seulement 4 étapes, notre outil évalue votre situation, vous oriente et vous informe.</p>
+            <p class="pb-4 mb-4">En seulement 4 étapes, notre outil évalue votre situation, vous oriente et vous informe.</p>
             <% if user_signed_in? && current_user.banques.empty? && current_user.factures.empty? %>
-              <a href="<%=new_passif_path%>" class="btn-get-started scrollto">Débuter la simulation</a>
+              <a href="<%=new_passif_path%>" class="btn-get-started scrollto mt-2">Débuter la simulation</a>
             <% elsif user_signed_in? %>
-              <a href="<%=user_path(current_user)%>" class="btn-get-started scrollto">Mon Compte</a>
+              <a href="<%=user_path(current_user)%>" class="btn-get-started scrollto mt-2">Mon Compte</a>
             <%else%>
-              <a href="<%=new_user_registration_path%>" class="btn-get-started scrollto">Je lance l'évaluation</a>
+              <a href="<%=new_user_registration_path%>" class="btn-get-started scrollto mt-2">Je lance l'évaluation</a>
             <%end%>
 
           </div>
@@ -106,7 +106,7 @@
 
             <%= image_tag "sef3.png", class:"img-fluid"%>
 
-            <h4>Informations personnalisés</h4>
+            <h4>Informations personnalisées</h4>
             <p>A l’issue de l'évaluation, notre outil vous présente les options disponibles et adaptées à votre situation de trésorerie."</p>
             <% if user_signed_in? && current_user.banques.empty? && current_user.factures.empty? %>
               <a href="<%=new_passif_path%>" class="btn-get-started scrollto">Débuter la simulation</a>
@@ -193,11 +193,11 @@
 
           <center>
           <% if user_signed_in? && current_user.banques.empty? && current_user.factures.empty? %>
-            <a href="<%=new_passif_path%>" class="btn-get-started scrollto mx-auto" style=";">Débuter la simulation</a>
+            <a href="<%=new_passif_path%>" class="btn-get-started2 scrollto mx-auto" style=";">Débuter la simulation</a>
           <% elsif user_signed_in? %>
-            <a href="<%=user_path(current_user)%>" class="btn-get-started scrollto btn-compte" style=";">Mon Compte</a>
+            <a href="<%=user_path(current_user)%>" class="btn-get-started2 scrollto btn-compte" style=";">Mon Compte</a>
           <%else%>
-            <a href="<%=new_user_registration_path%>" class="btn-get-started scrollto" style=";">Je lance l'évaluation'</a>
+            <a href="<%=new_user_registration_path%>" class="btn-get-started2 scrollto" style=";">Je lance l'évaluation</a>
           <%end%>
           </center>
 
@@ -216,7 +216,7 @@
 
             <div class="section-title  pt-4 " >
               <p style="color:#71C55D; font-weight:bold;  font-size:25px;">F.A.Q</p>
-              <h2>Cet espace vous permet d'accéder aux réponses des questions les plus fréquemment posées.</h2>
+              <h2>Cet espace vous permet d'accéder aux réponses aux questions les plus fréquemment posées.</h2>
             </div>
 
             <div class="pb-4" >
@@ -227,7 +227,7 @@
           <ul class="faq-list" style="list-style: none;">
 
             <li  class="headline mb-4">
-              <a data-toggle="collapse" href="#faq1" class="collapsed"><i class="fas fa-caret-down mr-3"></i>Qu'est-ce que la "cessation des paiement" ? </a>
+              <a data-toggle="collapse" href="#faq1" class="collapsed"><i class="fas fa-caret-down mr-3"></i>Qu'est-ce que la "cessation des paiements" ? </a>
               <div id="faq1" class="collapse" >
                 <p >
                   La cessation des paiements se traduit par l'impossibilité de faire face au passif exigible avec son actif disponible (article L 631-1 du Code de commerce).
@@ -239,7 +239,7 @@
               <a class="font20" data-toggle="collapse" class="" href="#faq2"><i class="fas fa-caret-down mr-3"></i> Je n’ai pas déclaré la situation de cessation des paiements de ma SARL dans les 45 jours. <br>Qu’est-ce que je risque ?</a>
               <div id="faq2" class="collapse show" >
                 <p >
-                  Le défaut de déclaration de cessation des paiements dans le délai légal de quarante-cinq jours (appréciée en fonction de la date de cessation des paiements fixée dans le jugement d’ouverture ou dans un jugement de report) est susceptible de constituer une faute de gestion.
+                  Le défaut de déclaration de cessation des paiements dans le délai légal de quarante-cinq jours (apprécié en fonction de la date de cessation des paiements fixée dans le jugement d’ouverture ou dans un jugement de report) est susceptible de constituer une faute de gestion.
                   <br><br>
                   Or, en cas de faute de gestion ayant contribué à cette insuffisance d'actif, le tribunal peut décider que le montant de cette insuffisance d'actif sera supporté, en tout ou en partie, par tous les dirigeants (article L 651-2 du Code de commerce).
                   <br><br>
@@ -397,28 +397,28 @@
         <div class="row" style="justify-content:center; align-items:center;">
 
           <div class="col-sm-12 col-md-6 col-lg-6" data-aos="zoom-in" data-aos-delay="100">
-              <img src="assets/img/team/1.jpg" class="img-responsive" alt="img">
+            <%= image_tag "gael.png", style:"width:50%;"%>
           </div>
 
 
-          <div class="col-sm-12 col-md-6 col-lg-6 mb-4"> <p class="separator pt-4 mt-4">Gaël est avocat fiscaliste, inscrit au barreau de Paris depuis juin 2012. Avant cela il a été Directeur Fiscal de l’Association Nationale d’Assistance Administrative et Fiscale des Avocats (ANAAFA) pendant 6 ans. Il assiste les entreprises dans le traitement de questions fiscales variées (contentieux, conseil et suivi déclaratif), et a souvent l'occasion de constater que les dirigeants d'entreprise ne sont pas conscients de l'éventail des possibilités qui s'offrent à eux si la situation de cessation des paiements de leur entreprise est constatée à temps. Il a décidé de créer SEF après avoir développé les formules qui servent encore aujourd'hui de base au logiciel "SEF".
+          <div class="col-sm-12 col-md-6 col-lg-6 mb-4"> <p class="separator pt-4 mt-4"><strong>Gaël est avocat fiscaliste</strong>, inscrit au barreau de Paris depuis juin 2012. Avant cela il a été Directeur Fiscal de l’Association Nationale d’Assistance Administrative et Fiscale des Avocats (ANAAFA) pendant 6 ans.<br><br> Il <strong>assiste les entreprises dans le traitement de questions fiscales variées</strong> (contentieux, conseil et suivi déclaratif), et a souvent l'occasion de constater que les dirigeants d'entreprise ne sont pas conscients de l'éventail des possibilités qui s'offrent à eux si la situation de cessation des paiements de leur entreprise est constatée à temps. <br><br><strong>Il a décidé de créer SEF après avoir développé les formules qui servent encore aujourd'hui de base au logiciel "SEF".</strong>
           </div>
 
           <div class="col-sm-12 col-md-6 col-lg-6 my-4" > <p class="separator pt-4 mt-4">
-          Raphaël est avocat d'affaires depuis décembre 2000, inscrit au barreau de Paris. Il conseille des sociétés dans le cadre de leurs problématiques commerciales et contractuelles, avec un accent sur les questions de propriété intellectuelle et celles liées aux nouvelles technologies (données personnelles, données financières, logiciels, cybersécurité). Il a participé en tant que conseil et associé fondateur a plusieurs aventures entrepreneuriales construites sur un modèle SaaS et n'a pas hésité un instant à rejoindre Gaël dans l'aventure quand ce dernier lui a exposé les principes fondateurs de SEF.
+          <strong>Raphaël est avocat d'affaires</strong> depuis décembre 2000, inscrit au barreau de Paris. Il <strong>conseille des sociétés dans le cadre de leurs problématiques commerciales et contractuelles</strong>, avec un accent sur les questions de propriété intellectuelle et celles liées aux nouvelles technologies (données personnelles, données financières, logiciels, cybersécurité).<br><br> Il a participé en tant que conseil et associé fondateur a plusieurs aventures entrepreneuriales construites sur un modèle SaaS et <strong>n'a pas hésité un instant à rejoindre Gaël dans l'aventure quand ce dernier lui a exposé les principes fondateurs de SEF</strong>.
           </p>
           </div>
 
           <div class="col-sm-12 col-md-6 col-lg-6 my-4" data-aos="zoom-in" data-aos-delay="200">
-              <img src="assets/img/team/2.jpg" class="img-responsive" alt="img">
+            <%= image_tag "raphael.png", style:"width:68%;"%>
           </div>
 
           <div class="col-sm-12 col-md-6 col-lg-6 my-4" data-aos="zoom-in" data-aos-delay="300">
-              <img src="assets/img/team/3.jpg" class="img-responsive" alt="img">
+            <%= image_tag "lea.png", style:"width:50%;"%>
           </div>
 
           <div class="col-sm-12 col-md-6 col-lg-6 my-4" ><p class="separator pt-4 mt-4">
-          Léa est chargée de communication digitale apporte son expertise web, de programmation et de data scientist à SEF.</p>
+          <strong>Léa est chargée de communication digitale</strong> apporte son expertise web, de programmation et de data scientist à SEF.</p>
           </div>
 
         </div>
