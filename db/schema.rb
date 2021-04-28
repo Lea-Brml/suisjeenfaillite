@@ -69,33 +69,13 @@ ActiveRecord::Schema.define(version: 2021_01_18_124033) do
     t.index ["user_id"], name: "index_passifs_on_user_id"
   end
 
-  create_table "personnes", force: :cascade do |t|
-    t.string "nom"
-    t.string "prenom"
-    t.string "enseigne"
-    t.string "telephone"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_personnes_on_user_id"
-  end
-
-  create_table "societes", force: :cascade do |t|
-    t.string "forme_sociale"
-    t.string "denomination_sociale"
-    t.string "nom"
-    t.string "prenom"
-    t.string "telephone"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_societes_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
-    t.boolean "is_personne"
-    t.boolean "is_societe"
+    t.string "nom"
+    t.string "prenom"
+    t.string "phone"
+    t.string "entreprise"
+    t.string "siret"
     t.boolean "regle1"
     t.boolean "regle2"
     t.boolean "is_admin"

@@ -2,46 +2,44 @@
 
 
 <!-- ======= Hero Section ======= -->
-<section id="hero" style="background-image: url(<%= asset_path 'hero-bg.png' %>)">
+<section id="hero" style="background-image: url(<%= asset_path 'sef-home-bg.jpg' %>)">
 
 
 
-  <div class="hero-container  row" style="display:flex; flex-direction:row;">
-
-    <div class="col-md-12 col-lg-5 text-center d-none d-lg-block">
-
-      <%= image_tag "suis-je-en-faillite.png", class:"img-fluid", style:"width:62%;"%>
-
-    </div>
-
-    <div class="col-md-12 col-lg-7 pl-4 ">
-
-    <h1 class="title-ajouts2 pr-4">Procédure collective : êtes-vous
-      <span
-         class="green ">en état de cessation des paiements ? Dans une simple difficulté de trésorerie conjoncturelle ? En situation de dépôt de bilan ?</span>
-      <!--
-      <span
-         class="txt-rotate green "
-         data-period="2000"
-         data-rotate='[ "en état de cessation des paiements ?", "dans une simple difficulté de trésorerie conjoncturelle ?", "en situation de dépôt de bilan ?"]'></span>
-        -->
-    </h1>
+  <div class="hero-container  mx-4 row" style="display:flex; flex-direction:row;">
 
 
-    <p >Obtenez la réponse à cette question grâce à notre outil qui vous présentera aussi les solutions qui s’offrent à vous.</p>
+    <div class="col-md-12 col-lg-7 d-none d-lg-block mx-4 px-4">
 
-    <% if user_signed_in? && current_user.banques.empty? && current_user.factures.empty? %>
-      <a href="<%=new_passif_path%>" class="btn-get-started scrollto">Débuter la simulation</a>
-    <% elsif user_signed_in? %>
-      <a href="<%=user_path(current_user)%>" class="btn-get-started scrollto">Mon Compte</a>
-    <%else%>
-      <a href="<%=new_user_registration_path%>" class="btn-get-started scrollto">Je lance l'évaluation</a>
-    <%end%>
 
+      <h1 class="title-ajouts2 px-4 ml-4">Procédure collective : êtes-vous<br>
+        <!--<span
+           class="green ">en état de cessation des paiements ? Dans une simple difficulté de trésorerie conjoncturelle ? En situation de dépôt de bilan ?</span>-->
+
+        <span
+           class="txt-rotate green "
+           data-period="4000"
+           data-rotate='[ "en état de cessation des paiements ?"]'></span>
+      </h1>
+
+
+      <p class="px-4 ml-4 mt-4 pt-4">Obtenez la réponse à cette question grâce à notre outil qui vous présentera aussi les solutions qui s’offrent à vous.</p>
+
+      <div class="ml-3">
+      <% if user_signed_in? && current_user.banques.empty? && current_user.factures.empty? %>
+        <a href="<%=new_passif_path%>" class="btn-get-started scrollto px-4 ml-4">Débuter la simulation</a>
+      <% elsif user_signed_in? %>
+        <a href="<%=user_path(current_user)%>" class="btn-get-started scrollto px-4 ml-4">Mon Compte</a>
+      <%else%>
+        <a href="<%=new_user_registration_path%>" class="btn-get-started scrollto px-4 ml-4">Je lance l'évaluation</a>
+      <%end%>
+      </div>
 
 
 
     </div>
+
+
 
   </div>
 

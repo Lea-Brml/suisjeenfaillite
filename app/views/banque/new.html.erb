@@ -142,11 +142,9 @@
                 </div>
 
                 <div class="col-lg-12 mt-2 pt-2">
-                <% if current_user.is_societe %>
-                    <%= link_to 'Etape suivante', new_societe_path, class:" btn-get-started scrollto "%>
-                <%else%>
-                    <%= link_to 'Etape suivante', new_personne_path, class:" btn-get-started scrollto " %>
-                <%end%>
+
+                    <%= link_to 'Terminer la silulation', user_path(current_user), class:" btn-get-started scrollto "%>
+
                 </div>
 
                 <div class="col-lg-12 mt-4 pt-4 text-right">

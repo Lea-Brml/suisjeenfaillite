@@ -34,12 +34,8 @@ class BanqueController < ApplicationController
 
       @banque = Banque.new(banque_name: params[:banque_name], solde: params[:solde], decouvert_autorise: params[:decouvert_autorise], restant_a_tirer: @restant_a_tirer, user_id:current_user.id)
           if @banque.save
-            if current_user.personne.nil? && current_user.societe.nil?
             redirect_to new_banque_path
             flash[:success] = "La banque a bien été ajoutée."
-            else
-            redirect_to user_path(current_user)
-            end
           else
             redirect_to new_banque_path
             flash[:success] = "Une erreur est survenue, veuillez renseigner tous les champs obligatoires. Si la valeure est nule, indiquer '0'"

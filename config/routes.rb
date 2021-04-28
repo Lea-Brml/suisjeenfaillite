@@ -21,9 +21,6 @@ Rails.application.routes.draw do
 
   resources :user
 
-  resources :personne
-
-  resources :societe
 
 
   resources :message
@@ -34,8 +31,6 @@ Rails.application.routes.draw do
     resources :banque
     resources :facture
     resources :fournisseur
-    resources :personne
-    resources :societe
   end
 
 
