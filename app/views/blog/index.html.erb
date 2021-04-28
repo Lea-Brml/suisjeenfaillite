@@ -1,0 +1,35 @@
+<!-- ======= Blog Section ======= -->
+<section id="blog" class="padd-section" style="margin-top:6em;">
+
+  <div class="container" data-aos="fade-up">
+    <div class="section-title text-center">
+
+      <h2>Nos derniers articles</h2>
+      <p class="separator my-4 text-center">Integer cursus bibendum augue ac cursus . bibendum augue ac cursus lorem ipsum dolor sin amet et rat lapsis.</p>
+    </div>
+
+    <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+      <% @blog.each do |t| %>
+
+
+      <div class="col-md-6 col-lg-4">
+        <div class="block-blog text-left">
+
+          <a href="<%=blog_path(t.id)%>"><%=image_tag "blog1.jpg"%></a>
+
+          <div class="content-blog">
+            <h4><a href="<%=blog_path(t.id)%>"><%= sanitize t.title %></a></h4>
+            <span class="my-4">Le <%=t.created_at.strftime("%d-%m-%Y")%></span>
+            <a class=" my-4 pull-right readmore" href="<%=blog_path(t.id)%>">Lire l'article</a>
+
+          </div>
+
+        </div>
+      </div>
+
+      <%end%>
+
+    </div>
+  </div>
+</section><!-- End Blog Section -->

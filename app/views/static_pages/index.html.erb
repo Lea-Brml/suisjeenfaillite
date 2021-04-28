@@ -105,7 +105,7 @@
             <%= image_tag "sef3.png", class:"img-fluid"%>
 
             <h4>Informations personnalisées</h4>
-            <p>A l’issue de l'évaluation, notre outil vous présente les options disponibles et adaptées à votre situation de trésorerie."</p>
+            <p>A l’issue de l'évaluation, notre outil vous présente les options disponibles et adaptées à votre situation de trésorerie.</p>
             <% if user_signed_in? && current_user.banques.empty? && current_user.factures.empty? %>
               <a href="<%=new_passif_path%>" class="btn-get-started scrollto">Débuter la simulation</a>
             <% elsif user_signed_in? %>

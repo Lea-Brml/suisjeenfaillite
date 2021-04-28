@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require chartkick
 //= require Chart.bundle
+//= require trix
 //= require_tree .
