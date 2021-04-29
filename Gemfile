@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.7.1'
 
 gem 'trix'
 
@@ -12,6 +12,8 @@ gem 'chartkick'
 gem "table_print"
 
 gem 'rails_admin', '~> 2.0'
+
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
