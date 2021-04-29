@@ -75,7 +75,7 @@ class BlogController < ApplicationController
 
 
       if @blogdel.destroy
-        redirect_to blog_path
+        redirect_to blog_index_path
       else
         redirect_to blog_path
       end
